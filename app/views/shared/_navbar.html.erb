@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+	  <div class="container">
+		<a class="navbar-brand " href="/"><i class="fas fa-home"></i> IDD Data</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+		  <ul class="navbar-nav ">        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if user_signed_in? %>
+            
+            <%= link_to('Admin', rails_admin_path, class: "dropdown-item") if current_user.superadmin_role? %>
+            <%= link_to('Edit', edit_user_registration_path, class: "dropdown-item") %>
+            <%= button_to('Logout', destroy_user_session_path, class: "dropdown-item", title: 'Logout', :method => :delete) %>
+                                   
+            <!--<li><a class="dropdown-item" href="#">Action</a></li>-->
+            <!--<li><a class="dropdown-item" href="#">Another action</a></li>-->
+            <!--<li><hr class="dropdown-divider"></li>-->
+            <!--<li><a class="dropdown-item" href="#">Something else here</a></li>-->
+            <% else %>
+              <%= link_to 'Login', new_user_session_path,  title: 'Join', class: "nav-item nav-link" %>
+            <% end %>
+          </ul>
+        </li>		
+		  </ul>		  
+		</div>
+	  </div>
+	</nav>
