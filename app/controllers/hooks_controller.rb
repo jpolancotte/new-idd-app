@@ -1,9 +1,8 @@
 class HooksController < ApplicationController
 
 
-    def ipn_webhook
-       
-    end
+    def ipn_webhook     
+    
 
 
      # If the body contains the survey_name parameter...
