@@ -20,15 +20,5 @@ class HooksController < ApplicationController
       render :nothing => true
     end
 
-    def call(event)
-        case event["subscriptionType"]
-        when "deal.propertyChange"
-            property_change(event)
-        end
-    end
     
-    def property_change(event)
-    # Handle property change event
-    end
-
 end
