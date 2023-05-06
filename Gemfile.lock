@@ -108,6 +108,11 @@ GEM
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
+    hubspot-ruby (0.9.0)
+      activesupport (>= 3.0.0)
+      httparty (>= 0.10.0)
+    hubspot_event (0.2.2)
+      hubspot-ruby
     i18n (1.13.0)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -268,6 +273,7 @@ DEPENDENCIES
   debug
   devise
   httparty
+  hubspot_event
   jbuilder
   jsbundling-rails
   pg (~> 1.1)

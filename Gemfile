@@ -80,4 +80,4 @@ gem "sassc-rails"
 gem 'cancancan'
 gem 'httparty'
 
-# gem 'hubspot_event'
+gem 'hubspot_event'
