@@ -1,8 +1,8 @@
 class HooksController < ApplicationController
-    skip_before_action :verify_authenticity_token
+    skip_before_action :verify_authenticity_token, only: [:ipn_webhook]
 
 
-    def ipn_webhook     
+    def ipn_webhook           
     
 
 
@@ -19,4 +19,16 @@ class HooksController < ApplicationController
       # we don't send anything
       render :nothing => true
     end
+
+    def call(event)
+        case event["subscriptionType"]
+        when "deal.propertyChange"
+            property_change(event)
+        end
+    end
+    
+    def property_change(event)
+    # Handle property change event
+    end
+
 end
