@@ -1,4 +1,5 @@
 class HooksController < ApplicationController
+    skip_before_action :verify_authenticity_token
 
 
     def ipn_webhook     
@@ -12,7 +13,7 @@ class HooksController < ApplicationController
         # survey.url = params[:survey_url]
         # survey.creator_email = params[:survey_creator_email]
         # survey.save!
-    #   end
+    #   endherok
   
       # The webhook doesn't require a response but let's make sure
       # we don't send anything
