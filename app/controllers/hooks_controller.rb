@@ -2,26 +2,32 @@ class HooksController < ApplicationController
     skip_before_action :verify_authenticity_token, only: [:ipn_webhook]
 
 
+    
+
     def ipn_webhook
 
-      if params[:event_id].present?
+      payload = request.body.read
 
-        event = Event.new(
-            event_type: params['subscriptionType'].split('.').last,
-            object_id: params['objectId'],
-            event_id: params['eventId'],
-            occured_at: params['occurredAt']
-          )
+      puts payload
 
-          if event.event_type == 'propertyChange'
-            event.assign_attributes(
-              property_name: params['propertyName'],
-              property_value: params['propertyValue']
-            )
-          end
-          event.save!
+      # if params[:event_id].present?
 
-      end
+      #   event = Event.new(
+      #       event_type: params['subscriptionType'].split('.').last,
+      #       object_id: params['objectId'],
+      #       event_id: params['eventId'],
+      #       occured_at: params['occurredAt']
+      #     )
+
+      #     if event.event_type == 'propertyChange'
+      #       event.assign_attributes(
+      #         property_name: params['propertyName'],
+      #         property_value: params['propertyValue']
+      #       )
+      #     end
+      #     event.save!
+
+      # end
       
 
 
