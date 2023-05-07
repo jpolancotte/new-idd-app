@@ -6,9 +6,9 @@ class HooksController < ApplicationController
 
       puts data = JSON.parse(request.body.read)
 
-      # # webhooks = JSON.parse(request.raw_post)
-      # webhooks.each { |webhook| Services::Hubspot::Webhooks::Handle.new(webhook: webhook, request: request).call }
-      # render json: {}
+      webhooks = JSON.parse(request.raw_post)
+      webhooks.each { |webhook| Services::Hubspot::Webhooks::Handle.new(webhook: webhook, request: request).call }
+      render json: {}
     
       
      # If the body contains the survey_name parameter...

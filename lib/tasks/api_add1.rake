@@ -22,45 +22,43 @@ namespace :db do
           require 'net/http'
           require 'openssl'
 
-          url = URI("https://{yourDomain}/oauth/token")
+          # url = URI("https://{yourDomain}/oauth/token")
 
-          http = Net::HTTP.new(url.host, url.port)
-          http.use_ssl = true
-          http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+          # http = Net::HTTP.new(url.host, url.port)
+          # http.use_ssl = true
+          # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-          request = Net::HTTP::Post.new(url)
-          request["content-type"] = 'application/x-www-form-urlencoded'
-          request.body = "grant_type=authorization_code&client_id={yourClientId}&client_secret=%7ByourClientSecret%7D&code=%7ByourAuthorizationCode%7D&redirect_uri={https://yourApp/callback}"
+          # request = Net::HTTP::Post.new(url)
+          # request["content-type"] = 'application/x-www-form-urlencoded'
+          # request.body = "grant_type=authorization_code&client_id={yourClientId}&client_secret=%7ByourClientSecret%7D&code=%7ByourAuthorizationCode%7D&redirect_uri={https://yourApp/callback}"
 
-          response = http.request(request)
-          puts response.read_body
+          
 
-
-        curl --request POST \
-        --url 'https://api.hubapi.com/oauth/v1/token' \
-        --header 'content-type: application/x-www-form-urlencoded' \
-        --data grant_type=authorization_code \
-        --data 'client_id=309d03b1-21f5-465c-a05b-fb901bda1aa3' \
-        --data 'client_secret=cac35b11-6b01-4c15-a189-c88014035c6f' \
-        --data 'code=376e6cbc-61f6-4b3a-8bcc-553208d1a36b' \
-        --data 'redirect_uri=https://new-idd-app.herokuapp.com'
+#         curl --request POST \
+#         --url 'https://api.hubapi.com/oauth/v1/token' \
+#         --header 'content-type: application/x-www-form-urlencoded' \
+#         --data grant_type=authorization_code \
+#         --data 'client_id=309d03b1-21f5-465c-a05b-fb901bda1aa3' \
+#         --data 'client_secret=cac35b11-6b01-4c15-a189-c88014035c6f' \
+#         --data 'code=376e6cbc-61f6-4b3a-8bcc-553208d1a36b' \
+#         --data 'redirect_uri=https://new-idd-app.herokuapp.com'
 
 
-        body = {
-        'grant_type': 'authorization_code',
-        'client_id': '309d03b1-21f5-465c-a05b-fb901bda1aa3',
-        'client_secret': 'cac35b11-6b01-4c15-a189-c88014035c6f',
-        'redirect_uri': 'https://new-idd-app.herokuapp.com',
-        'code': 'c25bfcbf-2870-41cb-9c63-0b5e37efeec5'
-}
+#         body = {
+#         'grant_type': 'authorization_code',
+#         'client_id': '309d03b1-21f5-465c-a05b-fb901bda1aa3',
+#         'client_secret': 'cac35b11-6b01-4c15-a189-c88014035c6f',
+#         'redirect_uri': 'https://new-idd-app.herokuapp.com',
+#         'code': 'c25bfcbf-2870-41cb-9c63-0b5e37efeec5'
+# }
 
               
 
 
-        response = HTTParty.post("https://api.hubapi.com/oauth/v1/token", parmas: body,
-        Headers: "Content-Type: application/x-www-form-urlencoded;charset=utf-8" )
+#         response = HTTParty.post("https://api.hubapi.com/oauth/v1/token", parmas: body,
+#         Headers: "Content-Type: application/x-www-form-urlencoded;charset=utf-8" )
 
-        pp response
+#         pp response
 
 
         
