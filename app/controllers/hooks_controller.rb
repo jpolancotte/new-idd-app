@@ -3,6 +3,7 @@ class HooksController < ApplicationController
 
 
     def ipn_webhook
+      puts "Hello JP"
 
       # puts data = JSON.parse(request.body.read)
 
