@@ -4,7 +4,9 @@ class HooksController < ApplicationController
 
     def ipn_webhook
 
-      puts data = JSON.parse(request.body.read)
+      # puts data = JSON.parse(request.body.read)
+
+      puts data = params.as_json
 
       webhooks = JSON.parse(request.raw_post)
       webhooks.each { |webhook| Services::Hubspot::Webhooks::Handle.new(webhook: webhook, request: request).call }
