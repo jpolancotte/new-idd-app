@@ -14,6 +14,9 @@ class HooksController < ApplicationController
 
       puts webHook
 
+
+      puts request.params["eventId"]
+
            
 
       # webhook_params=params.require("_json")
