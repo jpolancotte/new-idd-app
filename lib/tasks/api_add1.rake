@@ -17,6 +17,12 @@ namespace :db do
         require 'httparty'
         require 'json'
 
+        
+        require 'hubspot-api-client'
+
+       
+
+       
 
         # require 'uri'
         # require 'net/http'

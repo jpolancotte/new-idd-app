@@ -6,14 +6,15 @@ class HooksController < ApplicationController
 
     def ipn_webhook
 
-      payload = request
-      # signature = request.headers["X-Hubspot-Signature"]
-        
-      pp payload
+      data_json = JSON.parse request.body.read
 
-      # pp signature
+      puts data_json
 
-     
+      webHook = JSON.parse(params[:eventId])
+
+      puts webHook
+
+           
 
       # webhook_params=params.require("_json")
 
@@ -21,8 +22,7 @@ class HooksController < ApplicationController
 
       # payload = request.body.read
 
-      puts payload
-
+    
       # if params[:eventId].present?
 
       #   event = Event.new(
