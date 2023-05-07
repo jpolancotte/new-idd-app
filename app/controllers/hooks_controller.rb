@@ -3,27 +3,29 @@ class HooksController < ApplicationController
 
 
     def ipn_webhook
-      puts "Hello JP"
 
-      # puts data = JSON.parse(request.body.read)
+      if params[:event_id].present?
 
-      # puts data = params.as_json
+        event = Event.new(
+            event_type: params['subscriptionType'].split('.').last,
+            object_id: params['objectId'],
+            event_id: params['eventId'],
+            occured_at: params['occurredAt']
+          )
 
-      if params[:eventId]
-
-        puts "HELLO eventId"
+          if event.event_type == 'propertyChange'
+            event.assign_attributes(
+              property_name: params['propertyName'],
+              property_value: params['propertyValue']
+            )
+          end
+          event.save!
 
       end
+      
 
-      if params
 
-        puts "HELLO PARAMS"
-
-      end
-
-      # webhooks = JSON.parse(request.raw_post)
-      # webhooks.each { |webhook| Services::Hubspot::Webhooks::Handle.new(webhook: webhook, request: request).call }
-      # render json: {}
+   
     
       
      # If the body contains the survey_name parameter...
