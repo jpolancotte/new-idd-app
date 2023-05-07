@@ -8,7 +8,7 @@ class HooksController < ApplicationController
 
       puts data = params.as_json
 
-      puts params["propertyValue"]
+      puts params[:eventId]
 
       # webhooks = JSON.parse(request.raw_post)
       # webhooks.each { |webhook| Services::Hubspot::Webhooks::Handle.new(webhook: webhook, request: request).call }
@@ -26,7 +26,7 @@ class HooksController < ApplicationController
   
       # The webhook doesn't require a response but let's make sure
       # we don't send anything
-      render :nothing => true
+      # render :nothing => true
     end
 
     

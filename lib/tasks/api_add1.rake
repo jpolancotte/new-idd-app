@@ -22,6 +22,24 @@ namespace :db do
           require 'net/http'
           require 'openssl'
 
+
+          a={
+            "eventId": 1790477687,
+            "subscriptionId": 2066388,
+            "portalId": 20711908,
+            "appId": 1674642,
+            "occurredAt": 1683454608849,
+            "subscriptionType": "deal.propertyChange",
+            "attemptNumber": 0,
+            "objectId": 13247169413,
+            "propertyName": "comments",
+            "propertyValue": "Making move again 20",
+            "changeSource": "CRM_UI",
+            "sourceId": "userId:27577480"
+          }
+
+          puts a[:eventId]
+
           # url = URI("https://{yourDomain}/oauth/token")
 
           # http = Net::HTTP.new(url.host, url.port)
