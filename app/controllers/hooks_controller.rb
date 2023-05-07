@@ -45,14 +45,8 @@ class HooksController < ApplicationController
 
       private
 
-      # def verify_webhook
-      #   secret = HubspotEvent.client_secret
-      #   payload = request.body.read
-      #   signature = request.headers["X-Hubspot-Signature"]
-      #   computed = Digest::SHA256.hexdigest(secret + payload)
-  
-      #   raise SignatureVerificationError unless signature == computed
-      # end
+      
+       end
       
 
 
