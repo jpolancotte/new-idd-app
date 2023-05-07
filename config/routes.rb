@@ -1,18 +1,11 @@
 Rails.application.routes.draw do
-
   
   post 'hooks/ipn_webhook', to: 'hooks#ipn_webhook'
-
-  
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
  
   #devise_for :users
   devise_for :users, :controllers => {:registrations => "registrations"}
-  root to: "home#index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  root to: "home#index"  
   # root "articles#index"
   # get 'home/index'
 end

@@ -7,9 +7,19 @@ class HooksController < ApplicationController
 
       # puts data = JSON.parse(request.body.read)
 
-      puts data = params.as_json
+      # puts data = params.as_json
 
-      puts params[:eventId]
+      if params[:eventId]
+
+        puts "HELLO eventId"
+
+      end
+
+      if params
+
+        puts "HELLO PARAMS"
+
+      end
 
       # webhooks = JSON.parse(request.raw_post)
       # webhooks.each { |webhook| Services::Hubspot::Webhooks::Handle.new(webhook: webhook, request: request).call }

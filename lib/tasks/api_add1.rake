@@ -18,48 +18,32 @@ namespace :db do
         require 'json'
 
 
-          require 'uri'
-          require 'net/http'
-          require 'openssl'
+        # require 'uri'
+        # require 'net/http'
+        # require 'openssl'          
 
+        # url = URI("https://{yourDomain}/oauth/token")
 
-          a={
-            "eventId": 1790477687,
-            "subscriptionId": 2066388,
-            "portalId": 20711908,
-            "appId": 1674642,
-            "occurredAt": 1683454608849,
-            "subscriptionType": "deal.propertyChange",
-            "attemptNumber": 0,
-            "objectId": 13247169413,
-            "propertyName": "comments",
-            "propertyValue": "Making move again 20",
-            "changeSource": "CRM_UI",
-            "sourceId": "userId:27577480"
-          }
+        # http = Net::HTTP.new(url.host, url.port)
+        # http.use_ssl = true
+        # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-          puts a[:eventId]
-
-          # url = URI("https://{yourDomain}/oauth/token")
-
-          # http = Net::HTTP.new(url.host, url.port)
-          # http.use_ssl = true
-          # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-          # request = Net::HTTP::Post.new(url)
-          # request["content-type"] = 'application/x-www-form-urlencoded'
-          # request.body = "grant_type=authorization_code&client_id={yourClientId}&client_secret=%7ByourClientSecret%7D&code=%7ByourAuthorizationCode%7D&redirect_uri={https://yourApp/callback}"
+        # request = Net::HTTP::Post.new(url)
+        # request["content-type"] = 'application/x-www-form-urlencoded'
+        # request.body = "grant_type=authorization_code&client_id={yourClientId}&client_secret=%7ByourClientSecret%7D&code=%7ByourAuthorizationCode%7D&redirect_uri={https://yourApp/callback}"
 
           
 
-#         curl --request POST \
-#         --url 'https://api.hubapi.com/oauth/v1/token' \
-#         --header 'content-type: application/x-www-form-urlencoded' \
-#         --data grant_type=authorization_code \
-#         --data 'client_id=309d03b1-21f5-465c-a05b-fb901bda1aa3' \
-#         --data 'client_secret=cac35b11-6b01-4c15-a189-c88014035c6f' \
-#         --data 'code=376e6cbc-61f6-4b3a-8bcc-553208d1a36b' \
-#         --data 'redirect_uri=https://new-idd-app.herokuapp.com'
+        # curl --request POST \
+        # --url 'https://api.hubapi.com/oauth/v1/token' \
+        # --header 'content-type: application/x-www-form-urlencoded' \
+        # --data grant_type=authorization_code \
+        # --data 'client_id=89805094-efbf-4679-835a-44fd7350b0bd' \
+        # --data 'client_secret=07371b87-b927-4022-88fd-0f10f53a739c' \
+        # --data 'code=3639c5a7-815c-4f2c-96a0-a28ad7afd6e0' \
+        # --data 'redirect_uri=http://localhost:3000/'
+
+        # {"token_type":"bearer","refresh_token":"e3e9ba5f-4a85-4614-954d-12a5de64fe42","access_token":"CIqiv7b_MBIMAAEAQAAAAAAAAAAYGOST8AkgiJmTDSiSpmYyFHeipHoXbl16ImFTZ5oNcOh6X0noOjAAAABBAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAPwAAAAAIANCFHIHB9fx45vdY4zcbd1CrhrSiVp5SgNuYTFSAFoA","expires_in":1800}
 
 
 #         body = {
