@@ -6,12 +6,12 @@ class HooksController < ApplicationController
 
     def ipn_webhook
 
-      payload = request.body.read
-      signature = request.headers["X-Hubspot-Signature"]
+      # payload = request.body.read
+      # signature = request.headers["X-Hubspot-Signature"]
         
-      pp payload
+      # pp payload
 
-      pp signature
+      # pp signature
 
      
 
@@ -23,27 +23,24 @@ class HooksController < ApplicationController
 
       # puts payload
 
-      # if params[:event_id].present?
+      if params[:eventId].present?
 
-      #   event = Event.new(
-      #       event_type: params['subscriptionType'].split('.').last,
-      #       object_id: params['objectId'],
-      #       event_id: params['eventId'],
-      #       occured_at: params['occurredAt']
-      #     )
+        event = Event.new(
+            event_type: params['subscriptionType'].split('.').last,
+            object_id: params['objectId'],
+            event_id: params['eventId'],
+            occured_at: params['occurredAt']
+          )
 
-      #     if event.event_type == 'propertyChange'
-      #       event.assign_attributes(
-      #         property_name: params['propertyName'],
-      #         property_value: params['propertyValue']
-      #       )
-      #     end
-      #     event.save!
+          if event.event_type == 'propertyChange'
+            event.assign_attributes(
+              property_name: params['propertyName'],
+              property_value: params['propertyValue']
+            )
+          end
+          event.save!
 
-      # end
-
-
-      private
+      end     
 
       
        end
