@@ -81,3 +81,5 @@ gem 'cancancan'
 gem 'httparty'
 
 # gem 'hubspot_event'
+
+gem 'hubspot-api-client'
