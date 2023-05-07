@@ -8,9 +8,11 @@ class HooksController < ApplicationController
 
       puts data = params.as_json
 
-      webhooks = JSON.parse(request.raw_post)
-      webhooks.each { |webhook| Services::Hubspot::Webhooks::Handle.new(webhook: webhook, request: request).call }
-      render json: {}
+      puts params["propertyValue"]
+
+      # webhooks = JSON.parse(request.raw_post)
+      # webhooks.each { |webhook| Services::Hubspot::Webhooks::Handle.new(webhook: webhook, request: request).call }
+      # render json: {}
     
       
      # If the body contains the survey_name parameter...
@@ -20,11 +22,11 @@ class HooksController < ApplicationController
         # survey.url = params[:survey_url]
         # survey.creator_email = params[:survey_creator_email]
         # survey.save!
-    #   endherok
+    #   end
   
       # The webhook doesn't require a response but let's make sure
       # we don't send anything
-      # render :nothing => true
+      render :nothing => true
     end
 
     
