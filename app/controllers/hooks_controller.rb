@@ -7,9 +7,21 @@ class HooksController < ApplicationController
 
     def ipn_webhook
 
-      webhooks = JSON.parse(request.raw_post)    
+      webhooks = JSON.parse(request.raw_post)   
+      
+      puts webhooks
 
-      puts request.body.read
+      a=request.body.read
+
+      puts a[:eventId]
+
+      puts a[:subscriptionId]
+
+      # webhooks.ech do |hook|
+
+      #   puts 
+
+      # end
 
       
 
