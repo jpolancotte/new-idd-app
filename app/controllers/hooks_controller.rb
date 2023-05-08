@@ -5,15 +5,10 @@ class HooksController < ApplicationController
 
 
     def ipn_webhook
-     puts  webHook = JSON.parse(params[:ipn_webhook])
+      raw_body = request.body.read
+      json = JSON.parse raw_body
 
-    #  puts  json = JSON.parse(params[:_json])
-
-
-      # puts request.body.read
-      # puts webhooks = JSON.parse(request.raw_post)
-
-      
+      puts json
     
                          
 
