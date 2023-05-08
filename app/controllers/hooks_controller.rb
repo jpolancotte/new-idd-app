@@ -5,9 +5,9 @@ class HooksController < ApplicationController
 
 
     def ipn_webhook
-     puts  webHook = JSON.parse(params[:hook])
+     puts  webHook = JSON.parse(params[:ipn_webhook])
 
-     puts  json = JSON.parse(params[:_json])
+    #  puts  json = JSON.parse(params[:_json])
 
 
       # puts request.body.read
