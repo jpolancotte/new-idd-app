@@ -7,9 +7,9 @@ class HooksController < ApplicationController
 
     def ipn_webhook
       
-      puts params[:hook][:eventId]
+      puts params[:hook]
 
-      puts params[:hook][:_json][:eventId]
+      # puts params[:hook][:_json][:eventId]
       
 
         
