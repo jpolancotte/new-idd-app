@@ -4,15 +4,11 @@ class HooksController < ApplicationController
     # before_action :verify_webhook
 
 
-    def ipn_webhook(hsh = {})
+    def ipn_webhook
 
-    render json: params
+      puts params[:hook]
 
-      
-       puts hsh[:eventId]
-       puts hsh[:objectId]
-
-                     
+                         
 
       # webhook_params=params.require("_json")
 
