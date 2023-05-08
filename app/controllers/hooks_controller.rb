@@ -1,31 +1,25 @@
 class HooksController < ApplicationController
-    skip_before_action :verify_authenticity_token, only: [:ipn_webhook]    
+    skip_before_action :verify_authenticity_token, only: [:ipn_webhook]       
+    skip_before_action :authenticate_user! # if you use Devise
+    
 
     require 'json'
 
-    # before_action :verify_webhook
-
-
     def ipn_webhook
+      
+      puts params[:hook][:eventId]
 
-   @a = params["_json"][0]["eventId"]
+      puts params[:hook][:_json][:eventId]
+      
 
-   puts @a 
-
-    #  puts params["_json"][0][:eventId]
-
-    @b= "Hello JP Now"
-
-    puts @b
-     
+        
+           
       # webhook_params=params.require("_json")
 
       # puts webhook_params
 
-      puts payload = request.body.read
-
-    
-      # if params[:eventId].present?
+         
+      # if params[:user_id].present?
 
       #   event = Event.new(
       #       event_type: params['subscriptionType'].split('.').last,
@@ -46,6 +40,11 @@ class HooksController < ApplicationController
 
       
        end
+
+ private
+
+
+      
       
 
 
