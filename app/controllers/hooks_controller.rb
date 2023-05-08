@@ -5,9 +5,7 @@ class HooksController < ApplicationController
 
 
     def ipn_webhook
-      render json: params
-
-      puts params[:hook]
+      puts params.inspect
     
                          
 
