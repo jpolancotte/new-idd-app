@@ -1,20 +1,19 @@
 class HooksController < ApplicationController
     skip_before_action :verify_authenticity_token, only: [:ipn_webhook]    
 
+    require 'json'
+
     # before_action :verify_webhook
 
 
     def ipn_webhook
 
+     puts params["_json"][0]["eventId"]
+
+     puts params["_json"][0][:eventId]
+
       puts "Hello JP Now"
-            
-     message = JSON.parse(request.body.read)
-
-     puts message
-
-
-     puts params['hook']
-
+     
       # webhook_params=params.require("_json")
 
       # puts webhook_params
