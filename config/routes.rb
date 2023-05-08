@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   
-  post 'hooks/ipn_webhook', to: 'hooks#ipn_webhook'
+  # post 'hooks/ipn_webhook', to: 'hooks#ipn_webhook'
+
+  scope '/hooks', :controller => :hooks do
+    post :ipn_webhook
+  end
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
  
   #devise_for :users

@@ -6,18 +6,11 @@ class HooksController < ApplicationController
 
     def ipn_webhook
 
+      puts "Hello JP Now"
+            
+     message = JSON.parse(request.body.read)
 
-      post '/hooks/ipn_webhook' do
-
-        payload = request.body.read
-
-        puts payload
-
-      end
-      
-    #  message = JSON.parse(request.body.read)
-
-    #  puts message
+     puts message
 
 
     #  puts params['hook']
