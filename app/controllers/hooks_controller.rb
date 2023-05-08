@@ -9,7 +9,8 @@ class HooksController < ApplicationController
 
       webhooks = JSON.parse(request.raw_post)        
       puts webhooks      
-      puts webhooks["eventId"]
+      puts webhooks[0]
+      puts webhooks[0]["eventId"]
 
       
 
