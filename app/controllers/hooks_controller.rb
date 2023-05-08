@@ -8,17 +8,17 @@ class HooksController < ApplicationController
 
     def ipn_webhook
 
-     puts params["_json"][0]["eventId"]
+    #  puts params["_json"][0]["eventId"]
 
-     puts params["_json"][0][:eventId]
+    #  puts params["_json"][0][:eventId]
 
-      puts "Hello JP Now"
+    #   puts "Hello JP Now"
      
       # webhook_params=params.require("_json")
 
       # puts webhook_params
 
-      # payload = request.body.read
+      puts payload = request.body.read
 
     
       # if params[:eventId].present?
