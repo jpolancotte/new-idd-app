@@ -6,6 +6,8 @@ class HooksController < ApplicationController
 
     def ipn_webhook(hsh = {})
 
+    render json: params
+
       
        puts hsh[:eventId]
        puts hsh[:objectId]
