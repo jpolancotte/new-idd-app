@@ -5,13 +5,20 @@ class HooksController < ApplicationController
 
 
     def ipn_webhook
+
+
+      post '/hooks/ipn_webhook' do
+
+        payload = request.body.read
+
+      end
       
-     message = JSON.parse(request.body.read)
+    #  message = JSON.parse(request.body.read)
 
-     puts message
+    #  puts message
 
 
-     puts params['hook']
+    #  puts params['hook']
 
       # webhook_params=params.require("_json")
 
