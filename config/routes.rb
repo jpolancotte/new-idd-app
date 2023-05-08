@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # post 'hooks/ipn_webhook', to: 'hooks#ipn_webhook'
 
   scope '/hooks', :controller => :hooks do
-    post :ipn_webhook
+    get :ipn_webhook
   end
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

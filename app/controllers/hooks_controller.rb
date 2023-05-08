@@ -13,7 +13,7 @@ class HooksController < ApplicationController
      puts message
 
 
-    #  puts params['hook']
+     puts params['hook']
 
       # webhook_params=params.require("_json")
 
