@@ -4,20 +4,13 @@ class HooksController < ApplicationController
     # before_action :verify_webhook
 
 
-    def ipn_webhook
+    def ipn_webhook(hsh = {})
 
-      data_json = JSON.parse request.body.read
+      
+       puts hsh[:eventId]
+       puts hsh[:objectId]
 
-      puts data_json
-
-      webHook = JSON.parse(params[:eventId])
-
-      puts webHook
-
-
-      puts request.params["eventId"]
-
-           
+                     
 
       # webhook_params=params.require("_json")
 
