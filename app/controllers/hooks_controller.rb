@@ -8,10 +8,13 @@ class HooksController < ApplicationController
     def ipn_webhook
 
       webhooks = JSON.parse(request.raw_post)        
-      puts webhooks      
-      puts webhooks[0]
-      puts webhooks[0]["eventId"]
-
+      webhooks.each do |wh|
+       puts wh[0]["subscriptionType"]
+       puts wh[0]["propertyName"]
+       puts wh[0]["propertyValue"]           
+        
+      end
+    
       
 
       # webhooks.ech do |hook|
