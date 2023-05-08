@@ -5,7 +5,9 @@ class HooksController < ApplicationController
 
 
     def ipn_webhook
-      puts params.inspect
+      puts params.to_h
+
+
     
                          
 
