@@ -9,9 +9,9 @@ class HooksController < ApplicationController
 
       webhooks = JSON.parse(request.raw_post)        
       webhooks.each do |wh|
-       puts wh[0]["subscriptionType"]
-       puts wh[0]["propertyName"]
-       puts wh[0]["propertyValue"]           
+       puts wh["subscriptionType"]
+       puts wh["propertyName"]
+       puts wh["propertyValue"]           
         
       end
     
