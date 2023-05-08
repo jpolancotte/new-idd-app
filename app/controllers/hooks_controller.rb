@@ -11,6 +11,8 @@ class HooksController < ApplicationController
 
         payload = request.body.read
 
+        puts payload
+
       end
       
     #  message = JSON.parse(request.body.read)
