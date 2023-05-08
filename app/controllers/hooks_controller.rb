@@ -5,10 +5,10 @@ class HooksController < ApplicationController
 
 
     def ipn_webhook
+      render json: params
 
-      # puts params[:hook][:eventId]
-      puts params[0]
-
+      puts params[:hook]
+    
                          
 
       # webhook_params=params.require("_json")
