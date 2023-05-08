@@ -11,11 +11,11 @@ class HooksController < ApplicationController
       
       puts webhooks
 
-      a=request.body.read
+      puts webhooks[:eventId]
 
-      puts a[:eventId]
+      puts webhooks["eventId"]
 
-      puts a[:subscriptionId]
+      
 
       # webhooks.ech do |hook|
 
