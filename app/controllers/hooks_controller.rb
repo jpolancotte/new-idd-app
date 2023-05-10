@@ -20,10 +20,10 @@ class HooksController < ApplicationController
 
         if wh["subscriptionType"] == "deal.propertyChange" 
           
-         e = Event.new
-             e.event_type=wh["subscriptionType"]
-             e.object_id=wh["objectId"]   
-             e.occured_at=whwh["occurredAt"]
+          e = Event.new
+            e.event_type=wh["subscriptionType"]
+            e.object_id=wh["objectId"]   
+            e.occured_at=wh["occurredAt"]
           e.save
 
           puts "Update Deal"
