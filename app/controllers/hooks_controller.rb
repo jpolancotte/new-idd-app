@@ -20,23 +20,16 @@ class HooksController < ApplicationController
 
         if wh["subscriptionType"] == "deal.propertyChange" 
           
-          e = Event.new
-            e.event_type=wh["subscriptionType"]
-            e.object_id=wh["objectId"]   
-            e.occured_at=wh["occurredAt"]
-          e.save
-
           event = Event.new(
             event_type: wh['subscriptionType'].split('.').last,
             object_id: wh['objectId'],
             event_id: wh['eventId'],
             occured_at: wh['occurredAt']
           )
-
           if event.event_type == 'propertyChange'
             event.assign_attributes(
-              property_name: @webhook['propertyName'],
-              property_value: @webhook['propertyValue']
+              property_name: wh['propertyName'],
+              property_value: wh['propertyValue']
             )
           end
           event.save!
