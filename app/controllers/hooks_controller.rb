@@ -11,10 +11,7 @@ class HooksController < ApplicationController
         if wh["subscriptionType"] == "deal.deletion"
 
           puts "Delete Deal"
-
-          pp wh["subscriptionType"]
-          pp wh["propertyName"] 
-          pp wh["propertyValue"] 
+          pp wh["subscriptionType"]         
           pp wh["objectId"]                 
           pp wh["sourceId"]
           pp wh["occurredAt"]
