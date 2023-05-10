@@ -23,19 +23,19 @@ class HooksController < ApplicationController
 
     elsif webhooks[0]["subscriptionType"] == "deal.creation"
       pp "Create Deal"
-      pp wh["subscriptionType"]
-      pp wh["objectId"]
-      pp wh["changeFlag"]
-      pp wh["sourceId"]
-      pp wh["occurredAt"]      
+      pp webhooks[0]["subscriptionType"]
+      pp webhooks[0]["objectId"]
+      pp webhooks[0]["changeFlag"]
+      pp webhooks[0]["sourceId"]
+      pp webhooks[0]["occurredAt"]      
 
     elsif webhooks[0]["subscriptionType"] == "deal.deletion"
       pp "Delete Deal"
-        pp wh["subscriptionType"]
-        pp wh["objectId"]
-        pp wh["changeFlag"]
-        pp wh["sourceId"]
-        pp wh["occurredAt"]
+        pp webhooks[0]["subscriptionType"]
+        pp webhooks[0]["objectId"]
+        pp webhooks[0]["changeFlag"]
+        pp webhooks[0]["sourceId"]
+        pp webhooks[0]["occurredAt"]
 
     end      
   end
