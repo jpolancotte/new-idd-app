@@ -7,7 +7,17 @@ class HooksController < ApplicationController
     webhooks = JSON.parse(request.raw_post)        
     webhooks.each do |wh|
 
-      if wh["subscriptionType"] == "deal.creation"
+      if wh["subscriptionType"] == "deal.deal.propertyChange"
+        pp "Update Deal"
+        pp wh["subscriptionType"]
+        pp wh["objectId"]
+        pp wh["propertyName"]        
+        pp wh["changeFlag"]
+        pp wh["sourceId"]
+        pp wh["occurredAt"]
+        pp wh["changeSource"]
+
+      elsif   wh["subscriptionType"] == "deal.creation"
         pp "Create Deal"
         pp wh["subscriptionType"]
         pp wh["objectId"]
