@@ -12,7 +12,7 @@ class HooksController < ApplicationController
         pp wh["subscriptionType"]
         pp wh["objectId"]
         pp wh["changeFlag"]
-        pp wh["userId"]
+        pp wh["sourceId"]
         pp wh["occurredAt"]
 
       elsif  wh["subscriptionType"] == "deal.deletion"
@@ -20,7 +20,7 @@ class HooksController < ApplicationController
         pp wh["subscriptionType"]
         pp wh["objectId"]
         pp wh["changeFlag"]
-        pp wh["userId"]
+        pp wh["sourceId"]
         pp wh["occurredAt"]
 
       end    
