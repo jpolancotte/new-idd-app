@@ -10,16 +10,20 @@ class HooksController < ApplicationController
       if wh["subscriptionType"] == "deal.creation"
         pp "Create Deal"
         pp wh["subscriptionType"]
-        pp wh["propertyName"]
-        pp wh["propertyValue"]
-      end
+        pp wh["objectId"]
+        pp wh["changeFlag"]
+        pp wh["userId"]
+        pp wh["occurredAt"]
 
-      if wh["subscriptionType"] == "deal.deletion"
+      elsif  wh["subscriptionType"] == "deal.deletion"
         pp "Delete Deal"
         pp wh["subscriptionType"]
-        pp wh["propertyName"]
-        pp wh["propertyValue"]
-      end
+        pp wh["objectId"]
+        pp wh["changeFlag"]
+        pp wh["userId"]
+        pp wh["occurredAt"]
+
+      end    
       
   end
 
