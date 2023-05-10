@@ -22,7 +22,7 @@ namespace :db do
 
        
 
-       
+       #approve app in HubSpot account
 
         # require 'uri'
         # require 'net/http'
@@ -70,48 +70,52 @@ namespace :db do
 
 
         
-      #   str = "https://graph.microsoft.com/v1.0/me/drive/root:/JP Pipleline TEST.xlsx:/workbook/worksheets/Master Data/tables/table1/rows" #add
+        str = "https://graph.microsoft.com/v1.0/me/drive/root:/JP Pipleline TEST.xlsx:/workbook/worksheets/Master Data/tables/table1/rows" #add
         
-      #   encoded = URI::DEFAULT_PARSER.escape(str)
-      #   # puts encoded  
-      #   a="eyJ0eXAiOiJKV1QiLCJub25jZSI6InQwQVBtYlIwMTNoelY1S0dOOGxaV2h0SnBUaWJvaGN0Y3V2Y1FaUGlIRlEiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC81YzQ2NDlmOC04MGM2LTRhMTItODEwNy01ZGQ3ZTZlY2QyNzcvIiwiaWF0IjoxNjgzMjM2MTM4LCJuYmYiOjE2ODMyMzYxMzgsImV4cCI6MTY4MzMyMjgzOCwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFZUUFlLzhUQUFBQVRDVlpBa3lPT1RxZ3M0RE5CRzBPY21ZQXcyaVlBOC94d3lMd3NEaWpVUGZmM2YwbVYreEpoOTYxYTZJZmkxUFgxbzVFTzlGaWVuK2w4V3RDMUd0TzNQYVBGeC8za2RjVGRFRXRrbnFKOUdqUThhYUxqSkZLSDEzbmJsMXBld2JDTTd2dDZkRGNEZytCTzg5NFlLQXhYVWJRbXlyVW9MZ09LNFRaWWs1c0UwRT0iLCJhbXIiOlsicnNhIiwibWZhIl0sImFwcF9kaXNwbGF5bmFtZSI6IkdyYXBoIEV4cGxvcmVyIiwiYXBwaWQiOiJkZThiYzhiNS1kOWY5LTQ4YjEtYThhZC1iNzQ4ZGE3MjUwNjQiLCJhcHBpZGFjciI6IjAiLCJjYXBvbGlkc19sYXRlYmluZCI6WyJhNTZkN2JjMC01ODQwLTQ0N2EtODJhNS1jM2VhYjA2YjdkMjgiXSwiZGV2aWNlaWQiOiJjMTk3ZDcxMS03OTkxLTQwMjMtYmVhZC1iMjhjMmE1YTBjMzIiLCJmYW1pbHlfbmFtZSI6IlBvbGFuY28iLCJnaXZlbl9uYW1lIjoiSm9zZSIsImlkdHlwIjoidXNlciIsImlwYWRkciI6IjY5LjExNy4yMDguMTkzIiwibmFtZSI6Ikpvc2UgUG9sYW5jbyIsIm9pZCI6IjllNWIzMzlmLWI0ZmMtNDIzMi1hZDM3LWI0M2FhNGE4YWE2ZiIsIm9ucHJlbV9zaWQiOiJTLTEtNS0yMS02NTAwODIxNDEtMTkyMTQwMDk3NS0zMzAwODc5MjA5LTM3MTEiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzIwMDFBNDNEN0ZCMyIsInJoIjoiMC5BVkVBLUVsR1hNYUFFa3FCQjEzWDV1elNkd01BQUFBQUFBQUF3QUFBQUFBQUFBQlJBTVkuIiwic2NwIjoiQXVkaXRMb2cuUmVhZC5BbGwgRGV2aWNlTWFuYWdlbWVudE1hbmFnZWREZXZpY2VzLlJlYWQuQWxsIERldmljZU1hbmFnZW1lbnRNYW5hZ2VkRGV2aWNlcy5SZWFkV3JpdGUuQWxsIERpcmVjdG9yeS5SZWFkLkFsbCBGaWxlcy5SZWFkIEZpbGVzLlJlYWQuQWxsIEZpbGVzLlJlYWRXcml0ZSBGaWxlcy5SZWFkV3JpdGUuQWxsIG9wZW5pZCBwcm9maWxlIFNpdGVzLk1hbmFnZS5BbGwgU2l0ZXMuUmVhZC5BbGwgU2l0ZXMuUmVhZFdyaXRlLkFsbCBVc2VyLlJlYWQgZW1haWwiLCJzaWduaW5fc3RhdGUiOlsiZHZjX21uZ2QiLCJkdmNfY21wIiwia21zaSJdLCJzdWIiOiJkY0M1aklqOEY1QV9rREltUVRGSldZdWZFVXpaY1J6bGVnOUJfMU1ENkhjIiwidGVuYW50X3JlZ2lvbl9zY29wZSI6Ik5BIiwidGlkIjoiNWM0NjQ5ZjgtODBjNi00YTEyLTgxMDctNWRkN2U2ZWNkMjc3IiwidW5pcXVlX25hbWUiOiJqb3NlLnBvbGFuY29AdGFycnl0b3duZXhwb2NhcmUuY29tIiwidXBuIjoiam9zZS5wb2xhbmNvQHRhcnJ5dG93bmV4cG9jYXJlLmNvbSIsInV0aSI6IndOdnhzN0xMaVVlb1NtVG9jRjhOQUEiLCJ2ZXIiOiIxLjAiLCJ3aWRzIjpbImI3OWZiZjRkLTNlZjktNDY4OS04MTQzLTc2YjE5NGU4NTUwOSJdLCJ4bXNfY2MiOlsiQ1AxIl0sInhtc19zc20iOiIxIiwieG1zX3N0Ijp7InN1YiI6Ijd2TDRWTVpHNGhmLUdUQURXMUgxdDR3TzVudXk4VkwxWXJhakJNcEZJSkUifSwieG1zX3RjZHQiOjE1ODM5MzM1MDV9.gE0DNY_8grf8oHNA66kzpH9WZ11JsdrP0Y9uUtnZGaileZ9VYfYWp4B_Ui4gJC3GjfHH20HT01HRn2mPqz3HEN-qLch8BgS6vy45V_wujNhvOlvw-vhHOLnplHhkiZjZLA0u6rQZQRRv1hLeo2HQ0dFOaU6XqK1GbI7t1ABn2zmSHvmhzYEgPNGHPYG_-GpZiUJxFDB-wDxju5Lzl0wNw4XMgii_bExM1OQ37pxnDNL4a6_nhtL23K0taaumuwppoeZxVz1w55YjCViyeU-RBA3qLwVaO-NpFcgIXEIy-kklUGS9Umt6Hw-FhTVjtgeAhXQWkCLbCY6vyp_T_UZecw"
+        encoded = URI::DEFAULT_PARSER.escape(str)
+
+        puts encoded  
+
+        a="eyJ0eXAiOiJKV1QiLCJub25jZSI6Ik9PUGNrTmE3akprVWhPUklFcGVUMG12cXpWczdVRVcxbnNpdUJpTTVGazgiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC81YzQ2NDlmOC04MGM2LTRhMTItODEwNy01ZGQ3ZTZlY2QyNzcvIiwiaWF0IjoxNjgzNjQ4NDk0LCJuYmYiOjE2ODM2NDg0OTQsImV4cCI6MTY4MzczNTE5NCwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFZUUFlLzhUQUFBQTA2UlZ0cnN4YzEzTmgrYXhWemZ3OGRPMGhURlhUbCtwVjhrTmk0dDgzdGY1cG9nNEJXMk90UzV3aHRRK2xtSVhvVkN3aVFzZENDemhOVmhXVkNHeXdZdUJWVlI5NEZHRWd4ekR3bnNtSmZKV0xnNE82MHF6YmltbEtidHZvbHBtNVN2MGpZUDlSQXlvWXBXUmpKditXNmZRS2tuZHM2aFZXejZZMlh5c2daTT0iLCJhbXIiOlsicnNhIiwibWZhIl0sImFwcF9kaXNwbGF5bmFtZSI6IkdyYXBoIEV4cGxvcmVyIiwiYXBwaWQiOiJkZThiYzhiNS1kOWY5LTQ4YjEtYThhZC1iNzQ4ZGE3MjUwNjQiLCJhcHBpZGFjciI6IjAiLCJjYXBvbGlkc19sYXRlYmluZCI6WyJhNTZkN2JjMC01ODQwLTQ0N2EtODJhNS1jM2VhYjA2YjdkMjgiXSwiZGV2aWNlaWQiOiJjMTk3ZDcxMS03OTkxLTQwMjMtYmVhZC1iMjhjMmE1YTBjMzIiLCJmYW1pbHlfbmFtZSI6IlBvbGFuY28iLCJnaXZlbl9uYW1lIjoiSm9zZSIsImlkdHlwIjoidXNlciIsImlwYWRkciI6IjY5LjExNy4yMDguMTkzIiwibmFtZSI6Ikpvc2UgUG9sYW5jbyIsIm9pZCI6IjllNWIzMzlmLWI0ZmMtNDIzMi1hZDM3LWI0M2FhNGE4YWE2ZiIsIm9ucHJlbV9zaWQiOiJTLTEtNS0yMS02NTAwODIxNDEtMTkyMTQwMDk3NS0zMzAwODc5MjA5LTM3MTEiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzIwMDFBNDNEN0ZCMyIsInJoIjoiMC5BVkVBLUVsR1hNYUFFa3FCQjEzWDV1elNkd01BQUFBQUFBQUF3QUFBQUFBQUFBQlJBTVkuIiwic2NwIjoiQXVkaXRMb2cuUmVhZC5BbGwgRGV2aWNlTWFuYWdlbWVudE1hbmFnZWREZXZpY2VzLlJlYWQuQWxsIERldmljZU1hbmFnZW1lbnRNYW5hZ2VkRGV2aWNlcy5SZWFkV3JpdGUuQWxsIERpcmVjdG9yeS5SZWFkLkFsbCBGaWxlcy5SZWFkIEZpbGVzLlJlYWQuQWxsIEZpbGVzLlJlYWRXcml0ZSBGaWxlcy5SZWFkV3JpdGUuQWxsIG9wZW5pZCBwcm9maWxlIFNpdGVzLk1hbmFnZS5BbGwgU2l0ZXMuUmVhZC5BbGwgU2l0ZXMuUmVhZFdyaXRlLkFsbCBVc2VyLlJlYWQgZW1haWwiLCJzaWduaW5fc3RhdGUiOlsiZHZjX21uZ2QiLCJkdmNfY21wIiwia21zaSJdLCJzdWIiOiJkY0M1aklqOEY1QV9rREltUVRGSldZdWZFVXpaY1J6bGVnOUJfMU1ENkhjIiwidGVuYW50X3JlZ2lvbl9zY29wZSI6Ik5BIiwidGlkIjoiNWM0NjQ5ZjgtODBjNi00YTEyLTgxMDctNWRkN2U2ZWNkMjc3IiwidW5pcXVlX25hbWUiOiJqb3NlLnBvbGFuY29AdGFycnl0b3duZXhwb2NhcmUuY29tIiwidXBuIjoiam9zZS5wb2xhbmNvQHRhcnJ5dG93bmV4cG9jYXJlLmNvbSIsInV0aSI6Ilo3QnNPT1JyVkVlLW5NcVRTUHh4QUEiLCJ2ZXIiOiIxLjAiLCJ3aWRzIjpbImI3OWZiZjRkLTNlZjktNDY4OS04MTQzLTc2YjE5NGU4NTUwOSJdLCJ4bXNfY2MiOlsiQ1AxIl0sInhtc19zc20iOiIxIiwieG1zX3N0Ijp7InN1YiI6Ijd2TDRWTVpHNGhmLUdUQURXMUgxdDR3TzVudXk4VkwxWXJhakJNcEZJSkUifSwieG1zX3RjZHQiOjE1ODM5MzM1MDV9.QqMrpWHke84m0p_njGgWu-kIcMLu0NQAXXOuTlqFfI1PPuwFI563DBcnJjaOn044PuowWUS8l8J4DIYJMmHoz2oEGdCl8YSrrpQ_mjnXWUqK61W7ZI6-CA1r3NSsRPhejPmEsOWBv0zQdZZKgYMMEjqa51KNSFf7JxKkaOmT9G8RT2jQ6eUmIFhpup954wYs6pVXHhaiGwwfo-y2g0BLWg2PHD68sIiss4W2KLLzizL_iBtZRG1YC7Y8O_-JhQSOoSTPDj9ziiSg6ZJTV56QiNedEMf3MBq0zigrMLAGmVNwOxzaRR6daMc5t5M98NcdDYy4Ov45yk_kRAQ4GbgRpA"
        
                
-      #   response = HTTParty.get("#{encoded}",
-      #     :headers => {'Content-Type' => 'application/json', "Authorization" => "Bearer #{a}" } )        
+        response = HTTParty.get("#{encoded}",
+          :headers => {'Content-Type' => 'application/json', "Authorization" => "Bearer #{a}" } )   
+         
+          pp response             
         
-      #     total = response["value"].size + 2
+          total = response["value"].size + 2
 
-      #     puts total
+          puts total
 
-      #     # pp response          
+          # pp response          
 
-      #     os='"Onboarding - Sales"'
-      #     op='"Onboarding - In Progress"'
-      #     oc = '"Onboarding - Complete"'
-      #     y='"Y"'
-      #     n='"N"'
+          os='"Onboarding - Sales"'
+          op='"Onboarding - In Progress"'
+          oc = '"Onboarding - Complete"'
+          y='"Y"'
+          n='"N"'
                    
-      #  response2 = HTTParty.post("#{encoded}",
-      #   :body => 
-      #     {  "values"=>[
-      #       ["Kathy Brown / Nanette Wrobel", "10A123 Apostolico Now EIHA", "", 
-      #       "Sales - Initial Communication", "NJ", "NJ", 100, 0.75, 44166,
-      #       "PAL", "", "", "", "",
-      #       "=IFERROR(EDATE(I#{total},-1),"")", 
-      #       "=EDATE(I#{total},1)",
-      #       "=VLOOKUP(I#{total},Date_Lookups[#All],14,FALSE)",
-      #       "=VLOOKUP(I#{total},Date_Lookups[#All],6,FALSE)", 
-      #       "=IF(D#{total}=#{os},#{y},IF(D#{total}=#{op},#{y},IF(D#{total}=#{oc},#{y},#{n})))" , 
-      #       "=YEAR([@[Go Live'' Date]])"
-      #       ]
-      #     ]                     
+       response2 = HTTParty.post("#{encoded}",
+        :body => 
+          {  "values"=>[
+            ["Kathy Brown / Nanette Wrobel", "10A123 Apostolico Now EIHA", "", 
+            "Sales - Initial Communication", "NJ", "NJ", 100, 0.75, 44166,
+            "PAL", "", "", "", "",
+            "=IFERROR(EDATE(I#{total},-1),"")", 
+            "=EDATE(I#{total},1)",
+            "=VLOOKUP(I#{total},Date_Lookups[#All],14,FALSE)",
+            "=VLOOKUP(I#{total},Date_Lookups[#All],6,FALSE)", 
+            "=IF(D#{total}=#{os},#{y},IF(D#{total}=#{op},#{y},IF(D#{total}=#{oc},#{y},#{n})))" , 
+            "=YEAR([@[Go Live'' Date]])"
+            ]
+          ]                     
                     
-      #     }.to_json,
+          }.to_json,
 
-      #   :headers => {'Content-Type' => 'application/json', "Authorization" => "Bearer #{a}" } )       
+        :headers => {'Content-Type' => 'application/json', "Authorization" => "Bearer #{a}" } )       
 
-      # pp response2
+      pp response2
 
 
       # # str1 = "https://graph.microsoft.com/v1.0/me/drive/root:/JP Pipleline TEST.xlsx:/workbook/worksheets/Sales Pipeline/pivotTables/refreshAll"
