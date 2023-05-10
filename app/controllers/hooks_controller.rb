@@ -4,37 +4,39 @@ class HooksController < ApplicationController
     
 
   def ipn_webhook
-    webhooks = JSON.parse(request.raw_post)        
-    webhooks.each do |wh|
+    webhooks = JSON.parse(request.raw_post) 
+    
+    if webhooks[0]["subscriptionType"] == "deal.propertyChange"
 
-      if wh["subscriptionType"] == "deal.propertyChange"
+      webhooks.each do |wh| 
         pp "Update Deal"
         pp wh["subscriptionType"]
         pp wh["objectId"]
-        pp wh["propertyName"]        
-        pp wh["changeFlag"]
+        pp wh["propertyName"] 
+        pp wh["propertyValue"]          
         pp wh["sourceId"]
         pp wh["occurredAt"]
         pp wh["changeSource"]
 
-      elsif   wh["subscriptionType"] == "deal.creation"
-        pp "Create Deal"
+      end
+
+    elsif webhooks[0]["subscriptionType"] == "deal.creation"
+      pp "Create Deal"
+      pp wh["subscriptionType"]
+      pp wh["objectId"]
+      pp wh["changeFlag"]
+      pp wh["sourceId"]
+      pp wh["occurredAt"]      
+
+    elsif webhooks[0]["subscriptionType"] == "deal.deletion"
+      pp "Delete Deal"
         pp wh["subscriptionType"]
         pp wh["objectId"]
         pp wh["changeFlag"]
         pp wh["sourceId"]
         pp wh["occurredAt"]
 
-      elsif  wh["subscriptionType"] == "deal.deletion"
-        pp "Delete Deal"
-        pp wh["subscriptionType"]
-        pp wh["objectId"]
-        pp wh["changeFlag"]
-        pp wh["sourceId"]
-        pp wh["occurredAt"]
-
-      end    
-      
+    end      
   end
 
   # webhooks.ech do |hook|
@@ -73,15 +75,5 @@ class HooksController < ApplicationController
   #     event.save!
 
   # end     
-
-   end
-
- 
-
-
       
-      
-
-
-    
 end
