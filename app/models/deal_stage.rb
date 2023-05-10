@@ -1,0 +1,2 @@
+class DealStage < ApplicationRecord
+end
