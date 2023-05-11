@@ -33,11 +33,11 @@ class HooksController < ApplicationController
             archived: false
           )
 
-          pp api_response[:@id]
+          # pp api_response
 
-          puts api_response[:@properties]
+          # puts api_response
 
-          
+
           # puts api_response[:id]
           
           event = Event.new(
