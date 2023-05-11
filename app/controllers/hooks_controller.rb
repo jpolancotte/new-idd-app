@@ -33,15 +33,7 @@ class HooksController < ApplicationController
             archived: false
           )
 
-          puts api_response
-
-        
-
-         
-
-          
-
-         
+          puts api_response.size
 
           # puts api_response[:id]
           # puts api_response[:id]
@@ -64,13 +56,13 @@ class HooksController < ApplicationController
           # send data to excel pipeline
 
           puts "Update Deal"
-          pp wh["subscriptionType"]
-          pp wh["propertyName"] 
-          pp wh["propertyValue"] 
-          pp wh["objectId"]                 
-          pp wh["sourceId"]
-          pp wh["occurredAt"]
-          pp wh["changeSource"]
+          # pp wh["subscriptionType"]
+          # pp wh["propertyName"] 
+          # pp wh["propertyValue"] 
+          # pp wh["objectId"]                 
+          # pp wh["sourceId"]
+          # pp wh["occurredAt"]
+          # pp wh["changeSource"]
         end
 
         if wh["subscriptionType"] == "deal.creation"
