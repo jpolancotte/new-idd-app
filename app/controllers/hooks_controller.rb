@@ -26,7 +26,7 @@ class HooksController < ApplicationController
 
           api_client = Hubspot::Client.new(access_token: 'pat-na1-3903dc60-2e81-45e5-b9cd-d8a80007be28')
 
-          api_response = api_client.crm.deals.basic_api.get_by_id(deal_id: "dealId", properties: ["state, go_live_date, total_residential_individuals"], archived: false)
+          api_response = api_client.crm.deals.basic_api.get_by_id(deal_id: "dealId", properties: ["total_residential_individuals"], archived: false)
           puts api_response
 
           puts api_response[:id]
