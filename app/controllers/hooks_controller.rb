@@ -35,6 +35,10 @@ class HooksController < ApplicationController
 
           puts api_response
 
+          props = JSON.parse(api_response) 
+          
+          puts props
+
          
 
           
