@@ -22,6 +22,12 @@ class HooksController < ApplicationController
           
           # find deal first before creating event if not request hubspot api
 
+          # if deal exist | updated or delete
+
+          # else
+
+          # end
+
           require 'hubspot-api-client'
 
           api_client = Hubspot::Client.new(access_token: 'pat-na1-3903dc60-2e81-45e5-b9cd-d8a80007be28')
@@ -33,7 +39,7 @@ class HooksController < ApplicationController
             archived: false
           )
 
-          # pp api_response
+          pp api_response.properties
 
           # puts api_response
 
