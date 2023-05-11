@@ -26,11 +26,17 @@ class HooksController < ApplicationController
 
           api_client = Hubspot::Client.new(access_token: 'pat-na1-3903dc60-2e81-45e5-b9cd-d8a80007be28')
 
-          api_response = api_client.crm.deals.basic_api.get_by_id(deal_id: wh['objectId'] , properties: ["state, go_live_date, total_residential_individuals"], archived: false)
+          api_response = api_client.crm.deals.basic_api.get_by_id(
+            deal_id: wh['objectId'], 
+            properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
+                         total_residential_individuals, go_live_date, incumbent_pharmacy, delivery_type, comments, pipeline_date"], 
+            archived: false
+          )
+
           puts api_response
 
-          puts api_response[:id]
-          puts api_response[:id]
+          # puts api_response[:id]
+          # puts api_response[:id]
           
           event = Event.new(
             event_type: wh['subscriptionType'].split('.').last,
