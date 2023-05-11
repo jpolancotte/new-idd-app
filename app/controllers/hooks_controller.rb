@@ -35,7 +35,10 @@ class HooksController < ApplicationController
 
           puts api_response
 
-          results = JSON.parse(api_response.raw_post) 
+          puts api_response[0]
+          puts api_response[1]
+
+         
 
           # puts api_response[:id]
           # puts api_response[:id]
