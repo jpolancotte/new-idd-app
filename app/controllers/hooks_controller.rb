@@ -35,8 +35,7 @@ class HooksController < ApplicationController
 
           puts api_response
 
-          puts api_response[0]
-          puts api_response[1]
+          
 
          
 
