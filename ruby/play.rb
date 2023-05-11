@@ -7,19 +7,31 @@ require 'csv'
 require 'pp'
 # require 'mechanize'
 
-CSV.open("csv/list2_results.csv", "a") do |fl|
-  CSV.foreach("csv/list2.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|
+CSV.open("csv/portal3_result.csv", "a") do |fl|
+  CSV.foreach("csv/portal2.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|
 
-    full=row[0]
-    first=full.split(" ")[0]
+    email = row[2]
 
-    last=full.split(' ')[1..-1].join(' ')
+   a= "@tarrytownexpocare.com"
 
+   if email.include?(a)
 
-    puts full
+   puts email
 
+   else
 
-    fl << row.values_at(*row.headers) + [first] + [last] + [full]
+   fl << row.values_at(*row.headers)
+
+   end
+  #  puts a
+
+  #  if row[2].include?(email)
+
+  #   fl << row.values_at(*row.headers)
+
+  #  end
+
+       
    
 
   	

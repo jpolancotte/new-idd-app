@@ -18,7 +18,16 @@ class HooksController < ApplicationController
           pp wh["changeSource"]
         end
 
-        if wh["subscriptionType"] == "deal.propertyChange" 
+        if wh["subscriptionType"] == "deal.propertyChange"
+          
+          # find deal first before creating event if not request hubspot api
+
+          require 'hubspot-api-client'
+
+          api_client = Hubspot::Client.new(access_token: 'pat-na1-3903dc60-2e81-45e5-b9cd-d8a80007be28')
+
+          api_response = api_client.crm.deals.basic_api.get_by_id(deal_id: wh['objectId'], properties: ["state"], archived: false)
+          puts api_response
           
           event = Event.new(
             event_type: wh['subscriptionType'].split('.').last,
@@ -33,6 +42,9 @@ class HooksController < ApplicationController
             )
           end
           event.save!
+
+
+          # send data to excel pipeline
 
           puts "Update Deal"
           pp wh["subscriptionType"]
