@@ -35,6 +35,8 @@ class HooksController < ApplicationController
 
           puts api_response
 
+          puts properties=api_response[:properties]
+
           
 
          
