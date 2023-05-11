@@ -33,7 +33,7 @@ class HooksController < ApplicationController
             archived: false
           )
 
-          puts api_response.size
+          pp api_response
 
           # puts api_response[:id]
           # puts api_response[:id]
