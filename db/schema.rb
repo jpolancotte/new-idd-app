@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_12_201712) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_15_220052) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_201712) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "number"
+  end
+
+  create_table "deals", force: :cascade do |t|
+    t.bigint "team_id", null: false
+    t.string "name"
+    t.string "chain"
+    t.bigint "deal_stage_id", null: false
+    t.string "state"
+    t.string "tte_servicing_pharmacy"
+    t.string "total_residential_individuals"
+    t.string "probability_of_close"
+    t.date "go_live_date"
+    t.string "incumbent_pharmacy"
+    t.string "delivery_type"
+    t.string "comments"
+    t.string "pipeline_date"
+    t.integer "forecasted_individuals"
+    t.string "objectid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deal_stage_id"], name: "index_deals_on_deal_stage_id"
+    t.index ["team_id"], name: "index_deals_on_team_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -52,6 +74,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_201712) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tte_pharmacies", force: :cascade do |t|
+    t.string "name"
+    t.string "state"
+    t.string "pharmid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -67,4 +97,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_201712) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "deals", "deal_stages"
+  add_foreign_key "deals", "teams"
 end

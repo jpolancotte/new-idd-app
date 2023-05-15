@@ -1,0 +1,2 @@
+class TtePharmacy < ApplicationRecord
+end

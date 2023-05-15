@@ -46,19 +46,19 @@ class HooksController < ApplicationController
 
           # puts api_response[:id]
           
-          event = Event.new(
-            event_type: wh['subscriptionType'].split('.').last,
-            object_id: wh['objectId'],
-            event_id: wh['eventId'],
-            occured_at: wh['occurredAt']
-          )
-          if event.event_type == 'propertyChange'
-            event.assign_attributes(
-              property_name: wh['propertyName'],
-              property_value: wh['propertyValue']
-            )
-          end
-          event.save!
+          # event = Event.new(
+          #   event_type: wh['subscriptionType'].split('.').last,
+          #   object_id: wh['objectId'],
+          #   event_id: wh['eventId'],
+          #   occured_at: wh['occurredAt']
+          # )
+          # if event.event_type == 'propertyChange'
+          #   event.assign_attributes(
+          #     property_name: wh['propertyName'],
+          #     property_value: wh['propertyValue']
+          #   )
+          # end
+          # event.save!
 
 
           # send data to excel pipeline
