@@ -31,9 +31,9 @@ class HooksController < ApplicationController
             deal.name = wh['propertyValue']
             deal.save
           else
-            att=wh['propertyName']
-            deal.att = wh['propertyValue']
-            deal.save
+            
+            pp Deal.update(deal.id,{wh['propertyName'] => wh['propertyValue']} )
+            
           end
           event = Event.new(
             event_type: wh['subscriptionType'].split('.').last,
