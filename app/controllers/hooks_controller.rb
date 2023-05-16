@@ -9,8 +9,13 @@ class HooksController < ApplicationController
       webhooks.each do |wh| 
 
         if wh["subscriptionType"] == "deal.deletion"
-
           puts "Delete Deal"
+
+          deal=Deal.find_by_objectid(wh['objectId'])
+          deal.delete = true
+          deal.save
+
+
           pp wh["subscriptionType"]         
           pp wh["objectId"]                 
           pp wh["sourceId"]
@@ -19,6 +24,34 @@ class HooksController < ApplicationController
         end
 
         if wh["subscriptionType"] == "deal.propertyChange"
+
+          #find or create deal in database        
+
+          if Deal.where(objectid: wh['objectId']).exists?
+            puts "I exist update me"
+            deal=Deal.find_by_objectid(wh['objectId'])
+          else
+            puts "I Dont exist in the DB"
+            # require 'hubspot-api-client'
+            # api_client = Hubspot::Client.new(access_token: 'pat-na1-3903dc60-2e81-45e5-b9cd-d8a80007be28')
+
+            # api_response = api_client.crm.deals.basic_api.get_by_id(
+            #   deal_id: wh['objectId'], 
+            #   properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
+            #                total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type, comments, pipeline_date"], 
+            #   archived: false
+            # )
+
+            # pp api_response.properties
+
+            #result=api_response.properties
+           # puts result[""]
+            #deal=Deal.new
+            #deal.name=result["dealname"]
+
+          end
+
+          
           
           # find deal first before creating event if not request hubspot api
 
@@ -28,18 +61,21 @@ class HooksController < ApplicationController
 
           # end
 
-          require 'hubspot-api-client'
 
-          api_client = Hubspot::Client.new(access_token: 'pat-na1-3903dc60-2e81-45e5-b9cd-d8a80007be28')
 
-          api_response = api_client.crm.deals.basic_api.get_by_id(
-            deal_id: wh['objectId'], 
-            properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
-                         total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type, comments, pipeline_date"], 
-            archived: false
-          )
+          # require 'hubspot-api-client'
 
-          pp api_response.properties
+          # api_client = Hubspot::Client.new(access_token: 'pat-na1-3903dc60-2e81-45e5-b9cd-d8a80007be28')
+
+          # api_response = api_client.crm.deals.basic_api.get_by_id(
+          #   deal_id: wh['objectId'], 
+          #   properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
+          #                total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type, comments, pipeline_date"], 
+          #   archived: false
+          # )
+
+          # pp api_response.properties
+
 
           # puts api_response
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_15_220052) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_16_140754) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_15_220052) do
     t.string "objectid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "remove"
     t.index ["deal_stage_id"], name: "index_deals_on_deal_stage_id"
     t.index ["team_id"], name: "index_deals_on_team_id"
   end
@@ -52,6 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_15_220052) do
     t.string "property_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "deal_id", null: false
+    t.index ["deal_id"], name: "index_events_on_deal_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -99,4 +102,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_15_220052) do
 
   add_foreign_key "deals", "deal_stages"
   add_foreign_key "deals", "teams"
+  add_foreign_key "events", "deals"
 end

@@ -1,0 +1,27 @@
+<div class="container">
+
+  <table class="table table-sm">
+    <thead>
+      <tr>        
+        <th>Name</th>
+        <th>Total Deals</th>         
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @teams.each do |team| %>
+        <tr>         
+          <td><%= link_to team.name, team %></td> 
+          <td><%= team.deals.size %></td>           
+          <td><%= link_to 'Show', team %></td>
+          <td><%= link_to 'Edit', edit_team_path(team) %></td>
+          <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  
+
+</div>

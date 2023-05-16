@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # get 'teams/index'
+  # get 'teams/show'
+
+  resources :teams
     
   # post 'hooks/ipn_webhook', to: 'hooks#ipn_webhook'
 

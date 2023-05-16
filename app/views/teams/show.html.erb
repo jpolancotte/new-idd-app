@@ -1,0 +1,31 @@
+<div class="container">
+
+<%= @team.name %> |
+
+Deals: <%= @team.deals.size %>
+
+  <table class="table table-sm">
+    <thead>
+      <tr>        
+        <th>Name</th>
+        <th>Chain</th>         
+       
+      </tr>
+    </thead>
+  
+    <tbody>
+
+    
+      <% @team.deals.each do |deal| %>
+        <tr>         
+          <td><%= deal.name %></td> 
+          <td><%= deal.chain %></td>           
+         
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  
+
+</div>
