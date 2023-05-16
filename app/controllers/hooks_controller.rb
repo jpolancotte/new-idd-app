@@ -23,12 +23,16 @@ class HooksController < ApplicationController
 
         if Deal.where(objectid: wh['objectId']).exists?
           puts "I exist update me"
+
           deal=Deal.find_by_objectid(wh['objectId'])
+          pp deal
+
           if wh['propertyName'] == "dealname"
             deal.name = wh['propertyValue']
             deal.save
           else
-            deal.wh['propertyName'] = wh['propertyValue']
+            att=wh['propertyName']
+            deal.att = wh['propertyValue']
             deal.save
           end
           event = Event.new(
