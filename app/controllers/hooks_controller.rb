@@ -46,7 +46,7 @@ class HooksController < ApplicationController
 
           if wh['propertyName'] == "dealstage"
            deal=DealStage.find_by_number(wh['propertyValue'])
-           deal=Deal.update(deal.id, {name => wh['propertyValue']} )  
+           deal=Deal.update(deal.id, {"name" => wh['propertyValue']} )  
           else
             deal=Deal.update(deal.id, {wh['propertyName'] => wh['propertyValue']} )
           end         
