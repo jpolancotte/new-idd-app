@@ -25,22 +25,19 @@ class HooksController < ApplicationController
           puts "I exist update me"
 
           deal=Deal.find_by_objectid(wh['objectId'])
-          pp deal
+          # pp deal
 
           if wh['propertyName'] == "dealname"
-            deal.name = wh['propertyValue']
-            deal.save
-          else
-            
-            pp Deal.update(deal.id,{wh['propertyName'] => wh['propertyValue']} )
-            
+            Deal.update(deal.id,{"name" => wh['propertyValue']} )
+          else            
+            Deal.update(deal.id,{wh['propertyName'] => wh['propertyValue']} )
           end
           event = Event.new(
             event_type: wh['subscriptionType'].split('.').last,
             object_id: wh['objectId'],
             event_id: wh['eventId'],
             occured_at: wh['occurredAt'],
-            deal_id: dea.id
+            deal_id: deal.id
           )
           if event.event_type == 'propertyChange'
             event.assign_attributes(
