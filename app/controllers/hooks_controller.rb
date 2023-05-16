@@ -44,7 +44,12 @@ class HooksController < ApplicationController
           puts wh['propertyName']
           puts wh['propertyValue']
 
-          deal=Deal.update(deal.id, {wh['propertyName'] => wh['propertyValue']} )
+          if wh['propertyName'] == "dealstage"
+           deal=DealStage.find_by_number(wh['propertyValue'])
+           deal=Deal.update(deal.id, {name => wh['propertyValue']} )  
+          else
+            deal=Deal.update(deal.id, {wh['propertyName'] => wh['propertyValue']} )
+          end         
          
           event = Event.new(
             event_type: wh['subscriptionType'].split('.').last,
