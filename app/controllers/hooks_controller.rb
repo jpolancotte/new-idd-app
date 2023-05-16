@@ -41,7 +41,7 @@ class HooksController < ApplicationController
           deal=Deal.find_by_objectid(wh['objectId'])
           # pp deal
 
-          deal=Deal.update(deal.id,{wh['propertyName'] => wh['propertyValue']} )
+          deal=Deal.update(deal.id, {wh['propertyName'] => wh['propertyValue']} )
          
           event = Event.new(
             event_type: wh['subscriptionType'].split('.').last,
