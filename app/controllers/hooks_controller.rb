@@ -148,7 +148,7 @@ class HooksController < ApplicationController
           pipeline_date: prop["pipeline_date"],
           forecasted_individuals: prop["forecasted_individuals"] 
           ) 
-                  
+
         end
 
       elsif wh["subscriptionType"] == "deal.deletion"
