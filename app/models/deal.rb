@@ -4,8 +4,8 @@ class Deal < ApplicationRecord
 
   validates :dealname, :presence => true, :uniqueness => true
 
-  # def name
-  #   dealname
-  # end
+  def name
+    dealname
+  end
 
 end
