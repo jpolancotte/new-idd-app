@@ -110,25 +110,45 @@ class HooksController < ApplicationController
 
 
         else
-          puts "I Dont exist in the DB"
+          puts "I Dont exist in the DB, create deal in the DB"
 
-          # require 'hubspot-api-client'
-          # api_client = Hubspot::Client.new(access_token: 'pat-na1-3903dc60-2e81-45e5-b9cd-d8a80007be28')
+          require 'hubspot-api-client' 
+          api_client = Hubspot::Client.new(access_token: 'pat-na1-3903dc60-2e81-45e5-b9cd-d8a80007be28')
 
-          # api_response = api_client.crm.deals.basic_api.get_by_id(
-          #   deal_id: wh['objectId'], 
-          #   properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
-          #                total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type, comments, pipeline_date"], 
-          #   archived: false
-          # )
+          api_response = api_client.crm.deals.basic_api.get_by_id(
+            deal_id: wh['objectId'], 
+            properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
+                        total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type, 
+                        comments, pipeline_date, forecasted_individuals"], 
+            archived: false
+          )
+          
+          prop=api_response.properties 
 
-          # pp api_response.properties
-
-          #result=api_response.properties
-          # puts result[""]
-          #deal=Deal.new
-          #deal.name=result["dealname"]
-
+          #  puts prop["hubspot_owner_id"]
+          team_id=Team.find_by_hs_deal_owner_number(prop["hubspot_owner_id"]).id
+          #  puts team_id
+    
+          deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
+          #  puts deal_stage_id
+          
+          Deal.create(
+          team_id: team_id,
+          dealname: prop["dealname"],
+          chain: prop["chain"],
+          deal_stage_id: deal_stage_id,
+          state: prop["state"],
+          tte_servicing_pharmacy: prop["tte_servicing_pharmacy"],
+          total_residential_individuals: prop["total_residential_individuals"],
+          probability_of_close: prop["probability_of_close"],
+          go_live_date: prop["go_live_date"],
+          incumbent_pharmacy: prop["incumbent_pharmacy"],
+          delivery_type: prop["delivery_type"],
+          comments: prop["comments"],
+          pipeline_date: prop["pipeline_date"],
+          forecasted_individuals: prop["forecasted_individuals"] 
+          ) 
+                  
         end
 
       elsif wh["subscriptionType"] == "deal.deletion"
