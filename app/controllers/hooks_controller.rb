@@ -20,20 +20,7 @@ class HooksController < ApplicationController
     webhooks = JSON.parse(request.raw_post)   
     webhooks.each do |wh| 
 
-      if wh["subscriptionType"] == "deal.deletion"
-        puts "Delete Deal"
-
-        deal=Deal.find_by_objectid(wh['objectId'])
-        deal.delete = true
-        deal.save
-
-        # pp wh["subscriptionType"]         
-        # pp wh["objectId"]                 
-        # pp wh["sourceId"]
-        # pp wh["occurredAt"]
-        # pp wh["changeSource"]
-
-      elsif wh["subscriptionType"] == "deal.propertyChange"
+      if wh["subscriptionType"] == "deal.propertyChange"
 
         if Deal.where(objectid: wh['objectId']).exists?
           puts "I exist update me"
@@ -145,6 +132,19 @@ class HooksController < ApplicationController
           #deal.name=result["dealname"]
 
         end        
+
+      elsif wh["subscriptionType"] == "deal.deletion"
+        puts "Delete Deal"
+
+        deal=Deal.find_by_objectid(wh['objectId'])
+        deal.delete = true
+        deal.save
+
+        # pp wh["subscriptionType"]         
+        # pp wh["objectId"]                 
+        # pp wh["sourceId"]
+        # pp wh["occurredAt"]
+        # pp wh["changeSource"]
       end     
 
       # if wh["subscriptionType"] == "deal.creation"

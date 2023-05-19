@@ -32,7 +32,7 @@ namespace :db do
                     
         response["value"].each do |r|       
 
-           r["values"].each do |v|
+          r["values"].each do |v|
            
             if v[1] == lead
               pp v[1]
@@ -49,8 +49,8 @@ namespace :db do
               n='"N"'
 
           response2 = HTTParty.post("#{encoded}",
-            :body => 
-              {  "values"=>[
+            :body => {  "values"=>
+              [
                 ["Kathy Brown / Nanette Wrobel", "1011A Apostolico Now EIHA", "", 
                 "Sales - Initial Communication", "NJ", "NY", 300, 0.60, 44166,
                 "PAL", "", "", "", "",
@@ -65,16 +65,14 @@ namespace :db do
                         
               }.to_json,
 
-        :headers => {'Content-Type' => 'application/json', "Authorization" => "Bearer #{a}" } )       
+              :headers => {'Content-Type' => 'application/json', "Authorization" => "Bearer #{a}" } )       
 
-      pp response2
+              pp response2
 
             end
             
 
-           end
-
-            
+           end           
 
           
          
