@@ -146,7 +146,8 @@ class HooksController < ApplicationController
           delivery_type: prop["delivery_type"],
           comments: prop["comments"],
           pipeline_date: prop["pipeline_date"],
-          forecasted_individuals: prop["forecasted_individuals"] 
+          forecasted_individuals: prop["forecasted_individuals"],
+          objectid: prop["hs_object_id"]
           ) 
 
         end

@@ -24,7 +24,7 @@ namespace :db do
         api_client = Hubspot::Client.new(access_token: 'pat-na1-3903dc60-2e81-45e5-b9cd-d8a80007be28')
 
         api_response = api_client.crm.deals.basic_api.get_by_id(
-          deal_id: 13359401870, 
+          deal_id: 13356947541, 
           properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
                        total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type, 
                        comments, pipeline_date, forecasted_individuals"], 
@@ -60,7 +60,8 @@ namespace :db do
       #   delivery_type: prop["delivery_type"],
       #   comments: prop["comments"],
       #   pipeline_date: prop["pipeline_date"],
-      #   forecasted_individuals: prop["forecasted_individuals"] 
+      #   forecasted_individuals: prop["forecasted_individuals"],
+      #   objectid: prop["hs_object_id"]
       #  )
 
 
