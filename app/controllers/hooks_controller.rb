@@ -132,7 +132,7 @@ class HooksController < ApplicationController
           deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
           #  puts deal_stage_id
           
-         deal = Deal.new(
+         deal = Deal.create(
           team_id: team_id,
           dealname: prop["dealname"],
           chain: prop["chain"],
@@ -149,6 +149,9 @@ class HooksController < ApplicationController
           forecasted_individuals: prop["forecasted_individuals"],
           objectid: prop["hs_object_id"]
           ) 
+
+          PP deal.name
+          PP deal.create_at
 
           #add to the Pipeline in excel 
 
@@ -190,21 +193,21 @@ class HooksController < ApplicationController
           
           pp response2
 
-          #add Event to DB
-          event = Event.new(
-            event_type: wh['subscriptionType'].split('.').last,
-            object_id: wh['objectId'],
-            event_id: wh['eventId'],
-            occured_at: wh['occurredAt'],
-            deal_id: deal.id
-          )
-          if event.event_type == 'propertyChange'
-            event.assign_attributes(
-              property_name: wh['propertyName'],
-              property_value: wh['propertyValue']
-            )
-          end
-          event.save!
+          # #add Event to DB
+          # event = Event.new(
+          #   event_type: wh['subscriptionType'].split('.').last,
+          #   object_id: wh['objectId'],
+          #   event_id: wh['eventId'],
+          #   occured_at: wh['occurredAt'],
+          #   deal_id: deal.id
+          # )
+          # if event.event_type == 'propertyChange'
+          #   event.assign_attributes(
+          #     property_name: wh['propertyName'],
+          #     property_value: wh['propertyValue']
+          #   )
+          # end
+          # event.save!
 
         end
 
