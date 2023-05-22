@@ -150,8 +150,8 @@ class HooksController < ApplicationController
           objectid: prop["hs_object_id"]
           ) 
 
-          PP deal.name
-          PP deal.created_at
+          pp deal.name
+          pp deal.created_at
 
           #add to the Pipeline in excel 
 
