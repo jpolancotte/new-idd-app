@@ -132,7 +132,7 @@ class HooksController < ApplicationController
           deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
           #  puts deal_stage_id
           
-         deal = Deal.create(
+         deal = Deal.new(
           team_id: team_id,
           dealname: prop["dealname"],
           chain: prop["chain"],
