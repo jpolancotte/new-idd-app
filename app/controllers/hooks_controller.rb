@@ -151,7 +151,7 @@ class HooksController < ApplicationController
           ) 
 
           PP deal.name
-          PP deal.create_at
+          PP deal.creatws_at
 
           #add to the Pipeline in excel 
 
@@ -211,12 +211,12 @@ class HooksController < ApplicationController
 
         end
 
-      elsif #wh["subscriptionType"] == "deal.deletion"
-        # puts "Delete Deal"
+      elsif wh["subscriptionType"] == "deal.deletion"
+        puts "Delete Deal"
 
-        # deal=Deal.find_by_objectid(wh['objectId'])
-        # deal.delete = true
-        # deal.save
+        deal=Deal.find_by_objectid(wh['objectId'])
+        deal.delete = true
+        deal.save
 
         # pp wh["subscriptionType"]         
         # pp wh["objectId"]                 
