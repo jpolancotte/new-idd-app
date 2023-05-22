@@ -151,7 +151,7 @@ class HooksController < ApplicationController
           ) 
 
           PP deal.name
-          PP deal.creatws_at
+          PP deal.created_at
 
           #add to the Pipeline in excel 
 
