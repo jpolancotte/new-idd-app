@@ -175,7 +175,7 @@ class HooksController < ApplicationController
           response2 = HTTParty.post("#{encoded}",
           :body => {  
             "values"=>[
-              [deal.team.name, lead_name, deal.chain, 
+              [deal.team.name, deal.name, deal.chain, 
               deal.deal_stage.name, deal.state, deal.tte_servicing_pharmacy, deal.total_residential_individuals, 
               deal.probability_of_close, deal.go_live_date,
               deal.incumbent_pharmacy, deal.delivery_type, deal.comments, deal.pipeline_date, deal.forecasted_individuals,
