@@ -12,9 +12,9 @@
 #     u.superadmin_role=true
 # end
 
-TaxonomyDescription.create(name: "Residential Treatment Facility, Intellectual and/or Developmental Disabilities")
-TaxonomyDescription.create(name: "Community Based Residential Treatment Facility, Intellectual and/or Developmental Disabilities")
-TaxonomyDescription.create(name: "Intermediate Care Facility, Intellectual Disabilities")
-TaxonomyDescription.create(name: "Respite Care, Respite Care, Intellectual and/or Developmental Disabilities, Child")
-TaxonomyDescription.create(name: "Day Training, Developmentally Disabled Services")
-TaxonomyDescription.create(name: "Community/Behavioral Health")
+# TaxonomyDescription.create(name: "Residential Treatment Facility, Intellectual and/or Developmental Disabilities")
+# TaxonomyDescription.create(name: "Community Based Residential Treatment Facility, Intellectual and/or Developmental Disabilities")
+# TaxonomyDescription.create(name: "Intermediate Care Facility, Intellectual Disabilities")
+# TaxonomyDescription.create(name: "Respite Care, Respite Care, Intellectual and/or Developmental Disabilities, Child")
+# TaxonomyDescription.create(name: "Day Training, Developmentally Disabled Services")
+# TaxonomyDescription.create(name: "Community/Behavioral Health")
