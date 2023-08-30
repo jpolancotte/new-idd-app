@@ -1,0 +1,17 @@
+name,label,type,fieldType,groupName,date,objectType
+What would improve future presentations? KATHY,What would improve future presentations? KATHY,string,text,august_9_symposium,August 9 2023 Symposium,contacts
+What did you like best about the presentation? KATHY,What did you like best about the presentation? KATHY,string,text,august_9_symposium,August 9 2023 Symposium,contacts
+What information would you like to see at future presentations? KATHY,What information would you like to see at future presentations? KATHY,string,text,august_9_symposium,August 9 2023 Symposium,contacts
+How did you hear about this presentation? KATHY,How did you hear about this presentation? KATHY,string,text,august_9_symposium,August 9 2023 Symposium,contacts
+Other Comments KATHY,Other Comments KATHY,string,textarea,august_9_symposium,August 9 2023 Symposium,contacts
+Were the facilities conducive to learning KATHY,Were the facilities conducive to learning KATHY,enumeration,select,august_9_symposium,August 9 2023 Symposium,contacts
+The outcomes were met as stated KATHY,The outcomes were met as stated KATHY,enumeration,select,august_9_symposium,August 9 2023 Symposium,contacts
+The presentation met my expectations KATHY,The presentation met my expectations KATHY,enumeration,select,august_9_symposium,August 9 2023 Symposium,contacts
+The presentation will improve my practice and patient care KATHY,The presentation will improve my practice and patient care KATHY,enumeration,select,august_9_symposium,August 9 2023 Symposium,contacts
+I will attend future programs offered by the sponsor KATHY,I will attend future programs offered by the sponsor KATHY,enumeration,select,august_9_symposium,August 9 2023 Symposium,contacts
+I would recommend this training program to others KATHY,I would recommend this training program to others KATHY,enumeration,select,august_9_symposium,August 9 2023 Symposium,contacts
+Teaching effectiveness KATHY,Teaching effectiveness KATHY,enumeration,select,august_9_symposium,August 9 2023 Symposium,contacts
+The presenter answered questions effectively KATHY,The presenter answered questions effectively KATHY,enumeration,select,august_9_symposium,August 9 2023 Symposium,contacts
+"Method of presentation effective (PowerPoint, lecture, webinar etc.) KATHY","Method of presentation effective (PowerPoint, lecture, webinar etc.) KATHY",enumeration,select,august_9_symposium,August 9 2023 Symposium,contacts
+The presenter was knowledgeable about materials covered KATHY,The presenter was knowledgeable about materials covered KATHY,enumeration,select,august_9_symposium,August 9 2023 Symposium,contacts
+Did you perceive commercial bias during this presentation KATHY,Did you perceive commercial bias during this presentation KATHY,enumeration,select,august_9_symposium,August 9 2023 Symposium,contacts

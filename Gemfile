@@ -81,3 +81,6 @@ gem 'cancancan'
 gem 'httparty'
 
 gem 'hubspot-api-client'
+
+gem 'geocoder'
+

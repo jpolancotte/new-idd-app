@@ -6,8 +6,15 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create! do |u|
-    u.email     = 'jpolanco1914@gmail.com'
-    u.password    = 'ABC987xyz$%'
-    u.superadmin_role=true
-end
+# User.create! do |u|
+#     u.email     = 'jpolanco1914@gmail.com'
+#     u.password    = 'ABC987xyz$%'
+#     u.superadmin_role=true
+# end
+
+TaxonomyDescription.create(name: "Residential Treatment Facility, Intellectual and/or Developmental Disabilities")
+TaxonomyDescription.create(name: "Community Based Residential Treatment Facility, Intellectual and/or Developmental Disabilities")
+TaxonomyDescription.create(name: "Intermediate Care Facility, Intellectual Disabilities")
+TaxonomyDescription.create(name: "Respite Care, Respite Care, Intellectual and/or Developmental Disabilities, Child")
+TaxonomyDescription.create(name: "Day Training, Developmentally Disabled Services")
+TaxonomyDescription.create(name: "Community/Behavioral Health")

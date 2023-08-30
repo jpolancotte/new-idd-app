@@ -21,10 +21,9 @@ namespace :db do
       
       
      
-     
      ##Create Properties in HubSpot API
       
-    CSV.foreach("csv/webinar_props_may_11_20232deb.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|
+    CSV.foreach("csv/webinar_props_july_13_2023.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|
       
       name="#{row[0]} #{row[5]}".parameterize(separator: '_')
       puts name        
@@ -37,12 +36,12 @@ namespace :db do
       
       
       if row[2] == "string"
-        api_client = Hubspot::Client.new(access_token: "pat-na1-3903dc60-2e81-45e5-b9cd-d8a80007be28")
+        api_client = Hubspot::Client.new(access_token: "pat-na1-16abffc8-7bad-4236-9d24-d2e261ed4c47")
         body = {name: name, label: label, type: type, fieldType: field_type, groupName: group_name, has_unique_value: false, hidden: false, formField: true}
         api_response = api_client.crm.properties.core_api.create(object_type: object_type, body: body)
         puts api_response
       elsif row[2] == "enumeration"
-        api_client = Hubspot::Client.new(access_token: "pat-na1-9a79ceee-5ec4-4159-8c56-bff3e59b5b8f")
+        api_client = Hubspot::Client.new(access_token: "pat-na1-16abffc8-7bad-4236-9d24-d2e261ed4c47")
         body = {name: name, label: label, type: type, fieldType: field_type, groupName: group_name,
           options: [{"label":"1","description":"","value":"1","displayOrder":1,"hidden":false,"formField":true},
             {"label":"2","description":"","value":"2","displayOrder":2,"hidden":false,"formField":true},
