@@ -7,30 +7,36 @@ require 'csv'
 require 'pp'
 # require 'mechanize'
 
+
+# states.each do |state|
+
+#     loop do
+
+#     end
+# end
+
+
+state="NY"
 skip=0
 
+loop do 
 
-states.each do |state|
+    url="https://npiregistry.cms.hhs.gov/api/?taxonomy_description=Community%20Based%20Residential%20Treatment%20Facility,%20Intellectual%20and/or%20Developmental%20Disabilities&state=#{state}&limit=200&skip=#{skip}&pretty=on&version=2.1"
 
-    loop do
+    uri = URI(url)
+    res = Net::HTTP.get_response(uri)
+    res.body if res.is_a?(Net::HTTPSuccess)
 
-    end
-end
+    parsed_json = JSON.parse(res.body)
 
+    count = parsed_json["result_count"]
+    results = parsed_json["results"]
 
-url="https://npiregistry.cms.hhs.gov/api/?taxonomy_description=Community%20Based%20Residential%20Treatment%20Facility,%20Intellectual%20and/or%20Developmental%20Disabilities&state=MO&limit=200&skip=1000&pretty=on&version=2.1"
+    puts count
 
-uri = URI(url)
-res = Net::HTTP.get_response(uri)
-res.body if res.is_a?(Net::HTTPSuccess)
+    break if count == 0
 
-parsed_json = JSON.parse(res.body)
-
-pp parsed_json["result_count"]
-
-results = parsed_json["results"]
-
-if results.size > 0
+    skip += 200
 
 end
 

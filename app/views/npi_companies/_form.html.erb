@@ -1,0 +1,47 @@
+<%= form_with(model: npi_company) do |form| %>
+  <% if npi_company.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(npi_company.errors.count, "error") %> prohibited this npi_company from being saved:</h2>
+
+      <ul>
+        <% npi_company.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :number, style: "display: block" %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div>
+    <%= form.label :enumeration_date, style: "display: block" %>
+    <%= form.date_field :enumeration_date %>
+  </div>
+
+  <div>
+    <%= form.label :last_updated, style: "display: block" %>
+    <%= form.date_field :last_updated %>
+  </div>
+
+  <div>
+    <%= form.label :subpart, style: "display: block" %>
+    <%= form.text_field :subpart %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

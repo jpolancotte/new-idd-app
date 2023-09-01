@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_30_211408) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_01_220550) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "company_taxonomies", force: :cascade do |t|
+    t.bigint "npi_company_id", null: false
+    t.bigint "taxonomy_id", null: false
+    t.string "state_iso"
+    t.string "license"
+    t.boolean "primary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["npi_company_id"], name: "index_company_taxonomies_on_npi_company_id"
+    t.index ["taxonomy_id"], name: "index_company_taxonomies_on_taxonomy_id"
+  end
 
   create_table "deal_stages", force: :cascade do |t|
     t.string "name"
@@ -57,12 +69,65 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_211408) do
     t.index ["deal_id"], name: "index_events_on_deal_id"
   end
 
+  create_table "identifiers", force: :cascade do |t|
+    t.bigint "npi_company_id", null: false
+    t.string "code"
+    t.string "desc"
+    t.string "issuer"
+    t.string "number"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["npi_company_id"], name: "index_identifiers_on_npi_company_id"
+  end
+
+  create_table "npi_addresses", force: :cascade do |t|
+    t.bigint "npi_company_id", null: false
+    t.string "address_purpose"
+    t.string "address"
+    t.string "city"
+    t.bigint "state_id", null: false
+    t.string "postal_code"
+    t.string "telephone_number"
+    t.decimal "latitude", precision: 13, scale: 9
+    t.decimal "longitude", precision: 13, scale: 9
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["npi_company_id"], name: "index_npi_addresses_on_npi_company_id"
+    t.index ["state_id"], name: "index_npi_addresses_on_state_id"
+  end
+
+  create_table "npi_companies", force: :cascade do |t|
+    t.string "name"
+    t.string "number"
+    t.date "enumeration_date"
+    t.date "last_updated"
+    t.string "subpart"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "telephone_number"
+    t.string "position"
+    t.string "prefix"
+    t.string "suffix"
+  end
+
   create_table "states", force: :cascade do |t|
     t.string "name"
     t.string "iso"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "active", default: false
+  end
+
+  create_table "taxonomies", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.string "group"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taxonomy_descriptions", force: :cascade do |t|
@@ -114,7 +179,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_211408) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "company_taxonomies", "npi_companies"
+  add_foreign_key "company_taxonomies", "taxonomies"
   add_foreign_key "deals", "deal_stages"
   add_foreign_key "deals", "teams"
   add_foreign_key "events", "deals"
+  add_foreign_key "identifiers", "npi_companies"
+  add_foreign_key "npi_addresses", "npi_companies"
+  add_foreign_key "npi_addresses", "states"
 end

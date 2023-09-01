@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :npi_companies
   # get 'teams/index'
   # get 'teams/show'
 

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Npi companies</h1>
+
+<div id="npi_companies">
+  <% @npi_companies.each do |npi_company| %>
+    <%= render npi_company %>
+    <p>
+      <%= link_to "Show this npi company", npi_company %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New npi company", new_npi_company_path %>
