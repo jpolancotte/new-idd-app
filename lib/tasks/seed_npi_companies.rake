@@ -45,6 +45,15 @@ namespace :db do
                                     tax=Taxonomy.find_or_create_by(name: t["desc"], code: t["code"])
                                     tax.group=t["taxonomy_group"]
                                     tax.save
+
+                                    ct=CompanyTaxonomy.create
+                                    ct.npi_company_id=c.id
+                                    ct.taxonomy_id=tax.id
+                                    ct.state_iso=t["state"]
+                                    ct.license=t["license"]
+                                    ct.primary=t["primary"]
+                                    ct.save
+
                                 end                                
                             end
 
