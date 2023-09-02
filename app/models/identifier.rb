@@ -2,7 +2,8 @@ class Identifier < ApplicationRecord
   belongs_to :npi_company
 
   def name
-    desc
+    "#{desc} - #{number} "
+    
   end
 
 end
