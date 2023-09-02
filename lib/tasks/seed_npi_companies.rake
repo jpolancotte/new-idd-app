@@ -25,7 +25,6 @@ namespace :db do
                         results = parsed_json["results"]
 
                         # puts results
-
                         results.each do |r|
                             c=NpiCompany.create
                                 c.number=r["number"]
@@ -76,6 +75,7 @@ namespace :db do
                                     address.save
 
                                     ls=LastSearch.last
+                                        #state must exists avoids nill or other
                                         if State.exists?(iso: add["state"])
                                             ls.state_id= State.find_by_iso(add["state"]).id
                                             ls.taxonomy_description_id=key.id
@@ -103,22 +103,16 @@ namespace :db do
                                     b.save                                  
 
                                 end                           
-                            end
-
-                           
+                            end                           
 
                         end #results.each do |r|
-                    
-                        puts count
-                        puts state.iso
-                        puts key.name
+                        puts key.name   
+                        puts state.iso                 
+                        puts count  
                     
                         break if count == 0 || skip > 1000                    
-                        skip += 200                    
-                       
+                        skip += 200  
 
-
-                    
                     end #loop do 
                 end #keys.each do |key|
             end #states.each do |state|          

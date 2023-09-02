@@ -36,6 +36,15 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
+    config.model State do
+      exclude_fields :npi_addresses, :npi_companies
+    end
+
+    config.model NpiCompany do
+      exclude_fields :company_taxonomies
+    end
+
+
     ## With an audit adapter, you can add:
     # history_index
     # history_show
