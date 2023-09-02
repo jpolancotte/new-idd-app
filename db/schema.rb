@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_01_220550) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_02_011546) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,6 +79,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_220550) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["npi_company_id"], name: "index_identifiers_on_npi_company_id"
+  end
+
+  create_table "last_searches", force: :cascade do |t|
+    t.bigint "state_id", null: false
+    t.bigint "taxonomy_description_id", null: false
+    t.string "skip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_last_searches_on_state_id"
+    t.index ["taxonomy_description_id"], name: "index_last_searches_on_taxonomy_description_id"
   end
 
   create_table "npi_addresses", force: :cascade do |t|
@@ -185,6 +195,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_220550) do
   add_foreign_key "deals", "teams"
   add_foreign_key "events", "deals"
   add_foreign_key "identifiers", "npi_companies"
+  add_foreign_key "last_searches", "states"
+  add_foreign_key "last_searches", "taxonomy_descriptions"
   add_foreign_key "npi_addresses", "npi_companies"
   add_foreign_key "npi_addresses", "states"
 end
