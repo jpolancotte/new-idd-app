@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # get 'states/index'
+  # get 'states/show'
+
+  resources :states
   resources :npi_companies
   # get 'teams/index'
   # get 'teams/show'
