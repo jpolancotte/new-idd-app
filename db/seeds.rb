@@ -16,3 +16,5 @@
 # TaxonomyDescription.create(name: "Community Based Residential Treatment Facility, Intellectual and/or Developmental Disabilities")
 # TaxonomyDescription.create(name: "Intermediate Care Facility, Intellectual Disabilities")
 # TaxonomyDescription.create(name: "Community/Behavioral Health")
+
+

@@ -2,9 +2,9 @@
 <p>Find me in app/views/states/index.html.erb</p>
 
 
-<div>
+<div class="container">
   <% @states.each do |state| %>
-    <%= link_to state.name, state %>
+    <%= link_to state.name, state %> (<%= state.npi_companies.size %>)
     <p>
       <% %>
     </p>

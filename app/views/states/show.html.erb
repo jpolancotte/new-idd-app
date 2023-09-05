@@ -1,2 +1,35 @@
 <h1>States#show</h1>
 <p>Find me in app/views/states/show.html.erb</p>
+
+
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+  <%= @state.iso %> <%= @state.npi_companies.size %>
+  <br />
+
+  <% @state.npi_companies.each do |c| %>
+
+    <%= c.name %>
+    
+    <%= c.number %>
+    <br />
+    <%= c.address %>  <%= c.city %>
+    
+    <br>
+
+   
+    <p>
+      <% %>
+    </p>
+  <% end %>
+</div>
+
+
+<div>
+  <%= link_to "Edit this state", edit_state_path(@state) %> |
+  <%= link_to "Back to state", states_path %>
+
+  <%= button_to "Destroy this state", @state, method: :delete %>
+</div>
+
