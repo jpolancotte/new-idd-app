@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :parents
   # get 'states/index'
   # get 'states/show'
 

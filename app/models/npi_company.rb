@@ -6,6 +6,7 @@ class NpiCompany < ApplicationRecord
     has_many :company_taxonomies, dependent: :destroy
     has_many :taxonomies, through: :company_taxonomies
     belongs_to :state, optional: true
+    belongs_to :parent, optional: true
 
     geocoded_by :get_address
     after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address? }

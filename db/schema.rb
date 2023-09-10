@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_05_132350) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_08_161948) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -129,7 +129,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_132350) do
     t.string "main_phone_number"
     t.decimal "latitude", precision: 13, scale: 9
     t.decimal "longitude", precision: 13, scale: 9
+    t.bigint "parent_id"
+    t.index ["parent_id"], name: "index_npi_companies_on_parent_id"
     t.index ["state_id"], name: "index_npi_companies_on_state_id"
+  end
+
+  create_table "parents", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "states", force: :cascade do |t|
@@ -207,5 +215,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_132350) do
   add_foreign_key "last_searches", "taxonomy_descriptions"
   add_foreign_key "npi_addresses", "npi_companies"
   add_foreign_key "npi_addresses", "states"
+  add_foreign_key "npi_companies", "parents"
   add_foreign_key "npi_companies", "states"
 end
