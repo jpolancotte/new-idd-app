@@ -1,32 +1,69 @@
-<div id="<%= dom_id npi_company %>">
-  <p>
-    <strong>Name:</strong>
-    <%= npi_company.name %>
-  </p>
+<div class="container">
+  <div class="card text-center">    
+    <div class="card-body">
+      <h5 class="card-title"><%= npi_company.name %></h5>
+      <p class="card-text"><%= npi_company.city %></p>
+      <ol class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">NPI Number</div>            
+          </div>
+          <span class="badge bg-primary rounded-pill"><%= npi_company.number %></span>
+        </li>
+      </ol>
+    </div>
+    <div class="card-footer text-body-secondary text-center">
+    <p class="">Taxonomies</p1>
+    
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <% npi_company.taxonomies.each do |t| %>
+        <div class="col">         
+            <div class="card h-100">            
+              <div class="card-body">
+                <p class="card-title"><%= t.name %></p>                
+              </div>              
+            </div>          
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
 
-  <p>
-    <strong>Number:</strong>
-    <%= npi_company.number %>
-  </p>
+<br />
 
-  <p>
-    <strong>Enumeration date:</strong>
-    <%= npi_company.enumeration_date %>
-  </p>
+<div class="container text-center">
+  <div id="<%= dom_id npi_company %>">
+    <p>
+      <strong>Name:</strong>
+      <%= npi_company.name %>
+    </p>
 
-  <p>
-    <strong>Last updated:</strong>
-    <%= npi_company.last_updated %>
-  </p>
+    <p>
+      <strong>Number:</strong>
+      <%= npi_company.number %>
+    </p>
 
-  <p>
-    <strong>Subpart:</strong>
-    <%= npi_company.subpart %>
-  </p>
+    <p>
+      <strong>Enumeration date:</strong>
+      <%= npi_company.enumeration_date %>
+    </p>
 
-  <p>
-    <strong>Status:</strong>
-    <%= npi_company.status %>
-  </p>
+    <p>
+      <strong>Last updated:</strong>
+      <%= npi_company.last_updated %>
+    </p>
+
+    <p>
+      <strong>Subpart:</strong>
+      <%= npi_company.subpart %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <%= npi_company.status %>
+    </p>
+
+  </div>
 
 </div>
+
