@@ -33,7 +33,7 @@
     <tbody>
       <% @parent.npi_companies.limit(200).each do |c| %>
         <tr>
-          <td><%= c.name %></td>
+          <td><%= link_to c.name, c %></td>
           <td><%= c.number %></td>
           <td><%= c.first_name %></td>
           <td><%= c.last_name %></td>
