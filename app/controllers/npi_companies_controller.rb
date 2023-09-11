@@ -3,7 +3,7 @@ class NpiCompaniesController < ApplicationController
 
   # GET /npi_companies or /npi_companies.json
   def index
-    @npi_companies = NpiCompany.all
+    @npi_companies = NpiCompany.all.limit(500)
   end
 
   # GET /npi_companies/1 or /npi_companies/1.json

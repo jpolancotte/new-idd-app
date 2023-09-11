@@ -1,14 +1,39 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Npi companies</h1>
+<div class="container">
 
-<div id="npi_companies">
-  <% @npi_companies.each do |npi_company| %>
-    <%= render npi_company %>
-    <p>
-      <%= link_to "Show this npi company", npi_company %>
-    </p>
-  <% end %>
-</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Company</th>
+        <th scope="col">NPI Number</th>       
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Position</th>
+        <th scope="col">Address</th>   
+        <th scope="col">City</th> 
+        <th scope="col">State</th>                
+      </tr>
+    </thead>
+    <tbody>
+      <% @npi_companies.each do |c| %>
+        <tr>
+          <td><%= link_to c.name, c %></td>
+          <td><%= c.number %></td>
+          <td><%= c.first_name %></td>
+          <td><%= c.last_name %></td>
+          <td><%= c.position %></td>
+          <td><%= c.address %></td>
+          <td><%= c.city %></td>
+          <td><%= c.state.iso if c.state %></td>
+        </tr>
+      <% end %>
+      
+    </tbody>
+  </table>
+
+<div/>
+
+
 
 <%= link_to "New npi company", new_npi_company_path %>

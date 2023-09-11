@@ -21,7 +21,10 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <% if user_signed_in? %>
-            
+            <%= link_to('States', states_path, class: "dropdown-item") %>
+            <%= link_to('Parents', parents_path, class: "dropdown-item") %>
+            <%= link_to('NPI Companies', npi_companies_path, class: "dropdown-item") %>
+                       
             <%= link_to('Admin', rails_admin_path, class: "dropdown-item") if current_user.superadmin_role? %>
             <%= link_to('Edit', edit_user_registration_path, class: "dropdown-item") %>
             <%= button_to('Logout', destroy_user_session_path, class: "dropdown-item", title: 'Logout', :method => :delete) %>
