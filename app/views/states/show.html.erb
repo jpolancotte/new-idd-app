@@ -24,6 +24,7 @@
     <thead>
       <tr>
         <th scope="col">Company</th>
+        <th scope="col">Parent</th>
         <th scope="col">NPI Number</th>       
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
@@ -37,6 +38,7 @@
       <% @state.npi_companies.limit(200).each do |c| %>
         <tr>
           <td><%= link_to c.name, c %></td>
+          <td><%= link_to c.parent.name, c.parent if c.parent %></td>
           <td><%= c.number %></td>
           <td><%= c.first_name %></td>
           <td><%= c.last_name %></td>
