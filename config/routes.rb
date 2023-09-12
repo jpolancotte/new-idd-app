@@ -20,7 +20,7 @@ Rails.application.routes.draw do
  
   #devise_for :users
   devise_for :users, :controllers => {:registrations => "registrations"}
-  root to: "home#index"  
+  root to: "states#index"  
   # root "articles#index"
   # get 'home/index'
 end
