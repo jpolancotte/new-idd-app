@@ -4,6 +4,7 @@ class StatesController < ApplicationController
   def index
     @states = State.all.order(:name)
     @tte_states = State.active.order(:name)
+    @non_tte_states = State.inactive.order(:name)
   end
 
   def show
