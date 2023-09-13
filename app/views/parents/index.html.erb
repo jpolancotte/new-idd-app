@@ -19,9 +19,9 @@
         <td><%= link_to parent.name, parent %></td>
         <td><span class="badge bg-primary rounded-pill"><%= parent.npi_companies.size %></span></td>
         <% if b.size > 1 %> 
-         <% b.each do |s| %> 
-          <td><%= State.find(s).iso %></td>
-         <% end %>
+       
+          <td><%= State.find(b).iso %></td>
+         
         <% elsif b.size == 1%>
          <td><%= State.find(b.first).iso %> </td>
         <% elsif b.size == 0%>
@@ -32,6 +32,8 @@
     </tbody>
   </table>
 </div>
+
+
 
 
 
