@@ -6,26 +6,16 @@
     <thead>
       <tr>        
         <th scope="col">Company Name</th>
-        <th scope="col">NPI Locations</th>
-        <th scope="col">State(s)</th>
+        <th scope="col">NPI Locations</th>      
         <th scope="col">State</th>
       </tr>
     </thead>
     <tbody>
-      <% @parents.each do |parent| %>   
-        <% a = NpiCompany.where(parent_id: parent.id).where.not(state_id: nil) %> 
-        <% b = a.pluck(:state_id).uniq %>        
+      <% @parents.each do |parent| %>       
                          
       <tr>       
         <td><%= link_to parent.name, parent %></td>
-        <td><span class="badge bg-primary rounded-pill"><%= parent.npi_companies.size %></span></td>
-        <% if b.size > 1 %>         
-          <td><%= State.find(b).pluck(:iso) %></td>         
-        <% elsif b.size == 1%>
-         <td><%= State.find(b.first).iso %> </td>
-        <% elsif b.size == 0%>
-         <td><% b.size %> </td>
-        <% end %>
+        <td><span class="badge bg-primary rounded-pill"><%= parent.npi_companies.size %></span></td>        
         <td><%= parent.states.pluck(:iso).join(", ") %></td>
       </tr>       
       <% end %>     
