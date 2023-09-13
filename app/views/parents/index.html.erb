@@ -8,6 +8,7 @@
         <th scope="col">Company Name</th>
         <th scope="col">NPI Locations</th>
         <th scope="col">State(s)</th>
+        <th scope="col">State</th>
       </tr>
     </thead>
     <tbody>
@@ -25,6 +26,7 @@
         <% elsif b.size == 0%>
          <td><% b.size %> </td>
         <% end %>
+        <td><%= parent.states.pluck(:iso).join(", ") %></td>
       </tr>       
       <% end %>     
     </tbody>
