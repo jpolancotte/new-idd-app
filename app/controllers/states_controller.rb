@@ -2,7 +2,8 @@ class StatesController < ApplicationController
   before_action :set_state, only: %i[ show edit update destroy ]
 
   def index
-    @states = State.active.order(:name)
+    @states = State.all.order(:name)
+    @tte_states = State.active.order(:name)
   end
 
   def show

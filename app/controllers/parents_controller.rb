@@ -4,7 +4,7 @@ class ParentsController < ApplicationController
   # GET /parents or /parents.json
   def index
     # @parents = Parent.all
-    @parents = Parent.joins(:npi_companies).group("parents.id").order("count(parents.id) DESC").limit(500)
+    @parents = Parent.top_1000
   end
 
   # GET /parents/1 or /parents/1.json
