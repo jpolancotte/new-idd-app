@@ -2,6 +2,8 @@
 
 <%= render @parent %>
 
+
+
 <div>
   <%= link_to "Edit this parent", edit_parent_path(@parent) %> |
   <%= link_to "Back to parents", parents_path %>
@@ -10,7 +12,7 @@
 </div>
 
 <div class="container">
-  <%= @parent.name %> <%= @parent.npi_companies.size %>
+  <%= @parent.name %> <%= @parent.npi_companies.size %> | <%= @parent.states.pluck(:iso).join(", ") %>
   <br />
 
 </div>
