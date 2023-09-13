@@ -11,6 +11,87 @@
 
 </div>
 
+<div class="container">
+  <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Locations</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Organizations</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Company</th>
+              <th scope="col">Parent</th>
+              <th scope="col">NPI Number</th>       
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Position</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Address</th>   
+              <th scope="col">City</th> 
+              <th scope="col">State</th>                
+            </tr>
+          </thead>
+          <tbody>
+            <% @state.npi_companies.limit(200).each do |c| %>
+              <tr>
+                <td><%= link_to c.name, c %></td>
+                <td><%= link_to c.parent.name, c.parent if c.parent %></td>
+                <td><%= c.number %></td>
+                <td><%= c.first_name %></td>
+                <td><%= c.last_name %></td>
+                <td><%= c.position %></td>
+                <td><%= c.telephone_number %></td>
+                <td><%= c.address %></td>
+                <td><%= c.city %></td>
+                <td><%= c.state.iso %></td>
+              </tr>
+            <% end %>      
+          </tbody>
+        </table>
+      </div>    
+    </div>
+
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Parent Company</th>
+              <th scope="col"> <%= @state.iso %> Total</th>     
+              <th scope="col">Overall</th>                     
+            </tr>
+          </thead>
+          <tbody>
+            <% @state.parents.uniq.each do |p| %>
+              <tr>
+                <td><%= link_to p.name, p %></td>   
+                <td><%= p.npi_companies.where(state_id: @state.id).size %></td>   
+                <td><%= p.npi_companies.size %></td>                
+              </tr>              
+            <% end %>      
+          </tbody>
+        </table>
+      </div> 
+    </div>
+
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">...</div>
+    <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">...</div>
+  </div>
+</div>
+
 
 <div>
   <%= link_to "Edit this state", edit_state_path(@state) %> |
@@ -19,40 +100,3 @@
   <% button_to "Destroy this state", @state, method: :delete %>
 </div>
 
-<div class="container">
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Company</th>
-        <th scope="col">Parent</th>
-        <th scope="col">NPI Number</th>       
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Position</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Address</th>   
-        <th scope="col">City</th> 
-        <th scope="col">State</th>                
-      </tr>
-    </thead>
-    <tbody>
-      <% @state.npi_companies.limit(200).each do |c| %>
-        <tr>
-          <td><%= link_to c.name, c %></td>
-          <td><%= link_to c.parent.name, c.parent if c.parent %></td>
-          <td><%= c.number %></td>
-          <td><%= c.first_name %></td>
-          <td><%= c.last_name %></td>
-          <td><%= c.position %></td>
-          <td><%= c.telephone_number %></td>
-          <td><%= c.address %></td>
-          <td><%= c.city %></td>
-          <td><%= c.state.iso %></td>
-        </tr>
-      <% end %>
-      
-    </tbody>
-  </table>
-
-<div/>
