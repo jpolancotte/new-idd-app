@@ -1,7 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<div class="container">
-  <%= @state.name %> <%= @state.npi_companies.size %>
+<div class="container text-center">
+  <h3> <%= @state.name %></h3>
+  
+  Locations: <%= @state.npi_companies.size %>
+  <br />
+
+  Organizations: <%= @state.parents.uniq.size %>
   <br />
 
 </div>
@@ -11,7 +16,7 @@
   <%= link_to "Edit this state", edit_state_path(@state) %> |
   <%= link_to "Back to state", states_path %>
 
-  <%= button_to "Destroy this state", @state, method: :delete %>
+  <% button_to "Destroy this state", @state, method: :delete %>
 </div>
 
 <div class="container">
