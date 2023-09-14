@@ -2,7 +2,7 @@
   <div class="card text-center">    
     <div class="card-body">
       <h5 class="card-title"><%= npi_company.name %></h5>
-      <p class="card-text"><%= npi_company.city %> <%= npi_company.state.iso if npi_company.state %></p>
+      <p class="card-text"><%= npi_company.city %> <%= link_to npi_company.state.iso, npi_company.state if npi_company.state %></p>
       <ol class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-start">
           <div class="ms-2 me-auto">
