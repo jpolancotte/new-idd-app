@@ -195,20 +195,20 @@ class HooksController < ApplicationController
           # pp response2
 
           # #add Event to DB
-          # event = Event.new(
-          #   event_type: wh['subscriptionType'].split('.').last,
-          #   object_id: wh['objectId'],
-          #   event_id: wh['eventId'],
-          #   occured_at: wh['occurredAt'],
-          #   deal_id: deal.id
-          # )
-          # if event.event_type == 'propertyChange'
-          #   event.assign_attributes(
-          #     property_name: wh['propertyName'],
-          #     property_value: wh['propertyValue']
-          #   )
-          # end
-          # event.save!
+          event = Event.new(
+            event_type: wh['subscriptionType'].split('.').last,
+            object_id: wh['objectId'],
+            event_id: wh['eventId'],
+            occured_at: wh['occurredAt'],
+            deal_id: deal.id
+          )
+          if event.event_type == 'propertyChange'
+            event.assign_attributes(
+              property_name: wh['propertyName'],
+              property_value: wh['propertyValue']
+            )
+          end
+          event.save!
 
         end
 
