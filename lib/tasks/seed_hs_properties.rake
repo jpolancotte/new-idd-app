@@ -23,7 +23,7 @@ namespace :db do
      
      ##Create Properties in HubSpot API
       
-    CSV.foreach("csv/webinar_props_july_13_2023.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|
+    CSV.foreach("csv/webinar_props_oct_2023.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|
       
       name="#{row[0]} #{row[5]}".parameterize(separator: '_')
       puts name        

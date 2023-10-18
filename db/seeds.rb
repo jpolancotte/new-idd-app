@@ -18,3 +18,9 @@
 # TaxonomyDescription.create(name: "Community/Behavioral Health")
 
 
+# Sales - Initial Communication	42683962
+# Sales - Presentation	42683963
+# Sales - Contract Negotiation	42683964
+# Sales - Contract Signed	73978657
+# Onboarding - In Progress	42683965
+# Onboarding - Complete	42683966
