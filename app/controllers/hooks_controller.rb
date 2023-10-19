@@ -49,7 +49,7 @@ class HooksController < ApplicationController
        #  puts deal_stage_id
 
       
-      deal = deal.update(
+      deal.update(
         team_id: team_id,
         dealname: prop["dealname"],
         chain: prop["chain"],
