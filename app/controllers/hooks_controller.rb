@@ -295,14 +295,13 @@ class HooksController < ApplicationController
             event_id: wh['eventId'],
             occured_at: wh['occurredAt'],
             deal_id: deal.id
-          )
-          if event.event_type == 'propertyChange'
-            event.assign_attributes(
-              property_name: wh['propertyName'],
-              property_value: wh['propertyValue']
-            )
-          end
-          event.save!       
+          )         
+          event.assign_attributes(
+            property_name: wh['propertyName'],
+            property_value: wh['propertyValue']
+          )         
+          event.save!
+          break       
 
       end #if wh["subscriptionType"] == "deal.propertyChange"               
     end #webhooks.each do |wh| 
