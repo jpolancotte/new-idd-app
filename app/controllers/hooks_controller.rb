@@ -28,19 +28,20 @@ class HooksController < ApplicationController
         if Deal.where(objectid: wh['objectId']).exists?
           puts "I exist update me"
 
-          deal=Deal.find_by_objectid(wh['objectId'])
+          
           # pp deal
 
           puts wh['propertyName']
           puts wh['propertyValue']
 
           if wh['propertyName'] == "dealstage"
-           deal_stage_id=DealStage.find_by_number(wh['propertyValue']).id
-           deal=Deal.update(deal.id, {"deal_stage_id" => deal_stage_id} )
+            deal_stage_id=DealStage.find_by_number(wh['propertyValue']).id
+            deal=Deal.update(deal.id, {"deal_stage_id" => deal_stage_id} )
           elsif  wh['propertyName'] == "hubspot_owner_id"
-            # team=Team.find_by_hs_deal_owner_number(wh['propertyValue'])
+            team=Team.find_by_hs_deal_owner_number(wh['propertyValue'])
+            deal=Deal.find_by_objectid(wh['objectId']).update(team_id: team.id)
           else
-           deal=Deal.update(deal.id, {wh['propertyName'] => wh['propertyValue']} )
+            deal=Deal.update(deal.id, {wh['propertyName'] => wh['propertyValue']} )
           end         
          
           event = Event.new(
