@@ -227,7 +227,7 @@ class HooksController < ApplicationController
         puts "Delete Deal"
 
         deal=Deal.find_by_objectid(wh['objectId'])
-        deal.delete = true
+        deal.remove = true
         deal.save
 
         event = Event.new(
