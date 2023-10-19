@@ -23,7 +23,11 @@ class HooksController < ApplicationController
 
     webhooks = JSON.parse(request.raw_post)   
 
-    webhooks.each do |wh|       
+    webhooks.each do |wh|  
+      
+      if wh["subscriptionType"] == "deal.propertyChange" || wh["subscriptionType"] == "deal.creation"
+
+      end
       
       api_client = Hubspot::Client.new(access_token: 'pat-na1-54430935-b008-4993-8a0f-c0af27fe08f0')
 
