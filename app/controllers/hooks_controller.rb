@@ -23,9 +23,7 @@ class HooksController < ApplicationController
 
     webhooks = JSON.parse(request.raw_post)   
 
-    webhooks.each do |wh| 
-
-      deal=Deal.find_or_create_by(objectid: wh['objectId'])
+    webhooks.each do |wh|       
       
       api_client = Hubspot::Client.new(access_token: 'pat-na1-54430935-b008-4993-8a0f-c0af27fe08f0')
 
@@ -47,6 +45,8 @@ class HooksController < ApplicationController
  
       deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
        #  puts deal_stage_id
+
+      deal=Deal.find_or_create_by(objectid: wh['objectId'], team_id: team_id, deal_stage_id: deal_stage_id)
 
       
       deal.update(
