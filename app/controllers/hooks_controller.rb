@@ -26,54 +26,46 @@ class HooksController < ApplicationController
     webhooks.each do |wh|  
       
       if wh["subscriptionType"] == "deal.propertyChange" || wh["subscriptionType"] == "deal.creation"
+        api_client = Hubspot::Client.new(access_token: 'pat-na1-54430935-b008-4993-8a0f-c0af27fe08f0')
 
-      end
+        api_response = api_client.crm.deals.basic_api.get_by_id(
+          deal_id: wh['objectId'], 
+          properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
+                      total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type, 
+                      comments, pipeline_date, forecasted_individuals"], 
+          archived: false
+        )
       
-      api_client = Hubspot::Client.new(access_token: 'pat-na1-54430935-b008-4993-8a0f-c0af27fe08f0')
+        prop=api_response.properties 
 
-      api_response = api_client.crm.deals.basic_api.get_by_id(
-        deal_id: wh['objectId'], 
-        properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
-                    total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type, 
-                    comments, pipeline_date, forecasted_individuals"], 
-        archived: false
-      )
-      
-      prop=api_response.properties 
-      # puts prop
+        #  puts prop["hubspot_owner_id"]
+        team_id=Team.find_by_hs_deal_owner_number(prop["hubspot_owner_id"]).id
+        #  puts team_id
   
+        deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
+        #  puts deal_stage_id
 
-       #  puts prop["hubspot_owner_id"]
-      team_id=Team.find_by_hs_deal_owner_number(prop["hubspot_owner_id"]).id
-       #  puts team_id
- 
-      deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
-       #  puts deal_stage_id
+        deal=Deal.find_or_create_by(objectid: wh['objectId'], team_id: team_id, deal_stage_id: deal_stage_id)
 
-      deal=Deal.find_or_create_by(objectid: wh['objectId'], team_id: team_id, deal_stage_id: deal_stage_id)
+        deal.update(
+          team_id: team_id,
+          dealname: prop["dealname"],
+          chain: prop["chain"],
+          deal_stage_id: deal_stage_id,
+          state: prop["state"],
+          tte_servicing_pharmacy: prop["tte_servicing_pharmacy"],
+          total_residential_individuals: prop["total_residential_individuals"],
+          probability_of_close: prop["probability_of_close"],
+          go_live_date: prop["go_live_date"],
+          incumbent_pharmacy: prop["incumbent_pharmacy"],
+          delivery_type: prop["delivery_type"],
+          comments: prop["comments"],
+          pipeline_date: prop["pipeline_date"],
+          forecasted_individuals: prop["forecasted_individuals"],
+          objectid: prop["hs_object_id"]
+        ) 
 
-      
-      deal.update(
-        team_id: team_id,
-        dealname: prop["dealname"],
-        chain: prop["chain"],
-        deal_stage_id: deal_stage_id,
-        state: prop["state"],
-        tte_servicing_pharmacy: prop["tte_servicing_pharmacy"],
-        total_residential_individuals: prop["total_residential_individuals"],
-        probability_of_close: prop["probability_of_close"],
-        go_live_date: prop["go_live_date"],
-        incumbent_pharmacy: prop["incumbent_pharmacy"],
-        delivery_type: prop["delivery_type"],
-        comments: prop["comments"],
-        pipeline_date: prop["pipeline_date"],
-        forecasted_individuals: prop["forecasted_individuals"],
-        objectid: prop["hs_object_id"]
-      ) 
-
-      if wh["subscriptionType"] == "deal.propertyChange"
-        puts "Update Deal"
-       
+               
         if wh['propertyName'] == "dealstage"
           deal_stage_id=DealStage.find_by_number(wh['propertyValue']).id
           Deal.update(deal.id, {"deal_stage_id" => deal_stage_id} )
@@ -121,10 +113,104 @@ class HooksController < ApplicationController
         end
         event.save!
 
-      elsif wh["subscriptionType"] == "deal.creation"
-        puts "Create Deal"
-
       end
+      
+      # api_client = Hubspot::Client.new(access_token: 'pat-na1-54430935-b008-4993-8a0f-c0af27fe08f0')
+
+      # api_response = api_client.crm.deals.basic_api.get_by_id(
+      #   deal_id: wh['objectId'], 
+      #   properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
+      #               total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type, 
+      #               comments, pipeline_date, forecasted_individuals"], 
+      #   archived: false
+      # )
+      
+      # prop=api_response.properties 
+      # # puts prop
+  
+
+      #  #  puts prop["hubspot_owner_id"]
+      # team_id=Team.find_by_hs_deal_owner_number(prop["hubspot_owner_id"]).id
+      #  #  puts team_id
+ 
+      # deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
+      #  #  puts deal_stage_id
+
+      # deal=Deal.find_or_create_by(objectid: wh['objectId'], team_id: team_id, deal_stage_id: deal_stage_id)
+
+      
+      # deal.update(
+      #   team_id: team_id,
+      #   dealname: prop["dealname"],
+      #   chain: prop["chain"],
+      #   deal_stage_id: deal_stage_id,
+      #   state: prop["state"],
+      #   tte_servicing_pharmacy: prop["tte_servicing_pharmacy"],
+      #   total_residential_individuals: prop["total_residential_individuals"],
+      #   probability_of_close: prop["probability_of_close"],
+      #   go_live_date: prop["go_live_date"],
+      #   incumbent_pharmacy: prop["incumbent_pharmacy"],
+      #   delivery_type: prop["delivery_type"],
+      #   comments: prop["comments"],
+      #   pipeline_date: prop["pipeline_date"],
+      #   forecasted_individuals: prop["forecasted_individuals"],
+      #   objectid: prop["hs_object_id"]
+      # ) 
+
+      # if wh["subscriptionType"] == "deal.propertyChange"
+      #   puts "Update Deal"
+       
+      #   if wh['propertyName'] == "dealstage"
+      #     deal_stage_id=DealStage.find_by_number(wh['propertyValue']).id
+      #     Deal.update(deal.id, {"deal_stage_id" => deal_stage_id} )
+      #   elsif  wh['propertyName'] == "hubspot_owner_id"
+      #     team=Team.find_by_hs_deal_owner_number(wh['propertyValue'])
+      #     Deal.find_by_objectid(wh['objectId']).update(team_id: team.id)
+      #   else
+      #     # Deal.update(deal.id, {wh['propertyName'] => wh['propertyValue']} )
+      #   end 
+
+      #   event = Event.new(
+      #     event_type: wh['subscriptionType'].split('.').last,
+      #     object_id: wh['objectId'],
+      #     event_id: wh['eventId'],
+      #     occured_at: wh['occurredAt'],
+      #     deal_id: deal.id
+      #   )
+      #   if event.event_type == 'propertyChange'
+      #     event.assign_attributes(
+      #       property_name: wh['propertyName'],
+      #       property_value: wh['propertyValue']
+      #     )
+      #   end
+      #   event.save!
+
+      # elsif wh["subscriptionType"] == "deal.deletion"
+      #   puts "Remove Deal"
+
+      #   deal=Deal.find_by_objectid(wh['objectId'])
+      #   deal.remove = true
+      #   deal.save
+
+      #   event = Event.new(
+      #     event_type: wh['subscriptionType'].split('.').last,
+      #     object_id: wh['objectId'],
+      #     event_id: wh['eventId'],
+      #     occured_at: wh['occurredAt'],
+      #     deal_id: deal.id
+      #   )
+      #   if event.event_type == 'propertyChange'
+      #     event.assign_attributes(
+      #       property_name: wh['propertyName'],
+      #       property_value: wh['propertyValue']
+      #     )
+      #   end
+      #   event.save!
+
+      # elsif wh["subscriptionType"] == "deal.creation"
+      #   puts "Create Deal"
+
+      # end
 
 
     
