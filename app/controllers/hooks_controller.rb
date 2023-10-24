@@ -24,7 +24,7 @@ class HooksController < ApplicationController
     webhooks = JSON.parse(request.raw_post) 
     # puts webhooks
 
-    res = Net::HTTP.get_response(webhooks)
+    res = Net::HTTP.get_response(request)
        
     puts res.code      
     puts res.message   
