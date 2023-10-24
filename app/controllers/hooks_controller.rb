@@ -23,7 +23,7 @@ class HooksController < ApplicationController
 
     webhooks = JSON.parse(request.raw_post) 
     # puts webhooks
-    puts request.status
+    puts request
 
     # webhooks.each do |wh|  
       
