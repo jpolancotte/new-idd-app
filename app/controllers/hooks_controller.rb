@@ -24,11 +24,11 @@ class HooksController < ApplicationController
     webhooks = JSON.parse(request.raw_post) 
     # puts webhooks
 
-    res = Net::HTTP.get_response(request)
-       
-    puts res.code      
-    puts res.message   
+    puts request
 
+    puts request.class
+
+   
     # webhooks.each do |wh|  
       
     #   if wh["subscriptionType"] == "deal.propertyChange" || wh["subscriptionType"] == "deal.creation"
