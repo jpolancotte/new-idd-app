@@ -32,7 +32,7 @@ class HooksController < ApplicationController
           deal_id: wh['objectId'], 
           properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
                       total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type, 
-                      comments, pipeline_date, forecasted_individuals"], 
+                      comments, pipeline_date, forecasted_individuals, number_of_delivery_locations"], 
           archived: false
         )
       
@@ -63,6 +63,7 @@ class HooksController < ApplicationController
           pipeline_date: prop["pipeline_date"],
           forecasted_individuals: prop["forecasted_individuals"],
           objectid: prop["hs_object_id"]
+          number_of_delivery_locations: prop["number_of_delivery_locations"]
         ) 
 
                
