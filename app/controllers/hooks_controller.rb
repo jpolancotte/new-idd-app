@@ -24,7 +24,7 @@ class HooksController < ApplicationController
     webhooks = JSON.parse(request.raw_post) 
     # puts webhooks
 
-    puts request
+    puts request.validate(statusCode: 204)
 
     puts request.class
 
