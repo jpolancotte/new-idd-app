@@ -23,7 +23,11 @@ class HooksController < ApplicationController
 
     webhooks = JSON.parse(request.raw_post) 
     # puts webhooks
-    puts request.code
+
+    res = Net::HTTP.get_response(webhooks)
+       
+    puts res.code      
+    puts res.message   
 
     # webhooks.each do |wh|  
       
