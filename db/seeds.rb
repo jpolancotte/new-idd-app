@@ -24,3 +24,25 @@
 # Sales - Contract Signed	73978657
 # Onboarding - In Progress	42683965
 # Onboarding - Complete	42683966
+
+
+day = 0
+
+loop do
+    
+    start_date=Date.new(2023,10,23) + day
+
+    end_date=start_date + 7
+
+    week_number=start_date.cweek % 53 + 1
+
+    pa=PipelineActivity.new
+    pa.start_date=start_date
+    pa.end_date=end_date
+    pa.week_number=week_number
+    pa.save
+
+    day += 7
+    break if day == 728
+
+end

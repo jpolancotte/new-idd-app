@@ -1,0 +1,2 @@
+module PipelineActivitiesHelper
+end

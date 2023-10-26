@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @pipeline_activity %>
+
+<div>
+  <%= link_to "Edit this pipeline activity", edit_pipeline_activity_path(@pipeline_activity) %> |
+  <%= link_to "Back to pipeline activities", pipeline_activities_path %>
+
+  <%= button_to "Destroy this pipeline activity", @pipeline_activity, method: :delete %>
+</div>

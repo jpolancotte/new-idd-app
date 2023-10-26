@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pipeline_activities
   resources :parents
   # get 'states/index'
   # get 'states/show'

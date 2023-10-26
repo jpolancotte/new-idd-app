@@ -1,0 +1,2 @@
+class PipelineActivity < ApplicationRecord
+end
