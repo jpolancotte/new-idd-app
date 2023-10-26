@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_26_211210) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_26_224421) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,7 +67,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_211210) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "deal_id", null: false
+    t.bigint "pipeline_activity_id"
     t.index ["deal_id"], name: "index_events_on_deal_id"
+    t.index ["pipeline_activity_id"], name: "index_events_on_pipeline_activity_id"
   end
 
   create_table "identifiers", force: :cascade do |t|
@@ -219,6 +221,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_211210) do
   add_foreign_key "deals", "deal_stages"
   add_foreign_key "deals", "teams"
   add_foreign_key "events", "deals"
+  add_foreign_key "events", "pipeline_activities"
   add_foreign_key "identifiers", "npi_companies"
   add_foreign_key "last_searches", "states"
   add_foreign_key "last_searches", "taxonomy_descriptions"
