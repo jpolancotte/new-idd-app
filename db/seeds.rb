@@ -43,6 +43,6 @@ loop do
     pa.save
 
     day += 7
-    break if day == 728
+    break if day == 798
 
 end
