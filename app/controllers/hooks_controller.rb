@@ -40,12 +40,13 @@ class HooksController < ApplicationController
 
         #  puts prop["hubspot_owner_id"]
         team_id=Team.find_by_hs_deal_owner_number(prop["hubspot_owner_id"]).id
-        #  puts team_id
+        puts team_id
   
         deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
-        #  puts deal_stage_id
+        puts deal_stage_id
 
         deal=Deal.find_or_create_by(objectid: wh['objectId'], team_id: team_id, deal_stage_id: deal_stage_id)
+        puts deal.id
 
         deal.update(
           team_id: team_id,
