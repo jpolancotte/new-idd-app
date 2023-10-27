@@ -47,7 +47,8 @@ class HooksController < ApplicationController
 
         deal=Deal.find_or_create_by(objectid: wh['objectId'], team_id: team_id, deal_stage_id: deal_stage_id)
 
-        puts deal
+        puts deal.id 
+        puts deal.name
 
         deal.update(
           team_id: team_id,
