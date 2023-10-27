@@ -70,7 +70,7 @@ class HooksController < ApplicationController
                
         if wh['propertyName'] == "dealstage"
           deal_stage_id=DealStage.find_by_number(wh['propertyValue']).id
-          Deal.update(deal.id, {"deal_stage_id" => deal_stage_id} )
+          Deal.update(deal_stage_id: deal_stage_id )
         elsif  wh['propertyName'] == "hubspot_owner_id"
           team=Team.find_by_hs_deal_owner_number(wh['propertyValue'])
           Deal.find_by_objectid(wh['objectId']).update(team_id: team.id)
