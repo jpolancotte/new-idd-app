@@ -36,8 +36,8 @@ require 'pp'
 #     end 
 # end
 
-CSV.open("csv/oct23_results.csv", "a") do |fl|
-    CSV.foreach("csv/oct23.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|     
+CSV.open("csv/kylist_results.csv", "a") do |fl|
+    CSV.foreach("csv/kylist.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|     
         numb=row[0]
         first=row[1]
         last=row[2]
@@ -47,10 +47,9 @@ CSV.open("csv/oct23_results.csv", "a") do |fl|
         
         full_name = "#{first} #{last}"
         
-        file_name = "#{numb}-#{first}-#{last}-Oct-12-2023-Webinar-CEU-Certificate"   
+        file_name = "#{numb}-#{first}-#{last}-Nov-16-2023-Webinar-CEU-Certificate"   
 
-        url="https://20711908.fs1.hubspotusercontent-na1.net/hubfs/20711908/October%2012%202023%20Webinar/Certificates/#{file_name}.pdf"
-               
+        url="https://20711908.fs1.hubspotusercontent-na1.net/hubfs/20711908/December%205%202023%20Symposium/Certificates/#{file_name}.pdf"
         
         fl << row.values_at(*row.headers) + [first] + [last] + [full_name] + [file_name] + [url]
     

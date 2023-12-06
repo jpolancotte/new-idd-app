@@ -37,6 +37,7 @@ class HooksController < ApplicationController
         )
       
         prop=api_response.properties 
+        puts prop
 
         #  puts prop["hubspot_owner_id"]
         team_id=Team.find_by_hs_deal_owner_number(prop["hubspot_owner_id"]).id

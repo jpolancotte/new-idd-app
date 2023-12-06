@@ -46,16 +46,16 @@ namespace :db do
         response = HTTParty.post("#{encoded}",
         :body => 
           {  "values"=>
-                      [
-                        ["Kathy Brown / Nanette Wrobel", "Apostolic EIHA", "", 
-                        "Onboarding - Complete", "NJ", "NY", 70, 1, 44166, 
-                        "PAL", "", "", "", "","=IFERROR(EDATE(I377,-1),"")", "=EDATE(I377,1)",
-                         "=VLOOKUP(I377,Date_Lookups[#All],14,FALSE)",
-                          "#{nil}",
-                          "#{nil}",
-                          ""
-                        ]
-                      ],
+            [
+              ["Kathy Brown / Nanette Wrobel", "Apostolic EIHA", "", 
+              "Onboarding - Complete", "NJ", "NY", 70, 1, 44166, 
+              "PAL", "", "", "", "","=IFERROR(EDATE(I377,-1),"")", "=EDATE(I377,1)",
+                "=VLOOKUP(I377,Date_Lookups[#All],14,FALSE)",
+                "#{nil}",
+                "#{nil}",
+                ""
+              ]
+            ],
                       
             "formulas"=>[["#{nil}", "#{nil}", "#{nil}", 
             "#{nil}", "#{nil}", "#{nil}", "#{nil}", "#{nil}", "#{nil}", 
