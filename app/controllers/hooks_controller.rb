@@ -46,7 +46,8 @@ class HooksController < ApplicationController
         deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
         puts deal_stage_id
 
-        deal=Deal.find_or_create_by(objectid: wh['objectId'], team_id: team_id, deal_stage_id: deal_stage_id)
+        # deal=Deal.find_or_create_by(objectid: wh['objectId'], team_id: team_id, deal_stage_id: deal_stage_id)
+        deal=Deal.find_or_create_by(objectid: wh['objectId'])
         puts deal.id
 
         deal.update(
