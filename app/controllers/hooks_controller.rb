@@ -26,7 +26,8 @@ class HooksController < ApplicationController
     webhooks.each do |wh|  
       
       if wh["subscriptionType"] == "deal.propertyChange" || wh["subscriptionType"] == "deal.creation"
-        api_client = Hubspot::Client.new(access_token: 'pat-na1-54430935-b008-4993-8a0f-c0af27fe08f0')
+       
+        api_client = Hubspot::Client.new(access_token: ENV["HUBSPOT_API_KEY"])
 
         api_response = api_client.crm.deals.basic_api.get_by_id(
           deal_id: wh['objectId'], 

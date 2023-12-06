@@ -1,0 +1,1 @@
+$hubspot_api_key = "pat-na1-54430935-b008-4993-8a0f-c0af27fe08f0"
