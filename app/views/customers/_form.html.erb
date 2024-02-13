@@ -1,0 +1,57 @@
+<%= form_with(model: customer) do |form| %>
+  <% if customer.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+        <% customer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :facid, style: "display: block" %>
+    <%= form.text_field :facid %>
+  </div>
+
+  <div>
+    <%= form.label :pharmid, style: "display: block" %>
+    <%= form.text_field :pharmid %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :city, style: "display: block" %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.label :state, style: "display: block" %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div>
+    <%= form.label :zip, style: "display: block" %>
+    <%= form.text_field :zip %>
+  </div>
+
+  <div>
+    <%= form.label :fac_admin_phone, style: "display: block" %>
+    <%= form.text_field :fac_admin_phone %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

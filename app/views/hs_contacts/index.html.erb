@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<center>
+
+  <h1>Hs Contacts (<%= @hs_contacts.size if @hs_contacts %>)</h1>
+  
+  <%= form_tag(hs_contacts_path, method: :get) do %>
+    <%= text_field_tag 'location', nil, placeholder: "Enter city, state or zip code"  %>
+    <%= number_field_tag 'distance', nil, placeholder: "Enter distance"  %>
+    
+    <%= submit_tag 'Search', name: nil %>
+  <% end %>
+
+</center>
+
+<div id="hs_contacts">
+  <% @hs_contacts.each do |hs_contact| %>
+    <%= render hs_contact %>
+    <p>
+      <%= link_to "Show this hs contact", hs_contact %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New hs contact", new_hs_contact_path %>

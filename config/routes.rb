@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :hs_contacts
+  # resources :customers
+
+  resources :customers do
+    collection {post :import}
+  end
+
   resources :pipeline_activities
   resources :parents
   # get 'states/index'

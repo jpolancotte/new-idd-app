@@ -33,7 +33,7 @@ Geocoder.configure(
  #:ip_lookup => :maxmind,
 
   # to use an API key:
-  :api_key => 'AIzaSyA16h0olCWMK1avFfXtb_dJPEY00pxKA54',
+  :api_key => 'AIzaSyA0R4dEs6Ni0LhoIA9vfYxpD6f3Hnhk9BY',
 
   # this is very important option for configuring geocoder with API key
   :use_https => true,

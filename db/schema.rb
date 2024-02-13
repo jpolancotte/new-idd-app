@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_26_224421) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_13_160605) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_224421) do
     t.datetime "updated_at", null: false
     t.index ["npi_company_id"], name: "index_company_taxonomies_on_npi_company_id"
     t.index ["taxonomy_id"], name: "index_company_taxonomies_on_taxonomy_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "facid"
+    t.string "pharmid"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "fac_admin_phone"
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["facid"], name: "index_customers_on_facid", unique: true
   end
 
   create_table "deal_stages", force: :cascade do |t|
@@ -70,6 +84,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_224421) do
     t.bigint "pipeline_activity_id"
     t.index ["deal_id"], name: "index_events_on_deal_id"
     t.index ["pipeline_activity_id"], name: "index_events_on_pipeline_activity_id"
+  end
+
+  create_table "hs_contacts", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "hs_number"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
+    t.string "tte_customer"
+    t.string "contact_owner"
+    t.string "company_type"
+    t.string "company_name"
+    t.string "primay_identifier"
+    t.decimal "latitude", precision: 13, scale: 9
+    t.decimal "longitude", precision: 13, scale: 9
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "identifiers", force: :cascade do |t|

@@ -23,6 +23,7 @@
             <% if user_signed_in? %>
             <%= link_to('States', states_path, class: "dropdown-item") %>
             <%= link_to('Parents', parents_path, class: "dropdown-item") %>
+            <%= link_to('HS Contacts', hs_contacts_path, class: "dropdown-item") %>
             <%= link_to('NPI Companies', npi_companies_path, class: "dropdown-item") %>
                        
             <%= link_to('Admin', rails_admin_path, class: "dropdown-item") if current_user.superadmin_role? %>
