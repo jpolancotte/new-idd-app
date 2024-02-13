@@ -22,4 +22,70 @@
   <% end %>
 </div>
 
+<h1>Hs Contacts</h1>
+
+<div class="container">
+
+  <table class="">
+    <thead>
+    <tr>
+      <% if params[:location] %>
+        <th>Distance (miles)</th>
+      <% end %>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Contact City</th>
+      <th>Contact State</th>
+      <th>Job Title</th>
+      <th>Company name</th>
+      <th>Company type</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip code</th>
+      <th>Primay identifier</th>
+      <th>Hs number</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hs_contacts.each do |hs_contact| %>
+      <tr>
+        <% if params[:location] %>
+          <td><%= hs_contact.distance_from(params[:location]).round(2) %></td>
+        <% end %>
+        <td><%= hs_contact.first_name %></td>
+        <td><%= hs_contact.last_name %></td>
+        <td><%= hs_contact.contact_city %></td>
+        <td><%= hs_contact.contact_state %></td>
+        <td><%= hs_contact.job_title %></td>
+         <td><%= hs_contact.company_name %></td>
+        <td><%= hs_contact.company_type %></td>
+        <td><%= hs_contact.email %></td>
+        <td><%= hs_contact.address %></td>
+        <td><%= hs_contact.city %></td>
+        <td><%= hs_contact.state %></td>
+        <td><%= hs_contact.zip_code %></td>
+        <td><%= hs_contact.primay_identifier %></td>
+        <td><%= hs_contact.hs_number %></td>
+        <td><%= hs_contact.latitude %></td>
+        <td><%= hs_contact.longitude %></td>
+        <td><%= link_to 'Show', hs_contact %></td>
+        <td><%= link_to 'Edit', edit_hs_contact_path(hs_contact) %></td>
+        <td><%= link_to 'Destroy', hs_contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
+<br>
+
+<%= link_to 'New Hs Contact', new_hs_contact_path %>
+
 <%= link_to "New hs contact", new_hs_contact_path %>
