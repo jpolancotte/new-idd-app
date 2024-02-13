@@ -84,3 +84,4 @@ gem 'hubspot-api-client'
 
 gem 'geocoder'
 
+gem 'dotenv', groups: [:development, :test]

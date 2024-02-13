@@ -33,9 +33,12 @@ Geocoder.configure(
  #:ip_lookup => :maxmind,
 
   # to use an API key:
-  # :api_key => 'AIzaSyA0R4dEs6Ni0LhoIA9vfYxpD6f3Hnhk9BY',
+  #:api_key => 'AIzaSyA0R4dEs6Ni0LhoIA9vfYxpD6f3Hnhk9BY',
 
-  :api_key => ENV['GOOGLE_GEOCODER_API_KEY'],
+   :api_key => ENV['GOOGLE_GEOCODER_API_KEY'],
+  
+
+  # :api_key => Rails.application.credentials.GOOGLE_GEOCODER_API_KEY,
  
 
   # this is very important option for configuring geocoder with API key
