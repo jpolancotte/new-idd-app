@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_13_170940) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_15_225847) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.bigint "state_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
+  end
 
   create_table "company_taxonomies", force: :cascade do |t|
     t.bigint "npi_company_id", null: false
@@ -135,6 +143,22 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_13_170940) do
     t.index ["taxonomy_description_id"], name: "index_last_searches_on_taxonomy_description_id"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.bigint "state_id", null: false
+    t.string "zip"
+    t.string "county"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_locations_on_organization_id"
+    t.index ["state_id"], name: "index_locations_on_state_id"
+  end
+
   create_table "npi_addresses", force: :cascade do |t|
     t.bigint "npi_company_id", null: false
     t.string "address_purpose"
@@ -176,6 +200,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_13_170940) do
     t.bigint "parent_id"
     t.index ["parent_id"], name: "index_npi_companies_on_parent_id"
     t.index ["state_id"], name: "index_npi_companies_on_state_id"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "phone"
+    t.string "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "parents", force: :cascade do |t|
@@ -257,6 +293,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_13_170940) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cities", "states"
   add_foreign_key "company_taxonomies", "npi_companies"
   add_foreign_key "company_taxonomies", "taxonomies"
   add_foreign_key "deals", "deal_stages"
@@ -266,6 +303,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_13_170940) do
   add_foreign_key "identifiers", "npi_companies"
   add_foreign_key "last_searches", "states"
   add_foreign_key "last_searches", "taxonomy_descriptions"
+  add_foreign_key "locations", "organizations"
+  add_foreign_key "locations", "states"
   add_foreign_key "npi_addresses", "npi_companies"
   add_foreign_key "npi_addresses", "states"
   add_foreign_key "npi_companies", "parents"
