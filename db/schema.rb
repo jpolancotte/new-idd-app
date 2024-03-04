@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_15_233534) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_04_183741) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -229,6 +229,26 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_233534) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sites", force: :cascade do |t|
+    t.string "name"
+    t.bigint "organization_id", null: false
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "county"
+    t.integer "beds"
+    t.string "category"
+    t.string "service_type"
+    t.string "total_bed_count"
+    t.string "total_resident_count"
+    t.boolean "icf_idd"
+    t.string "license_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_sites_on_organization_id"
+  end
+
   create_table "states", force: :cascade do |t|
     t.string "name"
     t.string "iso"
@@ -310,4 +330,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_233534) do
   add_foreign_key "npi_addresses", "states"
   add_foreign_key "npi_companies", "parents"
   add_foreign_key "npi_companies", "states"
+  add_foreign_key "sites", "organizations"
 end

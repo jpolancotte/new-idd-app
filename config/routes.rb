@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sites
   resources :organizations
   resources :hs_contacts
   # resources :customers

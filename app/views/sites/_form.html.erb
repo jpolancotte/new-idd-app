@@ -1,0 +1,87 @@
+<%= form_with(model: site) do |form| %>
+  <% if site.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(site.errors.count, "error") %> prohibited this site from being saved:</h2>
+
+      <ul>
+        <% site.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :organization_id, style: "display: block" %>
+    <%= form.text_field :organization_id %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :city, style: "display: block" %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.label :state, style: "display: block" %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div>
+    <%= form.label :zip, style: "display: block" %>
+    <%= form.text_field :zip %>
+  </div>
+
+  <div>
+    <%= form.label :county, style: "display: block" %>
+    <%= form.text_field :county %>
+  </div>
+
+  <div>
+    <%= form.label :beds, style: "display: block" %>
+    <%= form.number_field :beds %>
+  </div>
+
+  <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.text_field :category %>
+  </div>
+
+  <div>
+    <%= form.label :service_type, style: "display: block" %>
+    <%= form.text_field :service_type %>
+  </div>
+
+  <div>
+    <%= form.label :total_bed_count, style: "display: block" %>
+    <%= form.text_field :total_bed_count %>
+  </div>
+
+  <div>
+    <%= form.label :total_resident_count, style: "display: block" %>
+    <%= form.text_field :total_resident_count %>
+  </div>
+
+  <div>
+    <%= form.label :icf_idd, style: "display: block" %>
+    <%= form.check_box :icf_idd %>
+  </div>
+
+  <div>
+    <%= form.label :license_number, style: "display: block" %>
+    <%= form.text_field :license_number %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
