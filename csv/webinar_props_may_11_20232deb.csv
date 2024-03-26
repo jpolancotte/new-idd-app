@@ -1,6 +1,0 @@
-name,label,type,fieldType,groupName,date,objectType
-Teaching effectiveness,Teaching effectiveness,enumeration,select,may_12_2023_webinar_evaluation_questions,May 11 2023 Webinar Deb,contacts
-The presenter answered questions effectively,The presenter answered questions effectively,enumeration,select,may_12_2023_webinar_evaluation_questions,May 11 2023 Webinar Deb,contacts
-"Method of presentation effective (PowerPoint, lecture, webinar etc.)","Method of presentation effective (PowerPoint, lecture, webinar etc.)",enumeration,select,may_12_2023_webinar_evaluation_questions,May 11 2023 Webinar Deb,contacts
-The presenter was knowledgeable about materials covered,The presenter was knowledgeable about materials covered,enumeration,select,may_12_2023_webinar_evaluation_questions,May 11 2023 Webinar Deb,contacts
-Did you perceive commercial bias during this presentation,Did you perceive commercial bias during this presentation,enumeration,select,may_12_2023_webinar_evaluation_questions,May 11 2023 Webinar Deb,contacts

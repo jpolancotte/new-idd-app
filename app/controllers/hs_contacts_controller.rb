@@ -5,7 +5,7 @@ class HsContactsController < ApplicationController
   def index
   
     if params[:location]
-      @hs_contacts =  HsContact.near(params[:location], params[:distance])
+      @hs_contacts =  HsContact.near(params[:location], params[:distance], min_radius: params[:min_radius])
     else
       @hs_contacts = HsContact.all.limit(100)
     end

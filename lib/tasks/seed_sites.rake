@@ -4,7 +4,7 @@ namespace :db do
         task sites: :environment do
           CSV.foreach("csv/nc_sites.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|           
            
-          organization=Organization.find_or_create_by(name: row[2])
+          organization=Organization.find_or_create_by(name: row[1])
           puts organization
            
           name = row[0]

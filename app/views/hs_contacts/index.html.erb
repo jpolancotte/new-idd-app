@@ -7,6 +7,8 @@
   <%= form_tag(hs_contacts_path, method: :get) do %>
     <%= text_field_tag 'location', nil, placeholder: "Enter city, state or zip code"  %>
     <%= number_field_tag 'distance', nil, placeholder: "Enter distance"  %>
+    <%= number_field_tag 'min_radius', nil, placeholder: "Min Radius"  %>
+ 
     <%= submit_tag 'Search', name: nil %>
   <% end %>
 

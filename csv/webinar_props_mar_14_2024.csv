@@ -1,0 +1,17 @@
+name,label,type,fieldType,groupName,date,objectType
+What would improve future presentations?,What would improve future presentations?,string,text,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+What did you like best about the presentation?,What did you like best about the presentation?,string,text,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+What information would you like to see at future presentations?,What information would you like to see at future presentations?,string,text,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+How did you hear about this presentation?,How did you hear about this presentation?,string,text,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+Other Comments,Other Comments,string,textarea,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+Were the facilities conducive to learning,Were the facilities conducive to learning,enumeration,select,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+The outcomes were met as stated,The outcomes were met as stated,enumeration,select,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+The presentation met my expectations,The presentation met my expectations,enumeration,select,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+The presentation will improve my practice and patient care,The presentation will improve my practice and patient care,enumeration,select,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+I will attend future programs offered by the sponsor,I will attend future programs offered by the sponsor,enumeration,select,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+I would recommend this training program to others,I would recommend this training program to others,enumeration,select,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+Teaching effectiveness,Teaching effectiveness,enumeration,select,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+The presenter answered questions effectively,The presenter answered questions effectively,enumeration,select,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+"Method of presentation effective (PowerPoint, lecture, webinar etc.)","Method of presentation effective (PowerPoint, lecture, webinar etc.)",enumeration,select,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+The presenter was knowledgeable about materials covered,The presenter was knowledgeable about materials covered,enumeration,select,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
+Did you perceive commercial bias during this presentation,Did you perceive commercial bias during this presentation,enumeration,select,march_14_2024_webinar_evaluation_questions,March 14  2024 Customer Webinar,contacts
