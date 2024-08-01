@@ -17,20 +17,30 @@ require 'pp'
 
 
 
-CSV.open("csv/njpros125_results.csv", "a") do |fl|
-    CSV.foreach("csv/njpros125.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|     
+CSV.open("csv/surveynow_results.csv", "a") do |fl|
+    CSV.foreach("csv/surveynow3.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|     
        
-        CSV.foreach("csv/njpros.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row1|     
+        CSV.foreach("csv/surveylist5.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row1| 
+            
+            a=row[4]
+            b=row[5]
+            c=row[6]
+            d=row[7]
+            e=row[8]
+
+            # pharm=row1[6]
+            # puts a
+            # puts b
        
             if row[0] == row1[0]
         
                 # email= row[0]
                 # url=email.split("@")
                 # url=url[1]
-                fl << row1.values_at(*row1.headers) + ["NO"]
+                fl << row1.values_at(*row1.headers) + [a] + [b] + [c] + [d] + [e] 
             else
                 
-                fl << row.values_at(*row.headers) + ["YES"]
+                # fl << row.values_at(*row.headers) + ["YES"]
             end
 
         end 
