@@ -18,7 +18,7 @@ require 'pp'
 
 
 CSV.open("csv/surveynow_results.csv", "a") do |fl|
-    CSV.foreach("csv/surveynow3.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|     
+    CSV.foreach("csv/surveynow4.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|     
        
         CSV.foreach("csv/surveylist5.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row1| 
             

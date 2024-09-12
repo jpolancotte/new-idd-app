@@ -31,7 +31,7 @@ class HooksController < ApplicationController
         api_response = api_client.crm.deals.basic_api.get_by_id(
           deal_id: wh['objectId'], 
           properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
-                      total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type, 
+                      total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type_updated, 
                       comments, pipeline_date, forecasted_individuals, number_of_delivery_locations"], 
           archived: false
         )
