@@ -77,7 +77,7 @@ class HooksController < ApplicationController
           team=Team.find_by_hs_deal_owner_number(wh['propertyValue'])
           Deal.find_by_objectid(wh['objectId']).update(team_id: team.id)
         else
-          # Deal.update(deal.id, {wh['propertyName'] => wh['propertyValue']} )
+          Deal.update(deal.id, {wh['propertyName'] => wh['propertyValue']} )
         end 
 
         event = Event.new(
