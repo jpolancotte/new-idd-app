@@ -24,7 +24,7 @@ class HooksController < ApplicationController
 
     webhooks.each do |wh|  
       
-      if wh["subscriptionType"] == "deal.propertyChange" || wh["subscriptionType"] == "deal.creation"
+      if wh["subscriptionType"] == "object.propertyChange" || wh["subscriptionType"] == "object.creation"
        
         api_client = Hubspot::Client.new(access_token: ENV["HUBSPOT_API_KEY"])
 
@@ -45,6 +45,12 @@ class HooksController < ApplicationController
   
         deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
         puts deal_stage_id
+
+        # if Deal.exists?(objectid: wh['objectId'])
+
+        # else
+                  
+        # end
 
         deal=Deal.find_or_create_by(objectid: wh['objectId'], team_id: team_id, deal_stage_id: deal_stage_id)
         #deal=Deal.find_or_create_by(objectid: wh['objectId'])
@@ -100,7 +106,7 @@ class HooksController < ApplicationController
         pa=PipelineActivity.find_by_end_date(end_date)
         event.update(pipeline_activity_id: pa.id)
 
-      elsif wh["subscriptionType"] == "deal.deletion"
+      elsif wh["subscriptionType"] == "object.deletion"
         puts "Remove Deal"
 
         deal=Deal.find_by_objectid(wh['objectId'])
