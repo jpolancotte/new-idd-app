@@ -6,7 +6,17 @@
 
   <p>
     <strong>State:</strong>
-    <%= company.state_id %>
+    <%= company.state.iso %>
+  </p>
+
+  <p>
+    <strong>Agencies:</strong>
+    <%= company.agencies.size %>
+  </p>
+
+  <p>
+    <strong>Individuals:</strong>
+    <%= company.agencies.sum(:capacity) %>
   </p>
 
   <p>
