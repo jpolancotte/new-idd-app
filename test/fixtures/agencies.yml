@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  company: one
+  street1: MyString
+  street2: MyString
+  city: MyString
+  state: one
+  zip: MyString
+  license_number: MyString
+  license_type: MyString
+  county: MyString
+  phone: MyString
+  license_status: MyString
+  capacity: 1
+  licensing_authority: MyString
+
+two:
+  name: MyString
+  company: two
+  street1: MyString
+  street2: MyString
+  city: MyString
+  state: two
+  zip: MyString
+  license_number: MyString
+  license_type: MyString
+  county: MyString
+  phone: MyString
+  license_status: MyString
+  capacity: 1
+  licensing_authority: MyString

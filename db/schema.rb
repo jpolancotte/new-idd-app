@@ -10,9 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_11_144026) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_11_154457) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agencies", force: :cascade do |t|
+    t.string "name"
+    t.bigint "company_id", null: false
+    t.string "street1"
+    t.string "street2"
+    t.string "city"
+    t.bigint "state_id", null: false
+    t.string "zip"
+    t.string "license_number"
+    t.string "license_type"
+    t.string "county"
+    t.string "phone"
+    t.string "license_status"
+    t.integer "capacity"
+    t.string "licensing_authority"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_agencies_on_company_id"
+    t.index ["state_id"], name: "index_agencies_on_state_id"
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -36,6 +57,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_11_144026) do
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_clients_on_state_id"
     t.index ["tte_servicing_pharmacy_id"], name: "index_clients_on_tte_servicing_pharmacy_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.bigint "state_id", null: false
+    t.string "street1"
+    t.string "street2"
+    t.string "city"
+    t.string "zip"
+    t.string "website"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_companies_on_state_id"
   end
 
   create_table "company_taxonomies", force: :cascade do |t|
@@ -344,9 +379,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_11_144026) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "agencies", "companies"
+  add_foreign_key "agencies", "states"
   add_foreign_key "cities", "states"
   add_foreign_key "clients", "states"
   add_foreign_key "clients", "tte_servicing_pharmacies"
+  add_foreign_key "companies", "states"
   add_foreign_key "company_taxonomies", "npi_companies"
   add_foreign_key "company_taxonomies", "taxonomies"
   add_foreign_key "deals", "deal_stages"
