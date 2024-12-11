@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_04_183741) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_11_144026) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,22 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_04_183741) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.string "facid"
+    t.bigint "tte_servicing_pharmacy_id", null: false
+    t.string "street1"
+    t.string "street2"
+    t.string "city"
+    t.bigint "state_id", null: false
+    t.string "zip"
+    t.string "admin_phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_clients_on_state_id"
+    t.index ["tte_servicing_pharmacy_id"], name: "index_clients_on_tte_servicing_pharmacy_id"
   end
 
   create_table "company_taxonomies", force: :cascade do |t|
@@ -299,6 +315,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_04_183741) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tte_servicing_pharmacies", force: :cascade do |t|
+    t.string "name"
+    t.string "pharmid"
+    t.string "street1"
+    t.string "street2"
+    t.string "city"
+    t.bigint "state_id", null: false
+    t.string "zip"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_tte_servicing_pharmacies_on_state_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -315,6 +345,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_04_183741) do
   end
 
   add_foreign_key "cities", "states"
+  add_foreign_key "clients", "states"
+  add_foreign_key "clients", "tte_servicing_pharmacies"
   add_foreign_key "company_taxonomies", "npi_companies"
   add_foreign_key "company_taxonomies", "taxonomies"
   add_foreign_key "deals", "deal_stages"
@@ -331,4 +363,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_04_183741) do
   add_foreign_key "npi_companies", "parents"
   add_foreign_key "npi_companies", "states"
   add_foreign_key "sites", "organizations"
+  add_foreign_key "tte_servicing_pharmacies", "states"
 end

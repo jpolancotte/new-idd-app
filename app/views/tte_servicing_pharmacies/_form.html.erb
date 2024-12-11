@@ -1,0 +1,57 @@
+<%= form_with(model: tte_servicing_pharmacy) do |form| %>
+  <% if tte_servicing_pharmacy.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(tte_servicing_pharmacy.errors.count, "error") %> prohibited this tte_servicing_pharmacy from being saved:</h2>
+
+      <ul>
+        <% tte_servicing_pharmacy.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :pharmid, style: "display: block" %>
+    <%= form.text_field :pharmid %>
+  </div>
+
+  <div>
+    <%= form.label :street1, style: "display: block" %>
+    <%= form.text_field :street1 %>
+  </div>
+
+  <div>
+    <%= form.label :street2, style: "display: block" %>
+    <%= form.text_field :street2 %>
+  </div>
+
+  <div>
+    <%= form.label :city, style: "display: block" %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.label :state_id, style: "display: block" %>
+    <%= form.text_field :state_id %>
+  </div>
+
+  <div>
+    <%= form.label :zip, style: "display: block" %>
+    <%= form.text_field :zip %>
+  </div>
+
+  <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

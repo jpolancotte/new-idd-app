@@ -7,37 +7,27 @@ require 'csv'
 require 'pp'
 # require 'mechanize'
 
-CSV.open("csv/portal3_result.csv", "a") do |fl|
-  CSV.foreach("csv/portal2.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|
+CSV.open("csv/arc_list_result.csv", "a") do |fl|
+  CSV.foreach("csv/arc_list.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|
 
-    email = row[2]
+    full=row[0]
 
-   a= "@tarrytownexpocare.com"
+    fn=full.split(", ")[0]
+    ln=full.split(", ")[1]
 
-   if email.include?(a)
+    puts fn
+    puts ln
 
-   puts email
+  	fn=fn.split.map{ |part| part.split("-").map{ |p| p.capitalize }.join("-") }.join(" ") if row[2]
+  	ln=ln.split.map{ |part| part.split("-").map{ |p| p.capitalize }.join("-") }.join(" ") if row[3]
 
-   else
 
-   fl << row.values_at(*row.headers)
+     fl << row.values_at(*row.headers) + [fn] + [ln]
 
-   end
-  #  puts a
 
-  #  if row[2].include?(email)
-
-  #   fl << row.values_at(*row.headers)
-
-  #  end
 
        
-   
-
-  	
-  	
-  	# fn=row[2].split.map{ |part| part.split("-").map{ |p| p.capitalize }.join("-") }.join(" ") if row[2]
-  	# ln=row[3].split.map{ |part| part.split("-").map{ |p| p.capitalize }.join("-") }.join(" ") if row[3]
+     	
   	
 	 
 	  

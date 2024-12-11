@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :clients
+  resources :tte_servicing_pharmacies
   resources :sites
   resources :organizations
   resources :hs_contacts

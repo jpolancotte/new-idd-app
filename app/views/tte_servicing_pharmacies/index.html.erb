@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tte servicing pharmacies</h1>
+
+<div id="tte_servicing_pharmacies">
+  <% @tte_servicing_pharmacies.each do |tte_servicing_pharmacy| %>
+    <%= render tte_servicing_pharmacy %>
+    <p>
+      <%= link_to "Show this tte servicing pharmacy", tte_servicing_pharmacy %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New tte servicing pharmacy", new_tte_servicing_pharmacy_path %>
