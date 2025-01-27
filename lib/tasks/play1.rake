@@ -20,7 +20,7 @@ namespace :db do
 
 
         require 'hubspot-api-client' 
-          api_client = Hubspot::Client.new(access_token: 'pat-na1-54430935-b008-4993-8a0f-c0af27fe08f0')
+          api_client = Hubspot::Client.new(access_token: ENV["HUBSPOT_API_KEY"])
 
           api_response = api_client.crm.deals.basic_api.get_by_id(
             deal_id: 15127774337, 
