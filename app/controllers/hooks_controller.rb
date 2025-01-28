@@ -30,9 +30,10 @@ class HooksController < ApplicationController
 
         api_response = api_client.crm.deals.basic_api.get_by_id(
           deal_id: wh['objectId'], 
-          properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
-                      total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type_updated, 
-                      comments, pipeline_date, forecasted_individuals, number_of_delivery_locations"], 
+          properties: ["hubspot_owner_id, dealname, pipeline_date, comments,  
+                        delivery_type_updated, incumbent_pharmacy, go_live_date, probability_of_close,  
+                        total_residential_individuals, tte_servicing_pharmacy, state, dealstage, chain, number_of_delivery_locations"
+                      ],  
           archived: false
         )
       
@@ -67,7 +68,7 @@ class HooksController < ApplicationController
           probability_of_close: prop["probability_of_close"],
           go_live_date: prop["go_live_date"],
           incumbent_pharmacy: prop["incumbent_pharmacy"],
-          delivery_type: prop["delivery_type"],
+          delivery_type: prop["delivery_type_updated"],
           comments: prop["comments"],
           pipeline_date: prop["pipeline_date"],
           forecasted_individuals: prop["forecasted_individuals"],

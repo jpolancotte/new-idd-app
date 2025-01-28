@@ -21,17 +21,19 @@ namespace :db do
 
         api_client = Hubspot::Client.new(access_token: ENV["HUBSPOT_API_KEY"])
 
+        
         api_response = api_client.crm.deals.basic_api.get_page(  
         limit: 100, after: 100,   
         properties: ["hubspot_owner_id, dealname, pipeline_date, comments,  
-                    delivery_type, incumbent_pharmacy, go_live_date, probability_of_close,  
-                    total_residential_individuals, tte_servicing_pharmacy, state, dealstage, chain, forecasted_individuals"], 
+                    delivery_type_updated, incumbent_pharmacy, go_live_date, probability_of_close,  
+                    total_residential_individuals, tte_servicing_pharmacy, state, dealstage, chain, number_of_delivery_locations"], 
         archived: false)
-        
+
         deals = api_response.results
 
         pp deals.size
 
+       
         # deals = api_response.results[0].properties
 
         # api_response.results.each do |deal|
