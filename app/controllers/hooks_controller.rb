@@ -45,44 +45,50 @@ class HooksController < ApplicationController
         puts team_id
   
         deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
-        puts deal_stage_id
-
-        # if Deal.exists?(objectid: wh['objectId'])
-
-        # else
-                  
-        # end
+        puts deal_stage_id        
 
         # deal=Deal.find_or_create_by(objectid: wh['objectId'])
         #deal=Deal.find_or_create_by(objectid: wh['objectId'])
 
-        if deal=Deal.exists?(objectid: wh['objectId'])
-          puts deal.id
+        if Deal.exists?(objectid: wh['objectId'])
+          deal=Deal.find_by_objectid(wh['objectId'])
+          deal.update(
+            team_id: team_id,
+            dealname: prop["dealname"],
+            chain: prop["chain"],
+            deal_stage_id: deal_stage_id,
+            state: prop["state"],
+            tte_servicing_pharmacy: prop["tte_servicing_pharmacy"],
+            total_residential_individuals: prop["total_residential_individuals"],
+            probability_of_close: prop["probability_of_close"],
+            go_live_date: prop["go_live_date"],
+            incumbent_pharmacy: prop["incumbent_pharmacy"],
+            delivery_type: prop["delivery_type_updated"],
+            comments: prop["comments"],
+            pipeline_date: prop["pipeline_date"],
+            objectid: prop["hs_object_id"],
+            number_of_delivery_locations: prop["number_of_delivery_locations"]
+          ) 
         else
-          deal=Deal.create(objectid: wh['objectId'], team_id: team_id, deal_stage_id: deal_stage_id)
+          Deal.create(
+            team_id: team_id,
+            dealname: prop["dealname"],
+            chain: prop["chain"],
+            deal_stage_id: deal_stage_id,
+            state: prop["state"],
+            tte_servicing_pharmacy: prop["tte_servicing_pharmacy"],
+            total_residential_individuals: prop["total_residential_individuals"],
+            probability_of_close: prop["probability_of_close"],
+            go_live_date: prop["go_live_date"],
+            incumbent_pharmacy: prop["incumbent_pharmacy"],
+            delivery_type: prop["delivery_type_updated"],
+            comments: prop["comments"],
+            pipeline_date: prop["pipeline_date"],
+            objectid: prop["hs_object_id"],
+            number_of_delivery_locations: prop["number_of_delivery_locations"]
+          )
         end
-
-        puts deal.id
-
-        deal.update(
-          team_id: team_id,
-          dealname: prop["dealname"],
-          chain: prop["chain"],
-          deal_stage_id: deal_stage_id,
-          state: prop["state"],
-          tte_servicing_pharmacy: prop["tte_servicing_pharmacy"],
-          total_residential_individuals: prop["total_residential_individuals"],
-          probability_of_close: prop["probability_of_close"],
-          go_live_date: prop["go_live_date"],
-          incumbent_pharmacy: prop["incumbent_pharmacy"],
-          delivery_type: prop["delivery_type_updated"],
-          comments: prop["comments"],
-          pipeline_date: prop["pipeline_date"],
-          objectid: prop["hs_object_id"],
-          number_of_delivery_locations: prop["number_of_delivery_locations"]
-        ) 
-
-               
+                     
         if wh['propertyName'] == "dealstage"
           deal_stage_id=DealStage.find_by_number(wh['propertyValue']).id
           Deal.find_by_objectid(wh['objectId']).update(deal_stage_id: deal_stage_id)
