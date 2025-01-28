@@ -19,7 +19,7 @@ namespace :db do
 
         require 'hubspot-api-client'
 
-        api_client = Hubspot::Client.new(access_token: "pat-na1-3903dc60-2e81-45e5-b9cd-d8a80007be28")
+        api_client = Hubspot::Client.new(access_token: ENV["HUBSPOT_API_KEY"])
 
         api_response = api_client.crm.deals.basic_api.get_page(  
         limit: 100, after: 100,   
@@ -27,6 +27,7 @@ namespace :db do
                     delivery_type, incumbent_pharmacy, go_live_date, probability_of_close,  
                     total_residential_individuals, tte_servicing_pharmacy, state, dealstage, chain, forecasted_individuals"], 
         archived: false)
+        
         deals = api_response.results
 
         pp deals.size
