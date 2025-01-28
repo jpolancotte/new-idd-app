@@ -50,42 +50,32 @@ class HooksController < ApplicationController
         # deal=Deal.find_or_create_by(objectid: wh['objectId'])
         #deal=Deal.find_or_create_by(objectid: wh['objectId'])
 
+        deal_info{
+            team_id: team_id,
+            dealname: prop["dealname"],
+            chain: prop["chain"],
+            deal_stage_id: deal_stage_id,
+            state: prop["state"],
+            tte_servicing_pharmacy: prop["tte_servicing_pharmacy"],
+            total_residential_individuals: prop["total_residential_individuals"],
+            probability_of_close: prop["probability_of_close"],
+            go_live_date: prop["go_live_date"],
+            incumbent_pharmacy: prop["incumbent_pharmacy"],
+            delivery_type: prop["delivery_type_updated"],
+            comments: prop["comments"],
+            pipeline_date: prop["pipeline_date"],
+            objectid: prop["hs_object_id"],
+            number_of_delivery_locations: prop["number_of_delivery_locations"]
+          }
+
         if Deal.exists?(objectid: wh['objectId'])
           deal=Deal.find_by_objectid(wh['objectId'])
           deal.update(
-            team_id: team_id,
-            dealname: prop["dealname"],
-            chain: prop["chain"],
-            deal_stage_id: deal_stage_id,
-            state: prop["state"],
-            tte_servicing_pharmacy: prop["tte_servicing_pharmacy"],
-            total_residential_individuals: prop["total_residential_individuals"],
-            probability_of_close: prop["probability_of_close"],
-            go_live_date: prop["go_live_date"],
-            incumbent_pharmacy: prop["incumbent_pharmacy"],
-            delivery_type: prop["delivery_type_updated"],
-            comments: prop["comments"],
-            pipeline_date: prop["pipeline_date"],
-            objectid: prop["hs_object_id"],
-            number_of_delivery_locations: prop["number_of_delivery_locations"]
+            deal_info
           ) 
         else
           Deal.create(
-            team_id: team_id,
-            dealname: prop["dealname"],
-            chain: prop["chain"],
-            deal_stage_id: deal_stage_id,
-            state: prop["state"],
-            tte_servicing_pharmacy: prop["tte_servicing_pharmacy"],
-            total_residential_individuals: prop["total_residential_individuals"],
-            probability_of_close: prop["probability_of_close"],
-            go_live_date: prop["go_live_date"],
-            incumbent_pharmacy: prop["incumbent_pharmacy"],
-            delivery_type: prop["delivery_type_updated"],
-            comments: prop["comments"],
-            pipeline_date: prop["pipeline_date"],
-            objectid: prop["hs_object_id"],
-            number_of_delivery_locations: prop["number_of_delivery_locations"]
+            deal_info
           )
         end
                      
@@ -147,19 +137,7 @@ class HooksController < ApplicationController
 
       end
       
-      # api_client = Hubspot::Client.new(access_token: 'pat-na1-54430935-b008-4993-8a0f-c0af27fe08f0')
-
-      # api_response = api_client.crm.deals.basic_api.get_by_id(
-      #   deal_id: wh['objectId'], 
-      #   properties: ["hubspot_owner_id, dealname, chain, dealstage, state, tte_servicing_pharmacy, 
-      #               total_residential_individuals, probability_of_close, go_live_date, incumbent_pharmacy, delivery_type, 
-      #               comments, pipeline_date, forecasted_individuals"], 
-      #   archived: false
-      # )
       
-      # prop=api_response.properties 
-      # # puts prop
-  
 
       #  #  puts prop["hubspot_owner_id"]
       # team_id=Team.find_by_hs_deal_owner_number(prop["hubspot_owner_id"]).id
