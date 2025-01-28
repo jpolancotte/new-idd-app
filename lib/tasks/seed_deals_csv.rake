@@ -19,7 +19,9 @@ namespace :db do
 
         CSV.foreach("csv/hs_deals.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|
 
-        
+          if Deal.exists?(objectid: row[14])
+            
+          else
             a=([
                 team_id: Team.find_by_name(row[0]).id,
                 dealname: row[1],
@@ -41,6 +43,9 @@ namespace :db do
             b = Deal.create(a)
 
             pp b
+
+          end       
+            
 
         end
         
