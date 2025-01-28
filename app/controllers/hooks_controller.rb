@@ -40,6 +40,28 @@ class HooksController < ApplicationController
         prop=api_response.properties 
         puts prop
 
+        if wh["propertyName"] == "comments"
+          body = { inputs: 
+            [
+              {"associations":
+                [
+                  {"types":[{"associationCategory":"HUBSPOT_DEFINED","associationTypeId":214}],
+                "to":{"id":prop["hs_object_id"]}}
+                ],
+                
+                "properties":{
+                  "hs_timestamp": wh["occurredAt"],
+                  "hs_note_body": prop["comments"],
+                  "hubspot_owner_id": prop["hubspot_owner_id"]
+                }
+              }
+            ] 
+          }
+
+          api_response = api_client.crm.objects.notes.batch_api.create(body: body)
+          puts api_response
+        end
+
         #  puts prop["hubspot_owner_id"]
         team_id=Team.find_by_hs_deal_owner_number(prop["hubspot_owner_id"]).id
         puts team_id
