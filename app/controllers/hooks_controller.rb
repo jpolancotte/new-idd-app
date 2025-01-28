@@ -50,7 +50,7 @@ class HooksController < ApplicationController
         # deal=Deal.find_or_create_by(objectid: wh['objectId'])
         #deal=Deal.find_or_create_by(objectid: wh['objectId'])
 
-        deal_info{
+        deal_info={
             team_id: team_id,
             dealname: prop["dealname"],
             chain: prop["chain"],
