@@ -56,7 +56,7 @@ class HooksController < ApplicationController
         # deal=Deal.find_or_create_by(objectid: wh['objectId'])
         #deal=Deal.find_or_create_by(objectid: wh['objectId'])
 
-        if Deal.exist?(objectid: wh['objectId'])
+        if Deal.exists?(objectid: wh['objectId'])
           puts deal.id
         else
           Deal.create(objectid: wh['objectId'], team_id: team_id, deal_stage_id: deal_stage_id)
