@@ -17,7 +17,7 @@ namespace :db do
         require 'httparty'
         require 'json'
 
-        CSV.foreach("csv/deals1.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|
+        CSV.foreach("csv/hs_deals.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|
 
         
             a=([
@@ -32,9 +32,9 @@ namespace :db do
                 go_live_date: row[8],
                 incumbent_pharmacy: row[9],
                 delivery_type: row[10],
-                comments: row[11],
-                pipeline_date: row[12],
-                forecasted_individuals: row[13],
+                number_of_delivery_locations: row[11],
+                comments: row[12],
+                pipeline_date: row[13],               
                 objectid: row[14]
             ])
 

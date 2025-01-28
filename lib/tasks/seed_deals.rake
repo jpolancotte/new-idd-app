@@ -23,7 +23,8 @@ namespace :db do
 
         
         api_response = api_client.crm.deals.basic_api.get_page(  
-        limit: 100, after: 100,   
+        limit: 100, 
+        offset: 99,
         properties: ["hubspot_owner_id, dealname, pipeline_date, comments,  
                     delivery_type_updated, incumbent_pharmacy, go_live_date, probability_of_close,  
                     total_residential_individuals, tte_servicing_pharmacy, state, dealstage, chain, number_of_delivery_locations"], 
@@ -32,6 +33,8 @@ namespace :db do
         deals = api_response.results
 
         pp deals.size
+
+        pp deals.last
 
        
         # deals = api_response.results[0].properties
