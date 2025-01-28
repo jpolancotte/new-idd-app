@@ -53,8 +53,11 @@ class HooksController < ApplicationController
                   
         # end
 
-        deal=Deal.find_or_create_by(objectid: wh['objectId'])
+        # deal=Deal.find_or_create_by(objectid: wh['objectId'])
         #deal=Deal.find_or_create_by(objectid: wh['objectId'])
+
+        deal = Deal.where(objectid: wh['objectId']).first_or_create
+
         puts deal.id
 
         deal.update(
