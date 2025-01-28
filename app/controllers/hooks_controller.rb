@@ -71,7 +71,6 @@ class HooksController < ApplicationController
           delivery_type: prop["delivery_type_updated"],
           comments: prop["comments"],
           pipeline_date: prop["pipeline_date"],
-          forecasted_individuals: prop["forecasted_individuals"],
           objectid: prop["hs_object_id"],
           number_of_delivery_locations: prop["number_of_delivery_locations"]
         ) 
