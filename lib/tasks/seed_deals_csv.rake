@@ -22,7 +22,7 @@ namespace :db do
         
             a=([
                 team_id: Team.find_by_name(row[0]).id,
-                name: row[1],
+                dealname: row[1],
                 chain: row[2],
                 deal_stage_id: DealStage.find_by_name(row[3]).id,
                 state: row[4],
