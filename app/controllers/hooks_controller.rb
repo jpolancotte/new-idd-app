@@ -40,13 +40,14 @@ class HooksController < ApplicationController
         prop=api_response.properties 
         puts prop
 
+        # comments is updated in HubSpot
         if wh["propertyName"] == "comments"
           body = { inputs: 
             [
               {"associations":
                 [
                   {"types":[{"associationCategory":"HUBSPOT_DEFINED","associationTypeId":214}],
-                "to":{"id":prop["hs_object_id"]}}
+                  "to":{"id":prop["hs_object_id"]}}
                 ],
                 
                 "properties":{
@@ -60,14 +61,15 @@ class HooksController < ApplicationController
 
           api_response = api_client.crm.objects.notes.batch_api.create(body: body)
           puts api_response
-        end
+        end #comments is updated in HubSpot
 
-        #  puts prop["hubspot_owner_id"]
-        team_id=Team.find_by_hs_deal_owner_number(prop["hubspot_owner_id"]).id
-        puts team_id
+
+        # puts prop["hubspot_owner_id"]
+        # team_id=Team.find_by_hs_deal_owner_number(prop["hubspot_owner_id"]).id
+        # puts team_id
   
-        deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
-        puts deal_stage_id        
+        # deal_stage_id=DealStage.find_by_number(prop["dealstage"]).id
+        # puts deal_stage_id        
 
         # deal=Deal.find_or_create_by(objectid: wh['objectId'])
         #deal=Deal.find_or_create_by(objectid: wh['objectId'])
