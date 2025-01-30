@@ -24,7 +24,7 @@ class HooksController < ApplicationController
 
     webhooks.each do |wh|  
       
-      if wh["subscriptionType"] == "object.propertyChange" || wh["subscriptionType"] == "object.creation"
+      if wh["subscriptionType"] == "object.propertyChange" || wh["subscriptionType"] == "object.creation" || wh["subscriptionType"] == "deal.propertyChange"
        
         api_client = Hubspot::Client.new(access_token: ENV["HUBSPOT_API_KEY"])
 
