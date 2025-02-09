@@ -15,10 +15,10 @@
   <tbody>
     <% @pipeline_activity.events.each do |event| %>
       <tr>
-        <td><%= envent.event_type %></td>
-        <td><%= envent.property_name %></td>
-        <td><%= envent.property_value %></td>
-        <td><%= envent.deal.dealname%></td>
+        <td><%= event.event_type %></td>
+        <td><%= event.property_name %></td>
+        <td><%= event.property_value %></td>
+        <td><%= event.deal.dealname%></td>
 
       </tr>
     <% end %>
