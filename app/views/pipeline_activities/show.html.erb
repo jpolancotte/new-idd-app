@@ -25,6 +25,27 @@
   </tbody>
 </table> 
 
+<table class="table table-striped table-hover table-sm">
+  <thead>
+    <tr>
+      <th>Deal name</th>
+      <th>Go live date</th>    
+      <th>Probability of close</th>    
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @pipeline_activity.deals.each do |deal| %>
+      <tr>
+        <td><%= deal.dealname %></td>
+        <td><%= deal.go_live_date %></td>
+        <td><%= deal.probability_of_close %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table> 
+
 <div>
   <%= link_to "Edit this pipeline activity", edit_pipeline_activity_path(@pipeline_activity) %> |
   <%= link_to "Back to pipeline activities", pipeline_activities_path %>
