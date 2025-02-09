@@ -133,6 +133,8 @@ class HooksController < ApplicationController
         pa=PipelineActivity.find_by_end_date(end_date)
         event.update(pipeline_activity_id: pa.id)
 
+        DealPipelineActivity.create(deal_id: deal.id, pipeline_activity_id: pa.id )
+
       elsif wh["subscriptionType"] == "object.deletion"
         puts "Remove Deal"
 
@@ -158,6 +160,8 @@ class HooksController < ApplicationController
         end_date=(Date.today + 1.week).beginning_of_week(:monday)
         pa=PipelineActivity.find_by_end_date(end_date)
         event.update(pipeline_activity_id: pa.id)
+
+        DealPipelineActivity.create(deal_id: deal.id, pipeline_activity_id: pa.id )
 
       end
       
