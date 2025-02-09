@@ -1,4 +1,21 @@
 <div id="<%= dom_id pipeline_activity %>">
+
+  <table class="table table-striped table-hover table-sm">
+    <thead>
+      <tr>
+       <th>Pipeline date</th>      
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= pipeline_activity.end_date %></td>
+
+      </tr>
+    </tbody>
+  </table>
+
+
   <p>
     <strong>End date:</strong>
     <%= pipeline_activity.end_date %>
@@ -13,5 +30,7 @@
     <strong>Week number:</strong>
     <%= pipeline_activity.week_number %>
   </p>
+
+
 
 </div>

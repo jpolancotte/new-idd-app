@@ -3,7 +3,11 @@ class PipelineActivitiesController < ApplicationController
 
   # GET /pipeline_activities or /pipeline_activities.json
   def index
-    @pipeline_activities = PipelineActivity.all
+    # @pipeline_activities = PipelineActivity.all
+
+    @pipeline_activities = PipelineActivity.joins(:events).order("created_at DESC")
+
+
   end
 
   # GET /pipeline_activities/1 or /pipeline_activities/1.json
