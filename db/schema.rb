@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_11_175524) do
+ActiveRecord::Schema[7.0].define(version: 2025_02_09_174434) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -98,6 +98,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_11_175524) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["facid"], name: "index_customers_on_facid", unique: true
+  end
+
+  create_table "deal_pipeline_activities", force: :cascade do |t|
+    t.bigint "deal_id", null: false
+    t.bigint "pipeline_activity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deal_id"], name: "index_deal_pipeline_activities_on_deal_id"
+    t.index ["pipeline_activity_id"], name: "index_deal_pipeline_activities_on_pipeline_activity_id"
   end
 
   create_table "deal_stages", force: :cascade do |t|
@@ -388,6 +397,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_11_175524) do
   add_foreign_key "companies", "states"
   add_foreign_key "company_taxonomies", "npi_companies"
   add_foreign_key "company_taxonomies", "taxonomies"
+  add_foreign_key "deal_pipeline_activities", "deals"
+  add_foreign_key "deal_pipeline_activities", "pipeline_activities"
   add_foreign_key "deals", "deal_stages"
   add_foreign_key "deals", "teams"
   add_foreign_key "events", "deals"
