@@ -4,9 +4,8 @@ class PipelineActivitiesController < ApplicationController
   # GET /pipeline_activities or /pipeline_activities.json
   def index
     # @pipeline_activities = PipelineActivity.all
-
-    @pipeline_activities = PipelineActivity.includes(:events).order("created_at ASC")
-
+    # @pipeline_activities = PipelineActivity.includes(:events).order("created_at ASC")
+    @pipeline_activities = PipelineActivity.joins(:events).order("created_at DESC").distinct 
 
   end
 
