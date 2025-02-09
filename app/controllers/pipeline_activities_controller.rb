@@ -5,7 +5,7 @@ class PipelineActivitiesController < ApplicationController
   def index
     # @pipeline_activities = PipelineActivity.all
 
-    @pipeline_activities = PipelineActivity.joins(:events).order("created_at DESC")
+    @pipeline_activities = PipelineActivity.includes(:events).order("created_at ASC")
 
 
   end
