@@ -2,6 +2,29 @@
 
 <%= render @pipeline_activity %>
 
+<table class="table table-striped table-hover table-sm">
+  <thead>
+    <tr>
+      <th>Event type</th> 
+      <th>Propety name</th>    
+      <th>Propety value</th>    
+      <th>Deal name</th>      
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @pipeline_activity.events.each do |event| %>
+      <tr>
+        <td><%= envent.event_type %></td>
+        <td><%= envent.property_name %></td>
+        <td><%= envent.property_value %></td>
+        <td><%= envent.deal.dealname%></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table> 
+
 <div>
   <%= link_to "Edit this pipeline activity", edit_pipeline_activity_path(@pipeline_activity) %> |
   <%= link_to "Back to pipeline activities", pipeline_activities_path %>
