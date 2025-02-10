@@ -7,9 +7,9 @@ class Deal < ApplicationRecord
   has_many :events, dependent: :destroy
 
   has_many :deal_pipeline_activities, dependent: :destroy
-  has_many :pipeline_activities, through: :deal_pipeline_activities
+  # has_many :pipeline_activities, through: :deal_pipeline_activities
 
-  # has_many :pipeline_activities, -> { distinct }, through: :deal_pipeline_activities
+  has_many :pipeline_activities, -> { distinct }, through: :deal_pipeline_activities
 
   def name
     dealname
