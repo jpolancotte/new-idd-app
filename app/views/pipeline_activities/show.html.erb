@@ -56,10 +56,12 @@
             <%= event.property_name %>
           </strong>
         <% end %>
-      <% end %>           
+      <% end %>
+      
+      <% events.each do |event| %> 
 
       <tr>
-        <% events.each do |event| %> 
+        
           <td><%= deal.team.name%></td>
           <td><%= deal.dealname %></td>
           <td><%= deal.go_live_date %></td>
@@ -71,7 +73,7 @@
           <td><%= deal.probability_of_close %></td>
           <td><%= deal.go_live_date %></td>
           <td><%= deal.incumbent_pharmacy %></td>
-          
+
           <% if event.property_name == "delivery_type_updated" %>
             <td><b><%= deal.delivery_type %></b></td>
           <% else %> 
@@ -87,8 +89,9 @@
           <% end %> 
           
           <td><%= deal.pipeline_date %></td>
-        <% end %> 
-      </tr>    
+        
+      </tr>
+      <% end %>     
     <% end %>
   </tbody>
 </table> 
