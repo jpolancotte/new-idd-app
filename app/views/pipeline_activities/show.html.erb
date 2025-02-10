@@ -38,38 +38,57 @@
       <th>Beds</th>    
       <th>Probability of close</th>  
       <th>Go live date</th> 
-
       <th>Incumbent pharmacy</th>
       <th>Delivery type</th>   
       <th>Locations</th>   
       <th>Comments</th>   
-      <th>Pipeline date</th>   
-        
-
-    </tr>
+      <th>Pipeline date</th>    
+       </tr>
   </thead>
   <tbody>
-    <% @pipeline_activity.deals.each do |deal| %>
+    <% @pipeline_activity.deals.each do |deal| %> 
+
+      <% events = deal.events.where(pipeline_activity_id: @pipeline_activity.id)%>
+
+      <% events.each do |event| %> 
+        <% if event.property_name == "delivery_type_updated" %>
+          <strong>
+            <%= event.property_name %>
+          </strong>
+        <% end %>
+      <% end %>           
+
       <tr>
-        <td><%= deal.team.name%></td>
-        <td><%= deal.dealname %></td>
-        <td><%= deal.go_live_date %></td>
-        <td><%= deal.chain %></td>
-        <td><%= deal.deal_stage.name %></td>
-        <td><%= deal.state %></td>
-        <td><%= deal.tte_servicing_pharmacy %></td>
-        <td><%= deal.total_residential_individuals %></td>
-        <td><%= deal.probability_of_close %></td>
-        <td><%= deal.go_live_date %></td>
+        <% events.each do |event| %> 
+          <td><%= deal.team.name%></td>
+          <td><%= deal.dealname %></td>
+          <td><%= deal.go_live_date %></td>
+          <td><%= deal.chain %></td>
+          <td><%= deal.deal_stage.name %></td>
+          <td><%= deal.state %></td>
+          <td><%= deal.tte_servicing_pharmacy %></td>
+          <td><%= deal.total_residential_individuals %></td>
+          <td><%= deal.probability_of_close %></td>
+          <td><%= deal.go_live_date %></td>
+          <td><%= deal.incumbent_pharmacy %></td>
+          
+          <% if event.property_name == "delivery_type_updated" %>
+            <td><b><%= deal.delivery_type %></b></td>
+          <% else %> 
+            <td><%= deal.delivery_type %></td>
+          <% end %> 
 
-        <td><%= deal.incumbent_pharmacy %></td>
-        <td><%= deal.delivery_type %></td>
-        <td><%= deal.number_of_delivery_locations %></td>
-        <td><%= deal.comments %></td>
-        <td><%= deal.pipeline_date %></td>
-        
-
-      </tr>
+          <td><%= deal.number_of_delivery_locations %></td>
+          
+          <% if event.property_name == "comment" %>
+            <td><b><%= deal.comments %></b></td>
+          <% else %> 
+            <td><%= deal.comments %></td>
+          <% end %> 
+          
+          <td><%= deal.pipeline_date %></td>
+        <% end %> 
+      </tr>    
     <% end %>
   </tbody>
 </table> 
