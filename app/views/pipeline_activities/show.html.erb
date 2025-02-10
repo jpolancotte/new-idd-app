@@ -58,7 +58,7 @@
         <% end %>
       <% end %>  
 
-      <% a = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "delivery_type_updated").last.blank? %> 
+      <% a = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "delivery_type_updated", deal_id: deal.id).last.blank? %> 
       <%= a %>      
 
       <tr>        
