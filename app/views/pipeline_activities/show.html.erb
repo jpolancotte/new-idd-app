@@ -56,42 +56,26 @@
             <%= event.property_name %>
           </strong>
         <% end %>
-      <% end %>
-      
-      <% events.each do |event| %> 
+      <% end %>    
 
-      <tr>
-        
-          <td><%= deal.team.name%></td>
-          <td><%= deal.dealname %></td>
-          <td><%= deal.go_live_date %></td>
-          <td><%= deal.chain %></td>
-          <td><%= deal.deal_stage.name %></td>
-          <td><%= deal.state %></td>
-          <td><%= deal.tte_servicing_pharmacy %></td>
-          <td><%= deal.total_residential_individuals %></td>
-          <td><%= deal.probability_of_close %></td>
-          <td><%= deal.go_live_date %></td>
-          <td><%= deal.incumbent_pharmacy %></td>
-
-          <% if event.property_name == "delivery_type_updated" %>
-            <td><b><%= deal.delivery_type %></b></td>
-          <% else %> 
-            <td><%= deal.delivery_type %></td>
-          <% end %> 
-
-          <td><%= deal.number_of_delivery_locations %></td>
-          
-          <% if event.property_name == "comment" %>
-            <td><b><%= deal.comments %></b></td>
-          <% else %> 
-            <td><%= deal.comments %></td>
-          <% end %> 
-          
-          <td><%= deal.pipeline_date %></td>
-        
+      <tr>        
+        <td><%= deal.team.name%></td>
+        <td><%= deal.dealname %></td>
+        <td><%= deal.go_live_date %></td>
+        <td><%= deal.chain %></td>
+        <td><%= deal.deal_stage.name %></td>
+        <td><%= deal.state %></td>
+        <td><%= deal.tte_servicing_pharmacy %></td>
+        <td><%= deal.total_residential_individuals %></td>
+        <td><%= deal.probability_of_close %></td>
+        <td><%= deal.go_live_date %></td>
+        <td><%= deal.incumbent_pharmacy %></td>          
+        <td><%= deal.delivery_type %></td>
+        <td><%= deal.number_of_delivery_locations %></td>          
+        <td><%= deal.comments %></td>          
+        <td><%= deal.pipeline_date %></td>        
       </tr>
-      <% end %>     
+          
     <% end %>
   </tbody>
 </table> 
