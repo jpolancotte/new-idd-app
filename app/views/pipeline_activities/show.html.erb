@@ -56,7 +56,10 @@
             <%= event.property_name %>
           </strong>
         <% end %>
-      <% end %>    
+      <% end %>  
+
+      <% a = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "delivery_type_updated").last.blank? %> 
+      <%= a %>      
 
       <tr>        
         <td><%= deal.team.name%></td>
@@ -69,8 +72,12 @@
         <td><%= deal.total_residential_individuals %></td>
         <td><%= deal.probability_of_close %></td>
         <td><%= deal.go_live_date %></td>
-        <td><%= deal.incumbent_pharmacy %></td>          
-        <td><%= deal.delivery_type %></td>
+        <td><%= deal.incumbent_pharmacy %></td> 
+        <% if  a %>   
+        <td><%= deal.delivery_type %></td>         
+        <% else %>
+         <td><b><%= deal.delivery_type %></b></td>           
+        <% end %>  
         <td><%= deal.number_of_delivery_locations %></td>          
         <td><%= deal.comments %></td>          
         <td><%= deal.pipeline_date %></td>        
