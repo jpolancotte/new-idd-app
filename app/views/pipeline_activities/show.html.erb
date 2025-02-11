@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @pipeline_activity.events.each do |event| %>
+    <% @pipeline_activity.events.order(created_at: :desc).each do |event| %>
       <tr>
         <td><%= event.event_type %></td>
         <td><%= event.property_name %></td>
