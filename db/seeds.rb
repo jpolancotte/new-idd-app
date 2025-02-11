@@ -46,3 +46,50 @@
 #     break if day == 798
 
 # end
+
+# dealstages=[
+#  {
+#    "Name": "Sales - Initial Communication",
+#    "Number": 42683962
+#  },
+#  {
+#    "Name": "Sales - Presentation",
+#    "Number": 42683963
+#  },
+#  {
+#    "Name": "Sales - Contract Negotiation",
+#    "Number": 42683964
+#  },
+#  {
+#    "Name": "Sales - Contract Signed",
+#    "Number": 73978657
+#  },
+#  {
+#    "Name": "Onboarding - In Progress",
+#    "Number": 42683965
+#  },
+#  {
+#    "Name": "Onboarding - Complete",
+#    "Number": 42683966
+#  },
+#  {
+#    "Name": "Sales - Inactive",
+#    "Number": 242240150
+#  },
+#  {
+#    "Name": "Sales - Margin Analysis",
+#    "Number": 249169583
+#  },
+#  {
+#    "Name": "Sales - Pre-Presentation ",
+#    "Number": 249169584
+#  }
+# ]
+
+# dealstages.each do |ds|
+#  puts   ds[:"Name"]
+#  puts   ds[:"Number"]
+
+#  DealStage.create(name: ds[:"Name"], number: ds[:"Number"])
+
+# end
