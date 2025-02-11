@@ -41,9 +41,8 @@
       <th>Delivery type</th>   
       <th>Locations</th>   
       <th>Comments</th>   
-      <th>Pipeline date</th>  
-      <th>Create date</th>    
-       </tr>
+      <th>Pipeline date</th>        
+    </tr>
   </thead>
   <tbody>
     <% @pipeline_activity.deals.each do |deal| %> 
@@ -146,9 +145,8 @@
           <td><%= deal.pipeline_date %></td>   
         <% else %>
           <td><b><%= deal.pipeline_date %></b></td>     
-        <% end %>  
-        
-        <td><%= deal.created_at %></td>         
+        <% end %>       
+            
       </tr>
           
     <% end %>
