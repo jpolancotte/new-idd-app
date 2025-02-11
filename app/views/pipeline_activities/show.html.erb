@@ -48,7 +48,7 @@
   <tbody>
     <% @pipeline_activity.deals.each do |deal| %> 
       
-      <% team_name = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "go_live_date", deal_id: deal.id).last.blank? %> 
+      <% team_name = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "hubspot_owner_id", deal_id: deal.id).last.blank? %> 
       <% dealname = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "dealname", deal_id: deal.id).last.blank? %> 
       <% go_live_date = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "go_live_date", deal_id: deal.id).last.blank? %> 
       <% delivery_type_updated = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "delivery_type_updated", deal_id: deal.id).last.blank? %>       
