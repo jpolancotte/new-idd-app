@@ -29,8 +29,7 @@
   <thead>
     <tr>
       <th>Owner</th> 
-      <th>Deal name</th> 
-      <th>Go Live date</th>    
+      <th>Deal name</th>          
       <th>Chain</th>  
       <th>Stage</th>   
       <th>State</th> 
@@ -50,6 +49,7 @@
     <% @pipeline_activity.deals.each do |deal| %>  
 
       <% dealname = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "dealname", deal_id: deal.id).last.blank? %> 
+      <% go_live_date = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "dealname", deal_id: deal.id).last.blank? %> 
       <% delivery_type_updated = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "delivery_type_updated", deal_id: deal.id).last.blank? %>       
       <% comments = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "comments", deal_id: deal.id).last.blank? %> 
      
@@ -61,15 +61,22 @@
         <% else %> 
           <td><b><%= deal.dealname %></b></td>
         <% end %> 
-        <td><%= deal.go_live_date %></td>
+        
         <td><%= deal.chain %></td>
         <td><%= deal.deal_stage.name %></td>
         <td><%= deal.state %></td>
         <td><%= deal.tte_servicing_pharmacy %></td>
         <td><%= deal.total_residential_individuals %></td>
         <td><%= deal.probability_of_close %></td>
-        <td><%= deal.go_live_date %></td>
+        
+        <% if go_live_date %> 
+          <td><%= deal.go_live_date %></td>
+        <% else %>
+          <td><b><%= deal.go_live_date %></b></td> 
+        <% end %> 
+
         <td><%= deal.incumbent_pharmacy %></td> 
+
         <% if  delivery_type_updated %> 
         <td><%= deal.delivery_type %></td>         
         <% else %>
