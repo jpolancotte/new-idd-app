@@ -34,7 +34,8 @@ Rails.application.routes.draw do
  
   #devise_for :users
   devise_for :users, :controllers => {:registrations => "registrations"}
-  root to: "hs_contacts#index"  
+  # root to: "hs_contacts#index" 
+  root to: "pipeline_activities#index"  
   # root "articles#index"
   # get 'home/index'
 end
