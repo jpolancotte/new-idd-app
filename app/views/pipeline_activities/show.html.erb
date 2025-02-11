@@ -59,8 +59,11 @@
         <% end %>
       <% end %>  
 
-      <% a = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "delivery_type_updated", deal_id: deal.id).last.blank? %> 
-      <%= a %>      
+      <% delivery_type_updated = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "delivery_type_updated", deal_id: deal.id).last.blank? %> 
+      <%= delivery_type_updated %> 
+      
+      <% comments = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "comments", deal_id: deal.id).last.blank? %> 
+      <%= comments %> 
 
       <tr>        
         <td><%= deal.team.name%></td>
@@ -74,13 +77,20 @@
         <td><%= deal.probability_of_close %></td>
         <td><%= deal.go_live_date %></td>
         <td><%= deal.incumbent_pharmacy %></td> 
-        <% if  a %>   
+        <% if  delivery_type_updated %> 
         <td><%= deal.delivery_type %></td>         
         <% else %>
-         <td><b><%= deal.delivery_type %></b></td>           
+          <td><b><%= deal.delivery_type %></b></td>           
         <% end %>  
-        <td><%= deal.number_of_delivery_locations %></td>          
-        <td><%= deal.comments %></td>          
+
+        <td><%= deal.number_of_delivery_locations %></td> 
+
+        <% if  delivery_type_updated %>          
+          <td><%= deal.comments %></td> 
+        <% else %>
+          <td><br><%= deal.comments %></br></td> 
+        <% end %>
+
         <td><%= deal.pipeline_date %></td>   
         <td><%= deal.created_at %></td>         
       </tr>
