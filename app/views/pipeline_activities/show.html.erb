@@ -47,27 +47,20 @@
        </tr>
   </thead>
   <tbody>
-    <% @pipeline_activity.deals.each do |deal| %> 
+    <% @pipeline_activity.deals.each do |deal| %>  
 
-      <% events = deal.events.where(pipeline_activity_id: @pipeline_activity.id)%>
-
-      <% events.each do |event| %> 
-        <% if event.property_name == "delivery_type_updated" %>
-          <strong>
-            <%= event.property_name %>
-          </strong>
-        <% end %>
-      <% end %>  
-
-      <% delivery_type_updated = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "delivery_type_updated", deal_id: deal.id).last.blank? %> 
-      <%= delivery_type_updated %> 
-      
+      <% dealname = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "dealname", deal_id: deal.id).last.blank? %> 
+      <% delivery_type_updated = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "delivery_type_updated", deal_id: deal.id).last.blank? %>       
       <% comments = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "comments", deal_id: deal.id).last.blank? %> 
-      <%= comments %> 
+     
 
       <tr>        
         <td><%= deal.team.name%></td>
-        <td><%= deal.dealname %></td>
+        <% if dealname %> 
+          <td><%= deal.dealname %></td>
+        <% else %> 
+          <td><b><%= deal.dealname %></b></td>
+        <% end %> 
         <td><%= deal.go_live_date %></td>
         <td><%= deal.chain %></td>
         <td><%= deal.deal_stage.name %></td>
