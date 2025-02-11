@@ -103,7 +103,7 @@
         <% if total_residential_individuals %> 
           <td><%= deal.total_residential_individuals %></td>
         <% else %> 
-          <td><br><%= deal.total_residential_individuals %></b></td>
+          <td><b><%= deal.total_residential_individuals %></b></td>
         <% end %> 
 
         <% if probability_of_close %> 
@@ -121,7 +121,7 @@
         <% if incumbent_pharmacy %> 
           <td><%= deal.incumbent_pharmacy %></td> 
         <% else %>
-          <td><%= deal.incumbent_pharmacy %></td> 
+          <td><b><%= deal.incumbent_pharmacy %></b></td> 
         <% end %>         
 
         <% if  delivery_type_updated %> 
@@ -145,7 +145,7 @@
         <% if pipeline_date %>  
           <td><%= deal.pipeline_date %></td>   
         <% else %>
-          <td><%= deal.pipeline_date %></td>     
+          <td><b><%= deal.pipeline_date %></b></td>     
         <% end %>  
         
         <td><%= deal.created_at %></td>         
