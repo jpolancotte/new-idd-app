@@ -15,8 +15,8 @@
        
         <td> <%= link_to pipeline_activity.end_date.strftime('%m-%d-%Y'), pipeline_activity %> </td>
         <td> <%= pipeline_activity.events.size %> </td>
-        <td> <%= pipeline_activity.events.size %> </td>
-        <td> <%= pipeline_activity.deals.size %> </td>
+        <td> <%= pipeline_activity.deals.where(created_at: pipeline_activity.start_date..pipeline_activity.end_date).size %> </td>
+        <td> <%= pipeline_activity.deals.size %> </td>      
 
       </tr>
     </tbody>
