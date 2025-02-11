@@ -10,6 +10,7 @@
         <th>New deals</th> 
         <th>Deals updated</th>    
         <th>Onboarding - Complete	</th>  
+        <th>Sales - Inactive</th>  
         <th>Activities</th>       
       </tr>
     </thead>
@@ -19,7 +20,8 @@
         <td> Deals <%= deals.size %> | <%= deals.sum(&:total_residential_individuals) %> beds </td>                 
         <td> <%= pipeline_activity.deals.where(created_at: pipeline_activity.start_date..pipeline_activity.end_date).size %> </td>
         <td> <%= pipeline_activity.deals.size %> </td>   
-        <td> <%= pipeline_activity.deals.where(deal_stage_id: DealStage.find_by_name("Onboarding - Complete").id).size %> </td> 
+        <td> <%= pipeline_activity.deals.where(deal_stage_id: DealStage.find_by_name("Onboarding - Complete").id).size %> </td>
+        <td> <%= pipeline_activity.deals.where(deal_stage_id: DealStage.find_by_name("Sales - Inactive").id).size %> </td>  
         <td> <%= pipeline_activity.events.size %> </td>  
       </tr>
     </tbody>
