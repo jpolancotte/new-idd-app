@@ -42,7 +42,8 @@
       <th>Delivery type</th>   
       <th>Locations</th>   
       <th>Comments</th>   
-      <th>Pipeline date</th>    
+      <th>Pipeline date</th>  
+      <th>Create date</th>    
        </tr>
   </thead>
   <tbody>
@@ -80,7 +81,8 @@
         <% end %>  
         <td><%= deal.number_of_delivery_locations %></td>          
         <td><%= deal.comments %></td>          
-        <td><%= deal.pipeline_date %></td>        
+        <td><%= deal.pipeline_date %></td>   
+        <td><%= deal.created_at %></td>         
       </tr>
           
     <% end %>
