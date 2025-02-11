@@ -1,5 +1,7 @@
 <div id="<%= dom_id pipeline_activity %>">
 
+ <% deals = pipeline_activity.deals.where(deal_stage_id: DealStage.find_by_name("Onboarding - In Progress").id) %>
+
   <table class="table table-striped table-hover table-sm">
     <thead>
       <tr>
@@ -14,7 +16,7 @@
     <tbody>
       <tr>
         <td> <%= link_to pipeline_activity.end_date.strftime('%m-%d-%Y'), pipeline_activity %> </td>
-        <td> <%= pipeline_activity.deals.where(deal_stage_id: DealStage.find_by_name("Onboarding - In Progress").id).size %> </td>                 
+        <td> Deals <%= deals.size %> | <%= deals.sum(&:total_residential_individuals) %> beds </td>                 
         <td> <%= pipeline_activity.deals.where(created_at: pipeline_activity.start_date..pipeline_activity.end_date).size %> </td>
         <td> <%= pipeline_activity.deals.size %> </td>   
         <td> <%= pipeline_activity.deals.where(deal_stage_id: DealStage.find_by_name("Onboarding - Complete").id).size %> </td> 
