@@ -3,13 +3,20 @@
   <table class="table table-striped table-hover table-sm">
     <thead>
       <tr>
-       <th>Pipeline date</th>      
+       <th>Pipeline date</th>  
+       <th>Activities</th> 
+       <th>New deals</th> 
+       <th>Deals updated</th>    
 
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><%= pipeline_activity.end_date %></td>
+       
+        <td> <%= link_to pipeline_activity.end_date.strftime('%m-%d-%Y'), pipeline_activity %> </td>
+        <td> <%= pipeline_activity.events.size %> </td>
+        <td> <%= pipeline_activity.events.size %> </td>
+        <td> <%= pipeline_activity.deals.size %> </td>
 
       </tr>
     </tbody>
