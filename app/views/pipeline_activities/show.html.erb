@@ -51,6 +51,8 @@
       <% team_name = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "hubspot_owner_id", deal_id: deal.id).last.blank? %> 
       <% dealname = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "dealname", deal_id: deal.id).last.blank? %>
       <% chain = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "chain", deal_id: deal.id).last.blank? %> 
+      <% deal_stage = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "dealstage", deal_id: deal.id).last.blank? %> 
+      <% state = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "state", deal_id: deal.id).last.blank? %> 
 
       <% go_live_date = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "go_live_date", deal_id: deal.id).last.blank? %> 
       <% delivery_type_updated = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "delivery_type_updated", deal_id: deal.id).last.blank? %>       
@@ -73,11 +75,20 @@
           <td><%= deal.chain %></td>        
         <% else %> 
           <td><b><%= deal.chain %></b></td>   
+        <% end %>
+        
+        <% if deal_stage %>  
+          <td><%= deal.deal_stage.name %></td>
+        <% else %> 
+          <td><b><%= deal.deal_stage.name %></b></td>
+        <% end %> 
+        
+        <% if state %>  
+          <td><%= deal.state %></td>
+        <% else %>
+          <td><b><%= deal.state %></b></td> 
         <% end %> 
 
-
-        <td><%= deal.deal_stage.name %></td>
-        <td><%= deal.state %></td>
         <td><%= deal.tte_servicing_pharmacy %></td>
         <td><%= deal.total_residential_individuals %></td>
         <td><%= deal.probability_of_close %></td>
