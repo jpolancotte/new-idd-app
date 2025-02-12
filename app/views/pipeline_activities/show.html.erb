@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
-<h4 class="text-center">Pipleline | <%= @pipeline_activity.name.strftime('%m-%d-%Y') %></h4>
+<h4 class="text-center">Pipleline updates | <%= @pipeline_activity.name.strftime('%m-%d-%Y') %></h4>
 <br>
 
 <h5 class="container-fluid">Summary</h5>
 
 <p> <%= render @pipeline_activity %> </p>
+
+<br>
 
 <h5 class="container-fluid">Updates</h5>
 
@@ -137,6 +139,8 @@
     </tbody>
   </table>
 </div>
+
+<br>
 
 <h5 class="container-fluid">Line item updates</h5>
 
