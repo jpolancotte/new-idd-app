@@ -5,10 +5,7 @@
   <% cn = pipeline_activity.deals.where(deal_stage_id: DealStage.find_by_name("Sales - Contract Negotiation").id) %>
   <% nd = pipeline_activity.deals.where(created_at: pipeline_activity.start_date..pipeline_activity.end_date) %>  
 
-  <%# [1,2,3].sum %>
-    <%= Deal.pluck(:total_residential_individuals).sum %>
-
-  
+      
 
   <div class="container-fluid">
     <table class="table table-striped table-hover table-sm">
