@@ -7,9 +7,7 @@
   <% inactive = pipeline_activity.deals.where(deal_stage_id: DealStage.find_by_name("Sales - Inactive").id) %>
   <% cn = pipeline_activity.deals.where(deal_stage_id: DealStage.find_by_name("Sales - Contract Negotiation").id) %>
   <% nd = pipeline_activity.deals.where(created_at: pipeline_activity.start_date..pipeline_activity.end_date) %>      
-  
-  <%# Deal.pluck(:total_residential_individuals).sum %>
-
+    
   <div class="container-fluid">
     <table class="table table-striped table-hover table-sm">
       <thead>
@@ -27,12 +25,12 @@
       <tbody>
         <tr>
           <td> <%= link_to pipeline_activity.end_date.strftime('%m-%d-%Y'), pipeline_activity %> </td>
-          <td> deals <%= obip.size %> | <%= obip.pluck(:total_residential_individuals).sum %> </td>  
-          <td> deals <%= cn.size %> | <%= cn.pluck(:total_residential_individuals).sum %></td>                
-          <td> deals <%= nd.size %> | <%= nd.pluck(:total_residential_individuals).sum %></td>   
+          <td> deals <%= obip.size %> | <%= obip.sum(:total_beds) %> </td>  
+          <td> deals <%= cn.size %> | <%= cn.sum(:total_beds) %></td>                
+          <td> deals <%= nd.size %> | <%= nd.sum(:total_beds) %></td>   
           <td> <%= pipeline_activity.deals.size %> </td>   
           <td> <%= pipeline_activity.deals.where(deal_stage_id: DealStage.find_by_name("Onboarding - Complete").id).size %> </td>
-          <td> deals <%= inactive.size %> | <%= inactive.pluck(:total_residential_individuals).sum %></td>  
+          <td> deals <%= inactive.size %> | <%= inactive.sum(:total_beds) %></td>  
           <td> <%= pipeline_activity.events.size %> </td>  
         </tr>
       </tbody>
