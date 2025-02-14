@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_02_09_174434) do
+ActiveRecord::Schema[7.0].define(version: 2025_02_14_173800) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -130,7 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_09_174434) do
     t.string "delivery_type"
     t.string "comments"
     t.string "pipeline_date"
-    t.integer "forecasted_individuals"
+    t.integer "total_beds"
     t.string "objectid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
