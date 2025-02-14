@@ -29,7 +29,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @pipeline_activity.deals.each do |deal| %> 
+      <% @pipeline_activity.deals.order("dealname ASC").each do |deal| %> 
         
         <% team_name = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "hubspot_owner_id", deal_id: deal.id).last.blank? %> 
         <% dealname = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "dealname", deal_id: deal.id).last.blank? %>
@@ -158,7 +158,6 @@
           <td><%= event.property_name %></td>
           <td><%= event.property_value %></td>
           <td><%= event.deal.dealname%></td>
-
         </tr>
       <% end %>
     </tbody>
