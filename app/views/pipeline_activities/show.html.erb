@@ -8,7 +8,6 @@
 
 <h5 class="container-fluid">Updates</h5>
 
-<%=  @deals.size %>
 
 <div class="container-fluid">  
   <table class="table table-striped table-hover table-sm">
@@ -32,21 +31,23 @@
     </thead>
     <tbody>
       <% @deals.order("dealname ASC").each do |deal| %> 
+
+        <%= @pipeline_activity.events.where(deal_id: deal.id, property_name: "hubspot_owner_id").last.blank? %>        
         
-        <% team_name = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "hubspot_owner_id", deal_id: deal.id).last.blank? %> 
-        <% dealname = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "dealname", deal_id: deal.id).last.blank? %>
-        <% chain = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "chain", deal_id: deal.id).last.blank? %> 
-        <% deal_stage = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "dealstage", deal_id: deal.id).last.blank? %> 
-        <% state = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "state", deal_id: deal.id).last.blank? %> 
-        <% tte_servicing_pharmacy = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "tte_servicing_pharmacy", deal_id: deal.id).last.blank? %>
-        <% total_residential_individuals = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "total_residential_individuals", deal_id: deal.id).last.blank? %>
-        <% probability_of_close = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "probability_of_close", deal_id: deal.id).last.blank? %>
-        <% go_live_date = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "go_live_date", deal_id: deal.id).last.blank? %> 
-        <% incumbent_pharmacy = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "incumbent_pharmacy", deal_id: deal.id).last.blank? %>      
-        <% delivery_type_updated = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "delivery_type_updated", deal_id: deal.id).last.blank? %>
-        <% number_of_delivery_locations = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "number_of_delivery_locations", deal_id: deal.id).last.blank? %>      
-        <% comments = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "comments", deal_id: deal.id).last.blank? %> 
-        <% pipeline_date = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "pipeline_date", deal_id: deal.id).last.blank? %>     
+        <% team_name = @pipeline_activity.events.where(property_name: "hubspot_owner_id", deal_id: deal.id).last.blank? %> 
+        <% dealname = @pipeline_activity.events.where(property_name: "dealname", deal_id: deal.id).last.blank? %>
+        <% chain = @pipeline_activity.events.where(property_name: "chain", deal_id: deal.id).last.blank? %> 
+        <% deal_stage = @pipeline_activity.events.where(property_name: "dealstage", deal_id: deal.id).last.blank? %> 
+        <% state = @pipeline_activity.events.where(property_name: "state", deal_id: deal.id).last.blank? %> 
+        <% tte_servicing_pharmacy = @pipeline_activity.events.where(property_name: "tte_servicing_pharmacy", deal_id: deal.id).last.blank? %>
+        <% total_residential_individuals = @pipeline_activity.events.where(property_name: "total_residential_individuals", deal_id: deal.id).last.blank? %>
+        <% probability_of_close = @pipeline_activity.events.where(property_name: "probability_of_close", deal_id: deal.id).last.blank? %>
+        <% go_live_date = @pipeline_activity.events.where(property_name: "go_live_date", deal_id: deal.id).last.blank? %> 
+        <% incumbent_pharmacy = @pipeline_activity.events.where(property_name: "incumbent_pharmacy", deal_id: deal.id).last.blank? %>      
+        <% delivery_type_updated = @pipeline_activity.events.where(property_name: "delivery_type_updated", deal_id: deal.id).last.blank? %>
+        <% number_of_delivery_locations = @pipeline_activity.events.where(property_name: "number_of_delivery_locations", deal_id: deal.id).last.blank? %>      
+        <% comments = @pipeline_activity.events.where(property_name: "comments", deal_id: deal.id).last.blank? %> 
+        <% pipeline_date = @pipeline_activity.events.where(property_name: "pipeline_date", deal_id: deal.id).last.blank? %>     
 
         <tr>      
           <% if team_name %> 
