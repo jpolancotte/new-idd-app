@@ -11,6 +11,7 @@ class PipelineActivitiesController < ApplicationController
 
   # GET /pipeline_activities/1 or /pipeline_activities/1.json
   def show
+    @deals = @pipeline_activity.deals 
   end
 
   # GET /pipeline_activities/new

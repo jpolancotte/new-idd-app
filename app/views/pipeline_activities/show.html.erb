@@ -8,6 +8,8 @@
 
 <h5 class="container-fluid">Updates</h5>
 
+<%=  @deals.size %>
+
 <div class="container-fluid">  
   <table class="table table-striped table-hover table-sm">
     <thead>
@@ -29,7 +31,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @pipeline_activity.deals.order("dealname ASC").each do |deal| %> 
+      <% @deals.order("dealname ASC").each do |deal| %> 
         
         <% team_name = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "hubspot_owner_id", deal_id: deal.id).last.blank? %> 
         <% dealname = Event.where(pipeline_activity_id: @pipeline_activity.id, property_name: "dealname", deal_id: deal.id).last.blank? %>
