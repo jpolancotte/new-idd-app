@@ -8,13 +8,16 @@
 
 <h5 class="container-fluid">Updates</h5>
 
+<center class="mb-3">
 <%= form_tag(@pipeline_activity_path, method: :get) do %>
-  <%= select_tag "team_id", options_from_collection_for_select(Team.all.order("name ASC"), "id", "name"), :prompt => "Select Team" %>
+  <%= select_tag "team_id", options_from_collection_for_select(Team.all.order("name ASC"), "id", "name"), :prompt => "Select Owner" %>
   
   <%= number_field_tag 'distance', nil, placeholder: "Enter distance"  %>
   <%= number_field_tag 'beds', nil, placeholder: "Enter bed count"  %>
  <%= submit_tag 'Search', name: nil %>
 <% end %>
+
+</center>
 
 
 <div class="container-fluid">  
