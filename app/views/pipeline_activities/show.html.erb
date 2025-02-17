@@ -98,9 +98,9 @@
           <% end %>         
           
           <% if go_live_date %> 
-            <td><%= deal.go_live_date.strftime('%m-%d-%Y') %></td>
+            <td><%= deal.go_live_date %></td>
           <% else %>
-            <td><b><%= deal.go_live_date.strftime('%m-%d-%Y') %></b></td> 
+            <td><b><%= deal.go_live_date %></b></td> 
           <% end %> 
 
           <% if incumbent_pharmacy %> 
@@ -128,9 +128,9 @@
           <% end %>
 
           <% if pipeline_date %>  
-            <td><%= deal.pipeline_date.strftime('%m-%d-%Y') %></td>   
+            <td><%= deal.pipeline_date %></td>   
           <% else %>
-            <td><b><%= deal.pipeline_date.strftime('%m-%d-%Y') %></b></td>     
+            <td><b><%= deal.pipeline_date %></b></td>     
           <% end %>       
               
         </tr>
