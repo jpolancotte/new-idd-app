@@ -13,7 +13,8 @@
   <table class="table table-striped table-hover table-sm">
     <thead>
       <tr>
-        <th>Owner</th> 
+      <th><%= link_to "Owner", :sort => "deal.team.name"%> </th>
+        # <th>Owner</th> 
         <th>Deal name</th>          
         <th>Chain</th>  
         <th>Stage</th>   
@@ -31,8 +32,7 @@
     </thead>
     <tbody>
       <% @deals.order("dealname ASC").each do |deal| %> 
-
-        <%= @pipeline_activity.events.where(deal_id: deal.id, property_name: "hubspot_owner_id").last.blank? %>        
+        
         
         <% team_name = @pipeline_activity.events.where(property_name: "hubspot_owner_id", deal_id: deal.id).last.blank? %> 
         <% dealname = @pipeline_activity.events.where(property_name: "dealname", deal_id: deal.id).last.blank? %>
