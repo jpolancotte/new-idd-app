@@ -12,7 +12,7 @@ class PipelineActivitiesController < ApplicationController
   # GET /pipeline_activities/1 or /pipeline_activities/1.json
   def show
 
-    @teams=Team.joins(:events).distinct 
+    @teams=Team.joins(:events).order("name ASC").distinct 
 
     if params[:team_id] 
       @deals = @pipeline_activity.deals.where(team_id: params[:team_id]  ) 
