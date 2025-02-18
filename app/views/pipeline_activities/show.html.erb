@@ -191,19 +191,23 @@
   <table class="table table-striped table-hover table-sm">
     <thead>
       <tr>
+        <th>Owner</th>
+        <th>Deal name</th>
         <th>Event type</th> 
         <th>Propety name</th>    
         <th>Propety value</th>    
-        <th>Deal name</th>
+        
       </tr>
     </thead>
     <tbody>
       <% @pipeline_activity.events.order(created_at: :desc).each do |event| %>
         <tr>
+         <td><%= event.team.name unless event.team.nil?%></td>
+          <td><%= event.deal.dealname%></td>
           <td><%= event.event_type %></td>
           <td><%= event.property_name %></td>
           <td><%= event.property_value %></td>
-          <td><%= event.deal.dealname%></td>
+          
         </tr>
       <% end %>
     </tbody>
