@@ -1,11 +1,11 @@
 <p style="color: green"><%= notice %></p>
-<h4 class="text-center">Pipleline updates | <%= @pipeline_activity.name.strftime('%m-%d-%Y') %></h4>
+<h4 class="text-center">Pipeline updates | <%= @pipeline_activity.name.strftime('%m-%d-%Y') %></h4>
 <br>
 
 <h5 class="container-fluid">Summary</h5>
 
 <p> <%= render @pipeline_activity %> </p>
-
+<br>
 <h5 class="container-fluid">Team Activity</h5>
 
 <div class="container-fluid">
@@ -40,10 +40,7 @@
   </table> 
 </div>
 
-
-
-
-
+<br>
 <h5 class="container-fluid">Updates</h5>
 
 <center class="mb-3">
@@ -54,9 +51,8 @@
   <%= number_field_tag 'beds', nil, placeholder: "Enter bed count"  %>
  <%= submit_tag 'Search', name: nil %>
 <% end %>
-
 </center>
-
+<br>
 
 <div class="container-fluid">  
   <table class="table table-striped table-hover table-sm">
@@ -79,8 +75,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @deals.order("dealname ASC").each do |deal| %> 
-        
+      <% @deals.order("dealname ASC").each do |deal| %>         
         
         <% team_name = @pipeline_activity.events.where(property_name: "hubspot_owner_id", deal_id: deal.id).last.blank? %> 
         <% dealname = @pipeline_activity.events.where(property_name: "dealname", deal_id: deal.id).last.blank? %>
@@ -188,6 +183,7 @@
     </tbody>
   </table>
 </div>
+<br>
 
 <h5 class="container-fluid">Line item updates</h5>
 
