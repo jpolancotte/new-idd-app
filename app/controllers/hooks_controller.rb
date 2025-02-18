@@ -81,7 +81,7 @@ class HooksController < ApplicationController
           deal_stage_id: deal_stage_id,
           state: prop["state"],
           tte_servicing_pharmacy: prop["tte_servicing_pharmacy"],
-          total_residential_individuals: prop["total_residential_individuals"],
+          total_beds: prop["total_residential_individuals"],
           probability_of_close: prop["probability_of_close"],
           go_live_date: prop["go_live_date"],
           incumbent_pharmacy: prop["incumbent_pharmacy"],
