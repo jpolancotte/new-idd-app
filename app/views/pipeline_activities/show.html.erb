@@ -6,6 +6,33 @@
 
 <p> <%= render @pipeline_activity %> </p>
 
+<div class="container-fluid">
+  <table class="table table-striped table-hover table-sm">
+    <thead>
+      <tr>       
+        <th>Event type</th> 
+        <th>Propety name</th>    
+        <th>Propety value</th>    
+        <th>Deal name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @teams.each do |team| %>
+        <tr>
+          
+          <td><%= team.name %></td>
+          <td><%= team.events.where(pipeline_activity_id: @pipeline_activity.id).size %></td>
+          
+        </tr>
+      <% end %>
+    </tbody>
+  </table> 
+</div>
+
+
+
+
+
 <h5 class="container-fluid">Updates</h5>
 
 <center class="mb-3">
@@ -160,8 +187,7 @@
         <th>Event type</th> 
         <th>Propety name</th>    
         <th>Propety value</th>    
-        <th>Deal name</th>      
-
+        <th>Deal name</th>
       </tr>
     </thead>
     <tbody>
