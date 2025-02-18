@@ -13,26 +13,26 @@
     <thead>
       <tr>       
         <th>Name</th> 
+        <th>Activities</th>       
         <th>Onboarding - In Progress</th>   
         <th>Contract Negotiation</th>        
         <th>New deals</th> 
         <th>Deals updated</th>    
         <th>Onboarding - Complete	</th>  
-        <th>Inactive</th>  
-        <th>Activities</th>       
+        <th>Inactive</th>          
       </tr>
     </thead>
     <tbody>
       <% @teams.each do |team| %>
         <tr>          
           <td><%= team.name %></td>
+          <td><%= team.events.size %></td>
           <td><%= team.events.where(property_value: "42683965").size %></td>
           <td><%= team.name %></td>
           <td><%= team.deals.where(created_at: @pipeline_activity.start_date..@pipeline_activity.end_date).size %></td>
           <td><%= team.name %></td>
           <td><%= team.name %></td>
-          <td><%= team.name %></td>
-          <td><%= team.events.where(pipeline_activity_id: @pipeline_activity.id).size %></td>
+          <td><%= team.name %></td>    
           
         </tr>
       <% end %>
