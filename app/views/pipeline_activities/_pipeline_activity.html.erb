@@ -10,25 +10,25 @@
       <thead>
         <tr>
           <th>Pipeline date</th>  
+          <th>Activities</th>  
           <th>Onboarding - In Progress</th>   
           <th>Contract Negotiation</th>        
           <th>New deals</th> 
           <th>Deals updated</th>    
           <th>Onboarding - Complete	</th>  
-          <th>Inactive</th>  
-          <th>Activities</th>       
+          <th>Inactive</th>               
         </tr>
       </thead>
       <tbody>
         <tr>
           <td> <%= link_to pipeline_activity.end_date.strftime('%m-%d-%Y'), pipeline_activity %> </td>
+          <td> <%= pipeline_activity.events.size %> </td>  
           <td> <%= obip.size %> | <%= obip.size %> </td>  
           <td> <%= cn.size %> | <%= cn.sum(:total_beds) %></td>                
           <td> <%= nd.size %> | <%= nd.sum(:total_beds) %></td>   
           <td> <%= pipeline_activity.deals.size %> </td>   
           <td> <%= pipeline_activity.deals.where(deal_stage_id: DealStage.find_by_name("Onboarding - Complete").id).size %> </td>
-          <td> <%= inactive.size %> | <%= inactive.sum(:total_beds) %></td>  
-          <td> <%= pipeline_activity.events.size %> </td>  
+          <td> <%= inactive.size %> | <%= inactive.sum(:total_beds) %></td>          
         </tr>
       </tbody>
     </table>
