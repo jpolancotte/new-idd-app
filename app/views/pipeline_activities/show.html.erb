@@ -30,7 +30,7 @@
           <td><%= team.events.where(property_value: "42683965").size %></td>
           <td><%= team.name %></td>
           <td><%= team.deals.where(created_at: @pipeline_activity.start_date..@pipeline_activity.end_date).size %></td>
-          <td><%= team.name %></td>
+          <td><%= @pipeline_activity.deals.where(team_id: team.id).size %></td>
           <td><%= team.name %></td>
           <td><%= team.name %></td>    
           
