@@ -118,7 +118,7 @@ class HooksController < ApplicationController
           object_id: wh['objectId'],
           event_id: wh['eventId'],
           occured_at: wh['occurredAt'],
-          deal_id: deal.id
+          deal_id: deal.id,
           team_id: team_id
         )
         if event.event_type == 'propertyChange'
