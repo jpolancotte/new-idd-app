@@ -1,0 +1,45 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Rescares</h1>
+
+<div class="container">
+
+  <table class="table table-sm">
+    <thead>
+      <tr>    
+      <th>Distance</th>
+        <th>Phamerica Pharmacy</th>
+        <th>Phamerica Address</th>
+        <th>Name</th>
+        <th>Services</th>         
+        <th>Address</th>  
+        <th>City</th>
+        <th>State</th>         
+        <th>Zip</th>  
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @rescares.each do |rescare| %>
+        <% result = PharmericaPharmacy.near(rescare.get_address, 1000) %>
+        <% first= result.first.distance_from(rescare.get_address).round(0) if result %>       
+        <tr> 
+          <td><%= first %></td>
+          <td><%= result.first.name %></td>  
+          <td><%= result.first.get_address %></td>  
+               
+          <td><%= link_to rescare.name, rescare %></td> 
+          <td><%= rescare.services %></td>  
+          <td><%= rescare.address %></td>    
+          <td><%= rescare.city %></td>    
+          <td><%= rescare.state %></td>   
+          <td><%= rescare.zip %></td>            
+          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  
+
+</div>

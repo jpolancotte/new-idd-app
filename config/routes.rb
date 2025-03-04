@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rescares
   resources :agencies
   resources :companies
   resources :clients

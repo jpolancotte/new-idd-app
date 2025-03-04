@@ -1,0 +1,2 @@
+module RescaresHelper
+end

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @rescare %>
+
+<div>
+  <%= link_to "Edit this rescare", edit_rescare_path(@rescare) %> |
+  <%= link_to "Back to rescares", rescares_path %>
+
+  <%= button_to "Destroy this rescare", @rescare, method: :delete %>
+</div>

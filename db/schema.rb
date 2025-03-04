@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_02_18_041730) do
+ActiveRecord::Schema[7.0].define(version: 2025_03_04_184748) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -284,10 +284,35 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_18_041730) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pharmerica_pharmacies", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.decimal "latitude", precision: 13, scale: 9
+    t.decimal "longitude", precision: 13, scale: 9
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pipeline_activities", force: :cascade do |t|
     t.date "end_date"
     t.date "start_date"
     t.integer "week_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rescares", force: :cascade do |t|
+    t.string "name"
+    t.string "services"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "phone"
+    t.text "counties_served"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

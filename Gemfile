@@ -84,5 +84,9 @@ gem 'hubspot-api-client'
 
 gem 'geocoder'
 
+gem "rqrcode", "~> 2.0"
+
+gem 'qrio'
+
 gem 'dotenv', groups: [:development, :test]
 gem 'adomain'
