@@ -195,7 +195,8 @@
         <th>Deal name</th>
         <th>Event type</th> 
         <th>Propety name</th>    
-        <th>Propety value</th>    
+        <th>Propety value</th> 
+        <th>Date</th>  
         
       </tr>
     </thead>
@@ -207,6 +208,7 @@
           <td><%= event.event_type %></td>
           <td><%= event.property_name %></td>
           <td><%= event.property_value %></td>
+          <td><%= event.occured_at.strftime('%m-%d-%Y') %></td>
           
         </tr>
       <% end %>

@@ -7,8 +7,8 @@ require 'csv'
 require 'pp'
 # require 'mechanize'
 
-CSV.open("csv/in_sympo_results.csv", "a") do |fl|
-  CSV.foreach("csv/in_sympo.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|     
+CSV.open("csv/tn_results.csv", "a") do |fl|
+  CSV.foreach("csv/tn.csv", headers: true, :encoding => 'windows-1251:utf-8', header_converters: :symbol, converters: :all) do |row|     
     numb=row[0]
     numb=numb.to_s
     first=row[1]
@@ -24,11 +24,10 @@ CSV.open("csv/in_sympo_results.csv", "a") do |fl|
     
     full_name = "#{first} #{last}"
     
-    file_name = "#{numb}-#{first}-#{last}-IN-March-4-2025-Symposium-CEU-Certificate"       
+    file_name = "#{numb}-#{first}-#{last}-TN-March-13-2025-Symposium-CEU-Certificate"       
 
     
-
-    url="https://20711908.fs1.hubspotusercontent-na1.net/hubfs/20711908/2025%20Symposiums/March%204%202025%20IN/Certificates/#{file_name}.pdf"
+    url="https://20711908.fs1.hubspotusercontent-na1.net/hubfs/20711908/2025%20Symposiums/March%2013%202025%20TN/Certificates/#{file_name}.pdf"
   
     fl << row.values_at(*row.headers) + [first] + [last] + [full_name] + [file_name] + [url]
 
