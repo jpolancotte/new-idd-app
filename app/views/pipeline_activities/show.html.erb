@@ -208,7 +208,7 @@
           <td><%= event.event_type %></td>
           <td><%= event.property_name %></td>
           <td><%= event.property_value %></td>
-          <td><%= event.occured_at %></td>
+          <td><%= event.created_at.strftime('%m-%d-%Y') %></td>
           
         </tr>
       <% end %>
