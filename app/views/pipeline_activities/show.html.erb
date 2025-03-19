@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-<h4 class="text-center">Pipeline updates | <%= @pipeline_activity.name.strftime('%m-%d-%Y') %></h4>
+<h4 class="text-center">Pipeline updates | <%= @pipeline_activity.name.strftime('%B-%d-%Y') %></h4>
 <br>
 
 <h5 class="container-fluid">Summary</h5>
@@ -208,7 +208,7 @@
           <td><%= event.event_type %></td>
           <td><%= event.property_name %></td>
           <td><%= event.property_value %></td>
-          <td><%= event.created_at.strftime('%B-%d-%Y, %l:%M%P') %></td>
+          <td><%= event.created_at.localtime.strftime('%B-%d-%Y, %l:%M%P') %></td>
           
         </tr>
       <% end %>
