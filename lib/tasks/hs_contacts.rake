@@ -23,6 +23,7 @@ namespace :db do
            job_title= row["Job Title"]
            contact_city= row["Contact City"]
            contact_state= row["Contact State"]
+           cell_number=row["Cell Number"]
 
         
 
@@ -47,6 +48,7 @@ namespace :db do
               c.job_title=job_title if job_title
               c.contact_city=contact_city if contact_city
               c.contact_state=contact_state if contact_state
+              c.cell_number=cell_number if cell_number
 
             #   c.company_address=company_address if company_address
             #   c.company_city=company_city if company_city
