@@ -5,7 +5,7 @@ namespace :db do
         
         # CSV.foreach('csv/hs_contacts_updated.csv', :headers => true) do |row|
         
-        CSV.foreach('csv/hscontacts.csv', headers: true, encoding:'iso-8859-1:utf-8') do |row|
+        CSV.foreach('csv/hs_contacts.csv', headers: true, encoding:'iso-8859-1:utf-8') do |row|
            
         # CSV.foreach('csv/hs_contacts.csv', :headers => true) do |row|
             
@@ -13,6 +13,8 @@ namespace :db do
            last_name = row["Last Name"]
            email = row["Email"]
            hs_number = row["HS Number"]
+           job_title= row["Job Title"]
+           phone=row["Phone"]
            address = row["Address"]
            city = row["City"]
            state= row["State"]
@@ -20,10 +22,11 @@ namespace :db do
            company_type= row["Company Type"]
            company_name= row["Company Name"]
            primay_identifier= row["Primary Identifier"]
-           job_title= row["Job Title"]
+           
            contact_city= row["Contact City"]
            contact_state= row["Contact State"]
-           cell_number=row["Cell Number"]
+           cell_phone=row["Cell Number"]
+          
 
         
 
@@ -48,7 +51,8 @@ namespace :db do
               c.job_title=job_title if job_title
               c.contact_city=contact_city if contact_city
               c.contact_state=contact_state if contact_state
-              c.cell_number=cell_number if cell_number
+              c.cell_phone=cell_phone if cell_phone
+              c.phone=phone if phone
 
             #   c.company_address=company_address if company_address
             #   c.company_city=company_city if company_city
