@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-<h4 class="text-center">Pipeline updates | <%= @pipeline_activity.name.strftime('%B-%d-%Y') %></h4> | Deal.select(:objectid).group(:objectid).having("count(*) > 1").size
+<h4 class="text-center">Pipeline updates | <%= @pipeline_activity.name.strftime('%B-%d-%Y') %></h4> | <%= Deal.select(:objectid).group(:objectid).having("count(*) > 1").size %>
 <br>
 
 <h5 class="container-fluid">Summary</h5>
