@@ -14,6 +14,8 @@ class PipelineActivitiesController < ApplicationController
 
     @teams=Team.all.order("name ASC")
 
+    @duplicates = Deal.select(:objectid).group(:objectid).having("count(*) > 1").size
+
     if params[:team_id] 
       @deals = @pipeline_activity.deals.where(team_id: params[:team_id] ).order("updated_at DESC")
     else
