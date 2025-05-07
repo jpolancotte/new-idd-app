@@ -69,11 +69,12 @@
         <th>Delivery type</th>   
         <th>Locations</th>   
         <th>Comments</th>   
-        <th>Pipeline date</th>        
+        <th>Pipeline date</th> 
+        <th>Updated date</th>          
       </tr>
     </thead>
     <tbody>
-      <% @deals.order("dealname ASC").each do |deal| %>         
+      <% @deals.order("updated_at DESC").each do |deal| %>         
         
         <% team_name = @pipeline_activity.events.where(property_name: "hubspot_owner_id", deal_id: deal.id).last.blank? %> 
         <% dealname = @pipeline_activity.events.where(property_name: "dealname", deal_id: deal.id).last.blank? %>
@@ -173,7 +174,9 @@
             <td><%= deal.pipeline_date %></td>   
           <% else %>
             <td><b><%= deal.pipeline_date %></b></td>     
-          <% end %>       
+          <% end %>
+          
+           <td><%= deal.updated_at %></td> 
               
         </tr>
             
