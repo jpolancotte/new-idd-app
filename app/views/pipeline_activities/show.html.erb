@@ -209,7 +209,7 @@
           <td><%= event.event_type %></td>
           <td><%= event.property_name %></td>
           <td><%= event.property_value %></td>
-          <td><%= event.created_at.localtime.strftime('%B-%d-%Y, %l:%M%P') %></td>
+          <td><%= event.created_at.strftime("%B-%d-%Y | %I:%M %p") %></td>
           
         </tr>
       <% end %>
