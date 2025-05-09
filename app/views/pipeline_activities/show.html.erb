@@ -174,11 +174,9 @@
             <td><%= deal.pipeline_date %></td>   
           <% else %>
             <td><b><%= deal.pipeline_date %></b></td>     
-          <% end %>
+          <% end %>                  
           
-           <td><%= deal.updated_at.strftime("%m-%d-%Y %H:%M") %></td>           
-
-           
+          <td><%= deal.updated_at.strftime("%I:%M %p") %></td>           
               
         </tr>
             
