@@ -57,7 +57,8 @@
     <thead>
       <tr>      
         <th>Owner</th> 
-        <th>Deal name</th>          
+        <th>Deal name</th>  
+        <th>Record ID</th>          
         <th>Chain</th>  
         <th>Stage</th>   
         <th>State</th> 
@@ -77,6 +78,7 @@
       <% @deals.order("updated_at DESC").each do |deal| %>         
         
         <% team_name = @pipeline_activity.events.where(property_name: "hubspot_owner_id", deal_id: deal.id).last.blank? %> 
+        <% dealname = @pipeline_activity.events.where(property_name: "dealname", deal_id: deal.id).last.blank? %>
         <% dealname = @pipeline_activity.events.where(property_name: "dealname", deal_id: deal.id).last.blank? %>
         <% chain = @pipeline_activity.events.where(property_name: "chain", deal_id: deal.id).last.blank? %> 
         <% deal_stage = @pipeline_activity.events.where(property_name: "dealstage", deal_id: deal.id).last.blank? %> 
