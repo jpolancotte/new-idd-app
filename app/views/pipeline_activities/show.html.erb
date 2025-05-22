@@ -79,7 +79,7 @@
         
         <% team_name = @pipeline_activity.events.where(property_name: "hubspot_owner_id", deal_id: deal.id).last.blank? %> 
         <% dealname = @pipeline_activity.events.where(property_name: "dealname", deal_id: deal.id).last.blank? %>
-        <% dealname = @pipeline_activity.events.where(property_name: "dealname", deal_id: deal.id).last.blank? %>
+        
         <% chain = @pipeline_activity.events.where(property_name: "chain", deal_id: deal.id).last.blank? %> 
         <% deal_stage = @pipeline_activity.events.where(property_name: "dealstage", deal_id: deal.id).last.blank? %> 
         <% state = @pipeline_activity.events.where(property_name: "state", deal_id: deal.id).last.blank? %> 
@@ -105,6 +105,8 @@
           <% else %> 
             <td><b><%= deal.dealname %></b></td>
           <% end %> 
+
+          <%= deal.objectid %>
 
           <% if chain %>         
             <td><%= deal.chain %></td>        
