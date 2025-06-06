@@ -14,7 +14,7 @@ namespace :db do
            city = row["City"]
            state= row["State"]
            zip = row["Zip"]           
-           primay_identifier= row["Primary Identifier"]  
+           primary_identifier= row["Primary Identifier"]  
            hs_number = row["HS Number"]  
            website= row["Website"]      
             
@@ -25,7 +25,7 @@ namespace :db do
               c.city=city if city
               c.state=state if state
               c.zip=zip if zip              
-              c.primay_identifier=primay_identifier if primay_identifier
+              c.primary_identifier=primary_identifier if primary_identifier
               c.hs_number=hs_number if hs_number   
               c.website=website if website  
 
