@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_06_06_162912) do
+ActiveRecord::Schema[7.0].define(version: 2025_06_06_173457) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -170,6 +170,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_06_06_162912) do
     t.decimal "longitude", precision: 13, scale: 9
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "contacts"
   end
 
   create_table "hs_contacts", force: :cascade do |t|

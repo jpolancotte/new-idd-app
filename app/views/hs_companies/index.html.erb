@@ -27,6 +27,7 @@
         <th>Distance (miles)</th>
       <% end %>
       <th>Name</th>
+      <th>Contacts</th>
       <th>Address</th>
       <th>City</th>
       <th>State</th>      
@@ -47,6 +48,7 @@
           <td><%= hs_company.distance_from(params[:location]).round(2) %></td>
         <% end %>
         <td><%= hs_company.name %></td>
+        <td><%= hs_company.contacts %></td>
         <td><%= hs_company.address %></td>
         <td><%= hs_company.city %></td>
         <td><%= hs_company.state %></td>
@@ -66,13 +68,6 @@
 
 <br>
 
-<div id="hs_companies">
-  <% @hs_companies.each do |hs_company| %>
-    <%= render hs_company %>
-    <p>
-      <%= link_to "Show this hs company", hs_company %>
-    </p>
-  <% end %>
-</div>
+
 
 <%= link_to "New hs company", new_hs_company_path %>
