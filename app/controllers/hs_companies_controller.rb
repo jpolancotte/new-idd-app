@@ -3,7 +3,13 @@ class HsCompaniesController < ApplicationController
 
   # GET /hs_companies or /hs_companies.json
   def index
-    @hs_companies = HsCompany.all
+
+    if params[:location]
+      @hs_companies =  HsCompany.near(params[:location], params[:distance], min_radius: params[:min_radius])
+    else
+      @hs_companies = HsCompany.all.limit(100)
+    end
+    
   end
 
   # GET /hs_companies/1 or /hs_companies/1.json
