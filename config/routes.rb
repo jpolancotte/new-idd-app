@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :hs_companies
   resources :rescares
   resources :agencies
   resources :companies

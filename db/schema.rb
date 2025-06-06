@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_04_15_162210) do
+ActiveRecord::Schema[7.0].define(version: 2025_06_06_162912) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -155,6 +155,21 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_15_162210) do
     t.index ["deal_id"], name: "index_events_on_deal_id"
     t.index ["pipeline_activity_id"], name: "index_events_on_pipeline_activity_id"
     t.index ["team_id"], name: "index_events_on_team_id"
+  end
+
+  create_table "hs_companies", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "primary_identifier"
+    t.string "hs_number"
+    t.string "website"
+    t.decimal "latitude", precision: 13, scale: 9
+    t.decimal "longitude", precision: 13, scale: 9
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "hs_contacts", force: :cascade do |t|
