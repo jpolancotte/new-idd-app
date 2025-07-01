@@ -5,7 +5,7 @@ namespace :db do
         
         # CSV.foreach('csv/hs_contacts_updated.csv', :headers => true) do |row|
         
-        CSV.foreach('csv/hs_companies.csv', headers: true, encoding:'iso-8859-1:utf-8') do |row|
+        CSV.foreach('csv/hs_companies1.csv', headers: true, encoding:'iso-8859-1:utf-8') do |row|
            
         # CSV.foreach('csv/hs_contacts.csv', :headers => true) do |row|
             
@@ -16,7 +16,8 @@ namespace :db do
            zip = row["Zip"]           
            primary_identifier= row["Primary Identifier"]  
            hs_number = row["HS Number"]  
-           website= row["Website"]      
+           website= row["Website"]
+           contacts = row["Contacts"]      
             
             
             c = HsCompany.find_or_create_by(hs_number: hs_number)
@@ -28,6 +29,7 @@ namespace :db do
               c.primary_identifier=primary_identifier if primary_identifier
               c.hs_number=hs_number if hs_number   
               c.website=website if website  
+              c.contacts=contacts if contacts 
 
                 
             c.save
