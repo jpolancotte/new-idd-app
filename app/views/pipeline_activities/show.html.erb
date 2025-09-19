@@ -156,10 +156,10 @@
             <td><b><%= deal.incumbent_pharmacy %></b></td> 
           <% end %>         
 
-          <% if med_delivery_to_cenral_office %> 
-            <td><%= deal.med_delivery_to_cenral_office %></td>         
+          <% if delivery_type_updated %> 
+            <td><%= deal.delivery_type %></td>         
           <% else %>
-            <td><b><%= deal.med_delivery_to_cenral_office %></b></td>           
+            <td><b><%= deal.delivery_type %></b></td>           
           <% end %>  
 
           <% if  number_of_delivery_locations %>
