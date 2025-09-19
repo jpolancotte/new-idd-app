@@ -32,7 +32,7 @@ class HooksController < ApplicationController
           deal_id: wh['objectId'], 
           properties: ["hubspot_owner_id, dealname, pipeline_date, comments,  
                         delivery_type_updated, incumbent_pharmacy, go_live_date, probability_of_close,  
-                        total_residential_individuals, tte_servicing_pharmacy, state, dealstage, chain, number_of_delivery_locations"
+                        total_residential_individuals, tte_servicing_pharmacy, state, dealstage, chain, number_of_delivery_locations, med_delivery_to_cenral_office"
                       ],  
           archived: false
         )
@@ -89,7 +89,8 @@ class HooksController < ApplicationController
           comments: prop["comments"],
           pipeline_date: prop["pipeline_date"],
           objectid: prop["hs_object_id"],
-          number_of_delivery_locations: prop["number_of_delivery_locations"]
+          number_of_delivery_locations: prop["number_of_delivery_locations"],
+          med_delivery_to_cenral_office: pro["med_delivery_to_cenral_office"]
         }
 
         if Deal.exists?(objectid: wh['objectId'])

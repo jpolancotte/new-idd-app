@@ -67,7 +67,7 @@
         <th>Probability of close</th>  
         <th>Go live date</th> 
         <th>Incumbent pharmacy</th>
-        <th>Delivery type</th>   
+        <th>Med delivery to central office</th>   
         <th>Locations</th>   
         <th>Comments</th>   
         <th>Pipeline date</th> 
@@ -156,10 +156,10 @@
             <td><b><%= deal.incumbent_pharmacy %></b></td> 
           <% end %>         
 
-          <% if  delivery_type_updated %> 
-            <td><%= deal.delivery_type %></td>         
+          <% if med_delivery_to_cenral_office %> 
+            <td><%= deal.med_delivery_to_cenral_office %></td>         
           <% else %>
-            <td><b><%= deal.delivery_type %></b></td>           
+            <td><b><%= deal.med_delivery_to_cenral_office %></b></td>           
           <% end %>  
 
           <% if  number_of_delivery_locations %>
