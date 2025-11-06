@@ -68,6 +68,7 @@
         <th>Go live date</th> 
         <th>Incumbent pharmacy</th>
         <th>Med delivery to central office</th>   
+        <th>Med delivery to</th>   
         <th>Locations</th>   
         <th>Comments</th>   
         <th>Pipeline date</th> 
@@ -91,9 +92,9 @@
         <% delivery_type_updated = @pipeline_activity.events.where(property_name: "delivery_type_updated", deal_id: deal.id).last.blank? %>
         <% number_of_delivery_locations = @pipeline_activity.events.where(property_name: "number_of_delivery_locations", deal_id: deal.id).last.blank? %>      
         <% comments = @pipeline_activity.events.where(property_name: "comments", deal_id: deal.id).last.blank? %> 
-        <% pipeline_date = @pipeline_activity.events.where(property_name: "pipeline_date", deal_id: deal.id).last.blank? %>  
-        
+        <% pipeline_date = @pipeline_activity.events.where(property_name: "pipeline_date", deal_id: deal.id).last.blank? %>          
         <% med_delivery_to_central_office = @pipeline_activity.events.where(property_name: "med_delivery_to_central_office", deal_id: deal.id).last.blank? %>
+        <% med_delivery_to = @pipeline_activity.events.where(property_name: "med_delivery_to", deal_id: deal.id).last.blank? %>
 
         <tr>      
           <% if team_name %> 
@@ -162,6 +163,12 @@
             <td><%= deal.med_delivery_to_central_office %></td>         
           <% else %>
             <td><b><%= deal.med_delivery_to_central_office %></b></td>           
+          <% end %>
+          
+          <% if med_delivery_to %> 
+            <td><%= deal.med_delivery_to %></td>         
+          <% else %>
+            <td><b><%= deal.med_delivery_to %></b></td>           
           <% end %>  
 
           <% if  number_of_delivery_locations %>
