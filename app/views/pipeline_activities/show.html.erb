@@ -93,9 +93,9 @@
         <% delivery_type_updated = @pipeline_activity.events.where(property_name: "delivery_type_updated", deal_id: deal.id).last.blank? %>
         <% number_of_delivery_locations = @pipeline_activity.events.where(property_name: "number_of_delivery_locations", deal_id: deal.id).last.blank? %>      
         <% comments = @pipeline_activity.events.where(property_name: "comments", deal_id: deal.id).last.blank? %> 
-        <% pipeline_date = @pipeline_activity.events.where(property_name: "pipeline_date", deal_id: deal.id).last.blank? %>          
-        <% med_delivery_to_central_office = @pipeline_activity.events.where(property_name: "med_delivery_to_central_office", deal_id: deal.id).last.blank? %>
+        <% pipeline_date = @pipeline_activity.events.where(property_name: "pipeline_date", deal_id: deal.id).last.blank? %>           
         <% med_delivery_to = @pipeline_activity.events.where(property_name: "med_delivery_to", deal_id: deal.id).last.blank? %>
+        <% delivery_type = @pipeline_activity.events.where(property_name: "delivery_type", deal_id: deal.id).last.blank? %>
 
         <tr>      
           <% if team_name %> 
@@ -158,14 +158,8 @@
             <td><%= deal.incumbent_pharmacy %></td> 
           <% else %>
             <td><b><%= deal.incumbent_pharmacy %></b></td> 
-          <% end %>         
-
-          <% if med_delivery_to_central_office %> 
-            <td><%= deal.med_delivery_to_central_office %></td>         
-          <% else %>
-            <td><b><%= deal.med_delivery_to_central_office %></b></td>           
-          <% end %>
-          
+          <% end %>  
+                    
           <% if med_delivery_to %> 
             <td><%= deal.med_delivery_to %></td>         
           <% else %>
