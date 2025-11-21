@@ -68,7 +68,8 @@
         <th>Go live date</th> 
         <th>Incumbent pharmacy</th>
         <th>Med delivery to central office</th>   
-        <th>Med delivery to</th>   
+        <th>Med delivery to</th> 
+        <th>Delivery method</th>     
         <th>Locations</th>   
         <th>Comments</th>   
         <th>Pipeline date</th> 
@@ -171,11 +172,17 @@
             <td><b><%= deal.med_delivery_to %></b></td>           
           <% end %>  
 
-          <% if  number_of_delivery_locations %>
+          <% if delivery_type %>
+            <td><%= deal.delivery_type %></td> 
+          <% else %>
+            <td><b><%= deal.delivery_type %></b></td> 
+          <% end %>
+          
+          <% if number_of_delivery_locations %>
             <td><%= deal.number_of_delivery_locations %></td> 
           <% else %>
             <td><b><%= deal.number_of_delivery_locations %></b></td> 
-          <% end %>       
+          <% end %>  
 
           <% if comments %>          
             <td><%= deal.comments %></td> 
