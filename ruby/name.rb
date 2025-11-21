@@ -26,8 +26,8 @@ CSV.open("csv/11_13_25_web_results.csv", "a") do |fl|
     
     file_name = "#{numb}-#{first}-#{last}-November-13-2025-Customer-Webinar-CEU-Certificate"    
 
-  
-    url="https://20711908.fs1.hubspotusercontent-na1.net/hubfs/20711908/2025%20Webinars/October%209%202025/Certificates/#{file_name}.pdf"
+      
+    url="https://20711908.fs1.hubspotusercontent-na1.net/hubfs/20711908/2025%20Webinars/November%2013%202025/Certificates/#{file_name}.pdf"
 
     fl << row.values_at(*row.headers) + [first] + [last] + [full_name] + [file_name] + [url]
 

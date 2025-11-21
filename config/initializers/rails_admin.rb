@@ -44,6 +44,10 @@ RailsAdmin.config do |config|
       exclude_fields :company_taxonomies
     end
 
+    config.model Team do
+      exclude_fields :events
+    end
+
 
     ## With an audit adapter, you can add:
     # history_index
