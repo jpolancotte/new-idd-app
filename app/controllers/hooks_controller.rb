@@ -17,8 +17,7 @@ class HooksController < ApplicationController
   require 'json'
   require 'hubspot-api-client' 
 
-  def ipn_webhook
-    
+  def ipn_webhook    
   
     webhooks = JSON.parse(request.raw_post)   
 
@@ -344,7 +343,7 @@ class HooksController < ApplicationController
 
       #     #       pp response2
 
-      #     #     end # if v[1] == lead          
+      #     #     end # if v[1] == lead_name          
 
       #     #   end # r["values"].each do |v|      
 

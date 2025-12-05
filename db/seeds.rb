@@ -26,26 +26,26 @@
 # Onboarding - Complete	42683966
 
 
-# day = 0
+day = 0
 
-# loop do
+loop do
     
-#     start_date=Date.new(2023,10,23) + day
+    start_date=Date.new(2026,1,5) + day
 
-#     end_date=start_date + 7
+    end_date=start_date + 7
 
-#     week_number=start_date.cweek % 53 + 1
+    week_number=start_date.cweek % 53 + 1
 
-#     pa=PipelineActivity.new
-#     pa.start_date=start_date
-#     pa.end_date=end_date
-#     pa.week_number=week_number
-#     pa.save
+    pa=PipelineActivity.new
+    pa.start_date=start_date
+    pa.end_date=end_date
+    pa.week_number=week_number
+    pa.save
 
-#     day += 7
-#     break if day == 798
+    day += 7
+    break if day > 2188
 
-# end
+end
 
 # dealstages=[
 #  {
